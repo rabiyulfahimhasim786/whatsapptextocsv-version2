@@ -30,8 +30,7 @@ import openai
 def chatgptindex(request):
     return HttpResponse("Hello, world !")
 # projectapi_key = "your-api-key"
-# projectapi_key = "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"
-projectapi_key = "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"
+projectapi_key = "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"
 
 class ChatView(ListCreateAPIView):
     queryset = Chat.objects.all()
@@ -67,14 +66,8 @@ class ChatView(ListCreateAPIView):
             else:
                 output_dict[detail] = ""
 
-        # print(output_dict)
-        #dumping output into json format for double quotations
-        output_text = json.dumps(output_dict)
-
-        print(output_text)
-        #saving into database
-        chat = Chat.objects.create(input_text=input_text, output_text=output_text)
-        #chat = Chat.objects.create(input_text=input_text, output_text=output_dict)
+        print(output_dict)
+        chat = Chat.objects.create(input_text=input_text, output_text=output_dict)
         serializer = ChatSerializer(chat)
         return Response(serializer.data)
 

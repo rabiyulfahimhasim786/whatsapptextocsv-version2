@@ -490,7 +490,7 @@ def emailleadedit(request,id):
    
     return render(request,'emailleadedit.html',{'object':object,})
 
-def emailleadoppedit(request,id):
+def emailleadoppurtunitiesedit(request,id):
     object=Emailleadoppurtunities.objects.get(id=id)
 
    
@@ -614,6 +614,7 @@ def leadupdate(request,id):
                     return render(request, 'navigation.html')
             elif 'delete_dynamic' in request.POST:
                 try:
+                    # next_model = Film.objects.filter(id__gt=id).exclude(dropdownlist='New').filter(checkstatus=1).order_by('id')[0]
                     next_model = Film.objects.filter(id__gt=id).exclude(dropdownlist='New').filter(checkstatus=1).order_by('id')[0]
                     obj = get_object_or_404(Film, id=id)
                     id = next_model.id
@@ -754,7 +755,8 @@ def emailleadupdate(request,id):
                     return render(request, 'navigation.html')
             elif 'delete_dynamic' in request.POST:
                 try:
-                    next_model = Emaillead.objects.filter(id__gt=id).exclude(emaildropdownlist='New').filter(emailcheckstatus=1).order_by('id')[0]
+                    # next_model = Emaillead.objects.filter(id__gt=id).exclude(emaildropdownlist='New').filter(emailcheckstatus=1).order_by('id')[0]
+                    next_model = Emaillead.objects.filter(id__gt=id).filter(emailcheckstatus=1).order_by('id')[0]
                     obj = get_object_or_404(Emaillead, id=id)
                     id = next_model.id
                     obj.delete()
@@ -865,7 +867,7 @@ def emailleadoppupdate(request,id):
             elif 'save_next' in request.POST:
                 try:
                     next_model = Emailleadoppurtunities.objects.filter(id__gt=id).exclude(refdropdownlist='New').order_by('id')[0]
-                    return redirect('emailleadoppedit', id=next_model.id)
+                    return redirect('emailleadoppurtunitiesedit', id=next_model.id)
                 except IndexError:
                     return render(request, 'navigation.html')
             elif 'save_continue' in request.POST:
@@ -877,7 +879,7 @@ def emailleadoppupdate(request,id):
                 status.save()
                 try:
                     next_model = Emailleadoppurtunities.objects.filter(id__gt=id).exclude(refdropdownlist='New').filter(refcheckstatus=1).order_by('id')[0]
-                    return redirect('emailleadoppedit', id=next_model.id)
+                    return redirect('emailleadoppurtunitiesedit', id=next_model.id)
                 except IndexError:
                     return render(request, 'navigation.html')
             elif 'delete_d' in request.POST:
@@ -889,33 +891,33 @@ def emailleadoppupdate(request,id):
                     id=next_model.id
                     # obj = get_object_or_404(Film, id=id)
                     obj.delete()
-                    return redirect('emailleadoppedit', id)
+                    return redirect('emailleadoppurtunitiesedit', id)
                 # except IndexError:
                 except Exception as e:
                     print(e)
                     return render(request, 'navigation.html')
+            # elif 'delete_dynamic' in request.POST:
+            #     try:
+            #         # next_model = Emailleadoppurtunities.objects.filter(id__gt=id).exclude(refdropdownlist='New').filter(refcheckstatus=1).order_by('id')[0]
+            #         next_model = Emailleadoppurtunities.objects.filter(id__gt=id).filter(emailcheckstatus=1).order_by('id')[0]
+            #         obj = get_object_or_404(Emailleadoppurtunities, id=id)
+            #         id = next_model.id
+            #         obj.delete()
+            #         # print(id)
+            #         return redirect('emailleadoppurtunitiesedit', id)
+                
+            #     except IndexError:
+            #         obj = get_object_or_404(Emailleadoppurtunities, id=id)
+            #         obj.delete()
+            #         return render(request, 'navigation.html')
             elif 'delete_dynamic' in request.POST:
                 try:
-                    next_model = Emailleadoppurtunities.objects.filter(id__gt=id).exclude(refdropdownlist='New').filter(refcheckstatus=1).order_by('id')[0]
+                    # next_model = Emaillead.objects.filter(id__gt=id).exclude(emaildropdownlist='New').filter(refcheckstatus=1).order_by('id')[0]
+                    next_model = Emailleadoppurtunities.objects.filter(id__gt=id).filter(refcheckstatus=1).order_by('id')[0]
                     obj = get_object_or_404(Emailleadoppurtunities, id=id)
                     id = next_model.id
                     obj.delete()
-                    print(id)
-                    return redirect('emailleadoppedit', id)
-                # except IndexError:
-                # except Exception as e:
-                    # try:
-                    #     next_model = Emailleadoppurtunities.objects.filter(id__gt=id).exclude(refdropdownlist='New').filter(refcheckstatus=1).order_by('id')[0]
-                    #     print(e)
-                    #     obj = get_object_or_404(Emailleadoppurtunities, id=id)
-                    #     id = next_model.id
-                    #     obj.delete()
-                    #     return redirect('emailleadoppedit', id)
-                    #     # return render(request, 'navigation.html')
-                    # except IndexError:
-                        # obj = get_object_or_404(Emailleadoppurtunities, id=id)
-                        # obj.delete()
-                        # return render(request, 'navigation.html')
+                    return redirect('emailleadoppurtunitiesedit', id)
                 except IndexError:
                     obj = get_object_or_404(Emailleadoppurtunities, id=id)
                     obj.delete()
@@ -955,7 +957,7 @@ def emailleadoppupdate(request,id):
                     status.save()
                     # return redirect('leads')
                     return redirect('search')
-                return redirect('emailleadoppedit', id)
+                return redirect('emailleadoppurtunitiesedit', id)
                     # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
                 
             elif 'careerdesssapi' in request.POST:
@@ -1005,7 +1007,7 @@ def emailleadoppupdate(request,id):
                     status.save()
                     # return redirect('leads')
                     return redirect('search')
-                return redirect('emailleadoppedit', id)
+                return redirect('emailleadoppurtunitiesedit', id)
     else:
         form = EmailleadoppurtunitiesForm(instance=my_model)
     return redirect(request.META['HTTP_REFERER'])
