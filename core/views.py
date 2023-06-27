@@ -230,31 +230,67 @@ def upload_txt(request):
                             # writer.writerow({'date': date.strip(), 'time': time.strip(), 'Mobile Number': mobile_numbers, 'Messages': messages, 'Reference Details': user_details})
                             #write.writerow({'Reference date':date.strip(), 'Reference time':time.strip(), 'Reference Mobile Number':mobile_numbers, 'Reference Details':messages, 'User date':date.strip(), 'User time';time.strip(), 'User Mobile Number':mobile_numbers, 'User Details':user_details})
                             writer.writerow({'Reference date': formatted_date, 'Reference time': time.strip(), 'Reference Mobile Number': mobile_numbers, 'Reference Details': reference_details, 'User date': formatted_date, 'User time': time.strip(), 'User Mobile Number': mobile_numbers, 'User Details': user_details})
-                    df = pd.read_csv(dot + 'media/modified_data.csv', encoding='utf8')
+                    # # Open the input CSV file
+                    with open(dot + 'media/modified_data.csv', 'r', encoding="utf-8") as file:
+                        reader = csv.DictReader(file)
+
+                        # Open the output CSV file
+                        with open(dot + 'media/final_modified_data.csv', 'w', newline='', encoding="utf-8") as outfile:
+                            fieldnames = reader.fieldnames
+                            writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+                            writer.writeheader()
+
+                            # Iterate over each row and process the data
+                            for row in reader:
+                                user_details = row['User Details']
+
+                                # Remove the unwanted portion from User Details if it exists
+                                if ':' in user_details:
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                elif ':' in user_details:
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                else:
+                                    # user_details = ''
+                                    user_details = user_details
+
+                                # Update the row with the modified User Details
+                                row['User Details'] = user_details
+
+                                # Write the row to the output CSV file
+                                writer.writerow(row)
+
+                    df = pd.read_csv(dot + 'media/final_modified_data.csv', encoding='utf8')
+                    # df = df[df['message'].notna()]
+                    # df = pd.read_csv(dot + 'media/modified_data.csv', encoding='utf8')
                     # df = df[df['message'].notna()]
                     
                     for _, row in df.iterrows():
                         # datetime_str = row[0]
                         # date_str = datetime_str.split()[0]
                         # time_str = datetime_str.split()[1]
-                        
-                        emaillead, created = Emaillead.objects.get_or_create(
-                            userdate = row[0],
-                            usertime = row[1],
-                            usermob = row[2],
-                            userdetails = row[3],
-                            emailuserdate = row[4],
-                            emailusertime = row[5],
-                            emailusermob = row[6],
-                            emailuserdetails = row[7]
+                        if row[7] == '<Media omitted>' or row[7] == 'Waiting for this message':
+                            continue
+                        else:
+                            emaillead, created = Emaillead.objects.get_or_create(
+                                userdate = row[0],
+                                usertime = row[1],
+                                usermob = row[2],
+                                userdetails = row[3],
+                                emailuserdate = row[4],
+                                emailusertime = row[5],
+                                emailusermob = row[6],
+                                emailuserdetails = row[7]
                             # date=date_str,
                             # title=time_str,
                             # year=row[1],
                             # filmurl=row[2]
-                        )
-                        print('done')
-                        if created:
-                            emaillead.save()
+                               )
+                            print('done')
+                            if created:
+                                emaillead.save()
                     
                     if os.path.exists(filename):
                         os.remove(filename)
@@ -270,6 +306,7 @@ def upload_txt(request):
 
                 try:
                     filename = dot + str(baseurls)
+                    print(filename)
                     # Define the column names
                     fieldnames = ['Reference date', 'Reference time', 'Reference Mobile Number', 'Reference Details', 'User date', 'User time', 'User Mobile Number', 'User Details',]
 
@@ -313,31 +350,65 @@ def upload_txt(request):
                             # writer.writerow({'date': date.strip(), 'time': time.strip(), 'Mobile Number': mobile_numbers, 'Messages': messages, 'Reference Details': user_details})
                             #write.writerow({'Reference date':date.strip(), 'Reference time':time.strip(), 'Reference Mobile Number':mobile_numbers, 'Reference Details':messages, 'User date':date.strip(), 'User time';time.strip(), 'User Mobile Number':mobile_numbers, 'User Details':user_details})
                             writer.writerow({'Reference date': formatted_date, 'Reference time': time.strip(), 'Reference Mobile Number': mobile_numbers, 'Reference Details': reference_details, 'User date': formatted_date, 'User time': time.strip(), 'User Mobile Number': mobile_numbers, 'User Details': user_details})
-                    df = pd.read_csv(dot + 'media/emailmodified_data.csv', encoding='utf8')
+                    # Open the input CSV file
+                    with open(dot + 'media/emailmodified_data.csv', 'r', encoding="utf-8") as file:
+                        reader = csv.DictReader(file)
+
+                        # Open the output CSV file
+                        with open(dot + 'media/final_emailmodified_data.csv', 'w', newline='', encoding="utf-8") as outfile:
+                            fieldnames = reader.fieldnames
+                            writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+                            writer.writeheader()
+
+                            # Iterate over each row and process the data
+                            for row in reader:
+                                user_details = row['User Details']
+
+                                # Remove the unwanted portion from User Details if it exists
+                                if ':' in user_details:
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                elif ':' in user_details:
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                    user_details = user_details[user_details.index(':')+1:].strip()
+                                else:
+                                    # user_details = ''
+                                    user_details = user_details
+
+                                # Update the row with the modified User Details
+                                row['User Details'] = user_details
+
+                                # Write the row to the output CSV file
+                                writer.writerow(row)
+
+                    df = pd.read_csv(dot + 'media/final_emailmodified_data.csv', encoding='utf8')
+                    # df = pd.read_csv(dot + 'media/emailmodified_data.csv', encoding='utf8')
                     # df = df[df['message'].notna()]
                     
                     for _, row in df.iterrows():
                         # datetime_str = row[0]
                         # date_str = datetime_str.split()[0]
                         # time_str = datetime_str.split()[1]
-                        
-                        emailleadoppurtunities, created = Emailleadoppurtunities.objects.get_or_create(
-                            refuserdate = row[0],
-                            refusertime = row[1],
-                            refusermob = row[2],
-                            refuserdetails = row[3],
-                            refemailuserdate = row[4],
-                            refemailusertime = row[5],
-                            refemailusermob = row[6],
-                            refemailuserdetails = row[7]
+                        if row[7] == '<Media omitted>' or row[7] == 'Waiting for this message':
+                            continue
+                        else:
+                            emailleadoppurtunities, created = Emailleadoppurtunities.objects.get_or_create(
+                                refuserdate = row[0],
+                                refusertime = row[1],
+                                refusermob = row[2],
+                                refuserdetails = row[3],
+                                refemailuserdate = row[4],
+                                refemailusertime = row[5],
+                                refemailusermob = row[6],
+                                refemailuserdetails = row[7]
                             # date=date_str,
                             # title=time_str,
                             # year=row[1],
                             # filmurl=row[2]
-                        )
-                        print('done')
-                        if created:
-                            emailleadoppurtunities.save()
+                            )
+                            print('done')
+                            if created:
+                                emailleadoppurtunities.save()
                     
                     if os.path.exists(filename):
                         os.remove(filename)
@@ -1145,6 +1216,7 @@ class Emailproduct_view(View):
             details = Emaillead.objects.filter(emailcheckstatus=selected_location)
         elif request.GET.get('label'):
             labels = request.GET.get('label')
+            print(labels)
             details = Emaillead.objects.filter(emaildropdownlist=labels)#.filter(dropdownlist='New')
         elif request.GET.get('datesdata'):
             selected_datedata = request.GET.get('datesdata')
