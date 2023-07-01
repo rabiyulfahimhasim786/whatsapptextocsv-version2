@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Retreive page</title>
+    <style>
+    .delete-btn {
+        cursor: pointer;
+    }
+    table {
+        
+        column-width: 20px;
+        font-size: 20px;
+        border: 5px solid black;
+        padding: 5px;
+    }
+    thead {
+        padding: 10px;
+    }
+    tbody {
+        padding: 10px;
+    }
+    .msg {
+    max-width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+    td{
+        line-height: 25px;
+        text-align: center;
+    }
+    .centertext{
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    {% include 'mail/emailheader.html' %}
+    <p></p>
+    <!-- <P>{{messagesdatas}}</P> -->
+    <b class="centertext">{{messagesdatas}}</b>
+    
+</body>
+</html>
