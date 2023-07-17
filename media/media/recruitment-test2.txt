@@ -1,0 +1,27 @@
+6/20/23, 12:25 PM - +91 78992 60310: *Hiring For Below Positions*
+&&&
+*1)Oracle EBS(Apps) Technical Consultant with OAF experience*
+  *Experience-7+ year's*
+&&&
+*2)Oracle Apps DBA Consultant with OBIEE experience*
+  *Experience-5 to 10 year's*
+&&&
+*CTC-Company Standards*
+
+*Location-Bangalore & Chennai*
+
+*NP- Immediate to Max 1month*
+
+ennVee: www.ennvee.com
+LinkedIn- https://www.linkedin.com/company/ennvee
+
+*Kindly share your resume to sandeep.kumar@ennvee.net*
+*Whatsapp-7899260310*
+
+*Kindly Refer Your Friend's & Circulate to other groups*
+&&&&
+6/20/23, 12:27 PM - +91 99666 76502 joined using this group's invite link
+6/20/23, 1:03 PM - +91 77090 17277: <Media omitted>
+6/20/23, 1:03 PM - +91 77090 17277: https://www.linkedin.com/posts/activity-7076893700638801920-maxj?utm_source=share&utm_medium=member_android
+6/21/23, 5:41 AM - +91 97702 96490: If issue is Cancel and Unaccounted Invoice Issue item lines present but Distribution not created/generated 
+When end user is trying to cancel the main invoice ,system throwing error message as tds credit memos has not processed .how to solve it in Oracle EBS R12
