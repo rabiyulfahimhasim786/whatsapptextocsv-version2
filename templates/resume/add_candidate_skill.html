@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .back {
+        padding: 10px 20px;
+        background: #9b0b0b;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+      }
+      .next {
+        padding: 10px 20px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+      }
+    </style>
+    <head>
+<title>
+    Add skills and experience
+</title>
+    </head>
+    <body>
+        <h1>
+            Add Candidate Skill
+        </h1>
+        <form method="POST" action="/resume/extracted_resumes/addskills/{{candidateskill.id}}">
+            {% csrf_token %}
+        <!-- <label type="hidden"  for="resume">Skills:</label> -->
+        <input  type="hidden" name="resume" id="resume" rows="4" cols="50" value="{{candidateskill.id}}">
+             <!-- Skills -->
+        <label for="skills">Skills:</label>
+        <textarea name="skills" id="skills" rows="4" cols="50" required></textarea><br><br>
+
+        <!-- Experience -->
+        <label for="experience">Experience:</label>
+        <textarea name="experience" id="experience" rows="4" cols="50" required></textarea><br><br>
+        <a class="back" href="{% url 'edit_extracted_resume' pk=candidateskill.id %}">Cancel</a>
+
+        <button class="next" type="submit">Submit</button>
+        </form>
+    </body>
+</html>

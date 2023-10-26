@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracted Resumes</title>
+    <style>
+      body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+        table, th, td {
+          border: 1px solid #eee;
+          /* border-collapse: collapse; */
+        }
+        .container {
+          width: 90%;
+          margin: auto;
+        }
+        .pagination {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0px;
+        }
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 2px;
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        .pagination .dots {
+            pointer-events: none;
+        }
+        .skils {
+          display: inline-block;
+          width: 190px;
+          white-space: nowrap;
+          overflow: hidden !important;
+          text-overflow: ellipsis;
+          /* height: 90px; */
+        }
+
+
+        table {
+        /* * margin-left: 550px;
+        margin-top: 150px; * */
+        column-width: 20px;
+        font-size: 15px;
+        border: 5px solid black; 
+        border: none;
+        padding: 5px;
+        border-collapse: collapse;
+        width: 100%;
+        /* width: 90%;
+        margin: auto; */
+    }
+    thead {
+        padding: 10px;
+        background: #0b9b3f;
+        color: #fff;
+    }
+    tr:nth-child(even){background-color: #ebe1ff}
+    tbody {
+        padding: 10px;
+    }
+    .retrieve_table th {
+        border: none;
+        
+    }
+    .editbtn {
+        padding: 10px 20px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+    .deletebtn {
+        padding: 10px 20px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+    .delete-btn {
+        padding: 10px 20px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .retrieve_table td {
+       line-height: 60px;
+       text-align: center;
+    }
+    .meg {
+        display: inline-block;
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        border: none;
+    }
+    .top_btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    .btn_delete {
+        padding: 4px 15px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn_delete:hover {
+        background: #790505;
+    }
+    .btn_snippet {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn_snippet:hover {
+        background: #01471b;
+    }
+    .searc_h {
+        padding: 4px 10px;
+        border-radius: 15px;
+        border: 1px solid #0b9b3f;
+    }
+    .searc_h_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .searc_h_btn:hover {
+        background: #01471b;
+    }
+    .select_opt {
+        padding: 4px 10px;
+        border-radius: 15px;
+        border: 1px solid #0b9b3f;
+    }
+    .submi_t_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .submi_t_btn:hover {
+        background: #01471b;
+    }
+    .check_box{
+        text-align: center;
+    }
+    .msg {
+        max-width: 600px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .convert_h_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+
+    }
+    .convert_h_btn:hover {
+        background: #01471b;
+    }
+    .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 2px;
+    border-radius: 5px;
+  }
+
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  .pagination .dots {
+    pointer-events: none;
+  }
+  .back {
+    padding: 10px 20px;
+    background: #0b9b3f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 15px;
+  }
+  .ext_res {
+    margin-top: 30px;
+  }
+    </style>
+</head>
+<body>
+
+    <!-- <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form> -->
+  <div class="container">
+    <div class="ext_res">
+    <a class="back" href="{% url 'resumeupload' %}">Resume Upload</a>
+       
+    <h1>Extracted Resumes</h1>
+       
+    <table class="retrieve_table">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact Number</th>
+              <th>Email</th>
+              <!-- <th>Skills</th> -->
+              <!-- <th>Degree</th>
+              <th>Specialization</th>
+              <th>University</th>
+              <th>From</th>
+              <th>To</th> -->
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for extracted_resume in details %}
+          <tr>
+              <td>{{ extracted_resume.name }}</td>
+              <td>{{ extracted_resume.contact_number }}</td>
+              <td>{{ extracted_resume.email }}</td>
+              <!-- <td>{{ extracted_resume.skill_data|slice:":20" }}</td> -->
+              <!-- <td>
+                  {% for education in educations %}
+                  {{ education.degree }}<br>
+                  {% endfor %}
+              </td>
+              <td>
+                  {% for education in educations %}
+                  {{ education.specializationdegree }}<br>
+                  {% endfor %}
+              </td>
+              <td>
+                  {% for education in educations %}
+                  {{ education.institute }}<br>
+                  {% endfor %}
+              </td>
+              <td>
+                  {% for education in educations %}
+                  {{ education.start_year }}<br>
+                  {% endfor %}
+              </td>
+              <td>
+                  {% for education in educations %}
+                  {{ education.end_year }}<br>
+                  {% endfor %}
+              </td> -->
+              <td><a class="editbtn" href="{% url 'edit_extracted_resume' extracted_resume.pk %}">Edit</a></td>
+              <td><a class="delete-btn" href="{% url 'delete_extracted_resume' extracted_resume.pk %}">Delete</a></td>
+          </tr>
+          {% endfor %}
+      </tbody>
+
+    </table>
+        <div class="pagination">
+        {% if details.has_previous %}
+          <a href="?page=1">&laquo;</a>
+          <a href="?page={{ details.previous_page_number }}">previous</a>
+        {% endif %}
+      
+        {% if details.number > 3 %}
+          <a href="?page=1">1</a>
+          <span class="dots">...</span>
+        {% endif %}
+      
+        {% for i in details.paginator.page_range %}
+          {% if details.number == i %}
+            <a class="active" href="?page={{ i }}">{{ i }}</a>
+          {% elif i > details.number|add:"-3" and i < details.number|add:"3" %}
+            <a href="?page={{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+      
+        {% if details.number < num_pages_minus_2 %}
+            <span class="dots">...</span>
+        {% endif %}
+      
+        {% if details.has_next %}
+          <a href="?page={{ details.next_page_number }}">next</a>
+          <a href="?page={{ details.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+      </div>
+  </div>  
+</div>
+      
+</body>
+</html>
+

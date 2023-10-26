@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieve</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+        .retrieve_table {
+        margin-top: 20px;
+    }
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+    table {
+        /* * margin-left: 550px;
+        margin-top: 150px; * */
+        column-width: 20px;
+        font-size: 15px;
+        border: 5px solid black; 
+        border: none;
+        padding: 5px;
+        border-collapse: collapse;
+        /* width: 90%;
+        margin: auto; */
+        width: 100%;
+    }
+    thead {
+        padding: 10px;
+        background: #0b9b3f;
+        color: #fff;
+    }
+    tr:nth-child(even){background-color: #ebe1ff}
+    tbody {
+        padding: 10px;
+    }
+    .retrieve_table th {
+        border: none;
+        
+    }
+    .editbtn {
+        padding: 10px 20px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+    .deletebtn {
+        padding: 10px 20px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        
+    }
+    .delete-btn {
+        padding: 10px 20px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .retrieve_table td {
+       line-height: 25px;
+       text-align: center;
+    }
+    .meg {
+        display: inline-block;
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        border: none;
+    }
+    .top_btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    .btn_delete {
+        padding: 4px 15px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn_delete:hover {
+        background: #790505;
+    }
+    .btn_snippet {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn_snippet:hover {
+        background: #01471b;
+    }
+    .searc_h {
+        padding: 4px 10px;
+        border-radius: 15px;
+        border: 1px solid #0b9b3f;
+    }
+    .searc_h_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .searc_h_btn:hover {
+        background: #01471b;
+    }
+    .select_opt {
+        padding: 4px 10px;
+        border-radius: 15px;
+        border: 1px solid #0b9b3f;
+    }
+    .msg {
+        max-width: 600px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .submi_t_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .submi_t_btn:hover {
+        background: #01471b;
+    }
+    .check_box{
+        text-align: center;
+    }
+    .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 2px;
+    border-radius: 5px;
+  }
+
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  .pagination .dots {
+    pointer-events: none;
+  }
+  #id_option {
+      padding: 3px 10px;
+      border-radius: 15px;
+    }
+    .mag {
+        max-width: 260px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .convert_h_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+
+    }
+    .convert_h_btn:hover {
+        background: #01471b;
+    }
+    
+  #loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+#loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+#loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+#loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+.alert-warning {
+    background: #0b9b3f;
+    border: 2px solid #dee2e6;
+    color: #fff;
+}
+.editbtn:hover {
+    color: #fff !important;
+}
+.top__btn {
+    padding: 4px 15px;
+    background: #0b9b3f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+.topbtndiv {
+    margin-top: 4px;
+}
+a:hover {
+    color: #fff;
+}
+.convert_h_btn:hover {
+    background: #09642b;
+}
+.top__btn:hover {
+    background: #09642b;
+}
+    </style>
+</head>
+
+<body>
+    {% include 'header.html' %}
+
+    <div class="container">
+        <div class="top_btns">
+        <div>
+            <button type="submit" id="delete_btn" class="btn_delete">Delete</button>
+            <!-- <button type="submit" id="snippet_btn" class="btn_snippet">Convert to lead</button> -->
+        </div>
+        <div>
+            <button type="submit" class="convert_h_btn" id="convertToleads">Convert to  Leads</button>
+        </div>
+        <div class="topbtndiv">
+            <div id="loading" onclick="bling()">Loading&#8230;</div>
+           
+            <a onclick="nattu()" class="top__btn" href="{% url 'whatappspam' string_param='Benchsales' %}">Re-process pattern Junk</a>
+        </div>
+       
+        <div class="topbtndiv">
+            <a onclick="nattu()" class="top__btn" href="{% url 'whatappcareersales' string_param='Benchsales' %}">Re-process pattern Career sales</a>
+        </div>
+        <div class="topbtndiv">
+            <a onclick="nattu()" class="top__btn" href="{% url 'whatappbenchsales' string_param='Benchsales' %}">Re-process pattern Bench sales</a>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+              Alias
+            </button>
+          </div>
+          <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Alias</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form method="POST">
+                      {% csrf_token %}
+                      <div id="message" style="color: red;"></div>
+                      <!-- <div class="mb-3">
+                          <label>Firstname</label>
+                             <input type="text" id="firstname" class="form-control" required/>
+                      </div>         -->
+                      <div class="mb-3">
+                      <label>Alias Name</label>
+                      <input list="masteralias-flavors" id="masteralias" id="masteralias" name="masteralias" class="form-control" required />
+            
+                      <datalist id="masteralias-flavors">
+                                 
+                      </datalist>
+                      </div>
+                      <div class="mb-3">
+                          <label>Alias Type </label>
+                          <input list="masteraliascolumn-flavors" id="masteraliascolumn"  id="masteraliascolumn" name="masteraliascolumn" class="form-control" required  />
+
+                          <datalist id="masteraliascolumn-flavors">
+                                     
+                          </datalist>
+                          <!-- <input type="text" id="masteraliascolumn"  id="masteraliascolumn"  name="masteraliascolumn" class="form-control" required/> -->
+                      </div>
+                      <div class="mb-3">
+                          <label>Alias Value</label>
+                          <input type="text" id="masteraliasinput" id="masteraliasinput" name="masteraliasinput" class="form-control" placeholder=" Client/Job description/Position summary" required/>
+                      </div>
+                   
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>  
+          <!-- constant div -->
+      </div>
+      </div>
+        <!-- <div>
+            <button type="submit" id="snippet_btn" class="btn_snippet">convert to lead</button>
+        </div> -->
+        <!-- <button id="download_btn" class="searc_h_btn">Export</button> -->
+
+        
+
+        <!-- <table class="retrieve_table" border="5px solid #000;"> -->
+        <hr style="border-top:1px solid #000; clear:both;"/>
+        <table id ="table" class ="table table-bordered">
+                <!-- <thead> -->
+                <thead class="alert-warning">
+                    <tr>
+                        <th></th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Mobile Number</th>
+                        <th>Message</th>
+                        <th>Lead type</th>
+                        
+
+                        <!-- <th>Message</th> -->
+                        <th>View</th>
+                        <th>Add</th>
+                    </tr>
+                </thead>
+                <form method="POST">
+                    {%csrf_token %}
+                <tbody>
+                    {% for i in details %}
+                   
+                    
+                    
+                    <tr id="{{i.id}}">
+                        <td class="check_box"><input type="checkbox" name="product_id[]" value="{{i.id}}" id="retrieve"></td>
+                        <td class="mag received-time" style="padding:10px;">{{i.date}}</td>
+                        <td style="padding:10px;">{{i.title}}</td>
+                        <td style="padding:10px;">{{i.year}}</td>
+                        <td class="mag" style="padding:10px;" class="msg">{{i.filmurl}}</td>
+                        <td style="padding:10px;">{{i.dropdownlist}}</td>
+                        <!-- <td style="padding:10px;" class="meg">{{i.genre}}</td> -->
+                        <td style="padding:10px;text-align: center;"><a class="editbtn" href="{% url 'whatsupbenchsalesview' i.pk %}">View</a></td>
+                        
+                        <!-- <td style="padding:10px;"><button class="delete-btn" data-id="{{ i.id }}">Delete</button></td> -->
+                        <td style="padding:10px;text-align: center;"><a class="editbtn" href="{% url 'whatsupbenchsalesedit' i.pk %}">Add</a></td>
+                    </tr>
+     
+                    
+                    {% endfor %}
+                </tbody>
+                </form>
+        </table>
+        <!-- <div>
+            <button type="submit" id="delete_btn" class="btn_delete">Delete</button>
+        </div> -->
+    </div>
+    <!-- <div class="pagination">
+        {% if details.has_previous %}
+          <a href="?page=1">&laquo;</a>
+          <a href="?page={{ details.previous_page_number }}">previous</a>
+        {% endif %}
+      
+        {% if details.number > 3 %}
+          <a href="?page=1">1</a>
+          <span class="dots">...</span>
+        {% endif %}
+      
+        {% for i in details.paginator.page_range %}
+          {% if details.number == i %}
+            <a class="active" href="?page={{ i }}">{{ i }}</a>
+          {% elif i > details.number|add:"-3" and i < details.number|add:"3" %}
+            <a href="?page={{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+      
+        {% if details.number < num_pages_minus_2 %}
+            <span class="dots">...</span>
+        {% endif %}
+      
+        {% if details.has_next %}
+          <a href="?page={{ details.next_page_number }}">next</a>
+          <a href="?page={{ details.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+      </div> -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#delete_btn').click(function(){
+                var id =[];
+                $(':checkbox:checked').each(function(i){
+                    id[i]=$(this).val()
+                })
+                if(id.length === 0){
+                    alert("please select one of these options")
+                }else{
+                    if(confirm("Are you sure you want to delete this item?")){
+                        var csrf=$('input[name=csrfmiddlewaretoken]').val();
+                        console.log(id)
+                        $.ajax({
+                            url:'.',
+                            method:"POST",
+                            data:{
+                                id,
+                                csrfmiddlewaretoken:csrf
+                            },
+                            success:function(response){
+                                for(var i=0; i < id.length; i++){
+                                    $('tr#'+id[i]+'').css('background-color', '#ccc');
+                                    $('tr#'+id[i]+'').fadeOut('slow');
+                                    window.location.href = '/whatsupbenchsales'
+                                }                               
+                            }
+                        })
+                    }
+                }                  
+            })
+        })
+    </script>
+
+
+
+    
+    <script>
+        $(document).ready(function(){
+            $('#snippet_btn').click(function(){
+                var ids =[];
+                $(':checkbox:checked').each(function(i){
+                    ids[i]=$(this).val()
+                })
+                if(ids.length === 0){
+                    alert("please select one of these options")
+                }else{
+                    if(confirm("Are you sure you want to chage this status?")){
+                        var csrf=$('input[name=csrfmiddlewaretoken]').val();
+                        console.log(ids)
+                        $.ajax({
+                            url:'.',
+                            method:"POST",
+                            data:{
+                                ids,
+                                csrfmiddlewaretoken:csrf
+                            },
+                            success:function(response){
+                                for(var i=0; i < ids.length; i++){
+                                    $('tr#'+ids[i]+'').css('background-color', '#ccc');
+                                    $('tr#'+ids[i]+'').fadeOut('slow');
+                                    window.location.href = '/whatsupbenchsales'
+                                }                               
+                            }
+                        })
+                    }
+                }                  
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#convertToleads').click(function(){
+                var idl =[];
+                $(':checkbox:checked').each(function(i){
+                    idl[i]=$(this).val()
+                })
+                if(idl.length === 0){
+                    alert("please select one of these options")
+                }else{
+                    if(confirm("Are you sure you want to move this item?")){
+                        var csrf=$('input[name=csrfmiddlewaretoken]').val();
+                        console.log(idl)
+                        $.ajax({
+                            url:'.',
+                            method:"POST",
+                            data:{
+                                idl,
+                                csrfmiddlewaretoken:csrf
+                            },
+                            success:function(response){
+                                for(var i=0; i < idl.length; i++){
+                                    $('tr#'+idl[i]+'').css('background-color', '#ccc');
+                                    $('tr#'+idl[i]+'').fadeOut('slow');
+                                    window.location.href = '/whatsupbenchsales'
+                                }                               
+                            }
+                        })
+                    }
+                }                  
+            })
+        })
+    </script>
+    <!-- ####
+    ###invidual delete functions ajaxs -->
+
+    <script>
+    $(document).ready(function(){
+    $('.delete-btn').click(function(){
+        var id = $(this).data('id');
+        if(confirm("Are you sure you want to delete this item?")){
+            var csrf=$('input[name=csrfmiddlewaretoken]').val();
+            $.ajax({
+                url: '.',
+                method: "POST",
+                data: {
+                    id: id,
+                    csrfmiddlewaretoken: csrf
+                },
+                success: function(response){
+                    $('tr#'+id+'').css('background-color', '#ccc');
+                    $('tr#'+id+'').fadeOut('slow');
+                    window.location.href = '/whatsupbenchsales';
+                }
+            });
+        }
+    });
+});
+
+    </script>
+
+<!-- Include the xlsx library -->
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+<!-- Include the FileSaver.js library -->
+<script src="https://unpkg.com/file-saver"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#filter_btn').click(function() {
+      var selectedDate = $('#date_filter').val();
+      if (selectedDate !== '') {
+        $('tr:not(:first)').hide(); // Hide all rows except the first row (header)
+        $('td:nth-child(2)').each(function() {
+          if ($(this).text() === selectedDate) {
+            $(this).closest('tr').show();
+          }
+        });
+      } else {
+        $('tr').show();
+      }
+    });
+
+    $('#download_btn').click(function() {
+      exportToExcel();
+    });
+
+    function exportToExcel() {
+      // Get the visible rows (filtered rows)
+      var rows = $('tr:visible');
+
+      // Create a new workbook
+      var wb = XLSX.utils.book_new();
+
+      // Create a new worksheet
+      var ws = XLSX.utils.aoa_to_sheet(getDataFromRows(rows));
+
+      // Add the worksheet to the workbook
+      XLSX.utils.book_append_sheet(wb, ws, 'Filtered Data');
+
+      // Generate the Excel file as a binary string
+      var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+      // Convert the binary string to a Blob
+      var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+
+      // Save the Excel file
+      saveAs(blob, 'filtered_data.xlsx');
+    }
+
+    // Convert the visible rows data to an array
+    function getDataFromRows(rows) {
+        var data = [['Date', 'Time', 'Mobile Number', 'Message', 'Lead Type']]; // Assuming you have three columns with headers
+        
+        // rows.each(function() {
+        //     var rowData = [];
+        //     $(this).find('td').slice(1, -2).each(function() { // Exclude the first and last two columns
+        //     rowData.push($(this).text());
+        //     });
+        //     data.push(rowData);
+        // });
+        rows.each(function() {
+            var rowData = [];
+            var isEmptyRow = true;
+
+            $(this).find('td').slice(1, -2).each(function() { // Exclude the first and last two columns
+                var cellText = $(this).text().trim();
+                rowData.push(cellText);
+                if (cellText !== '') {
+                    isEmptyRow = false;
+                }
+            });
+
+            if (!isEmptyRow) {
+                data.push(rowData);
+            }
+        });
+
+      return data;
+    }
+
+    // Convert a string to an ArrayBuffer
+    function s2ab(s) {
+      var buf = new ArrayBuffer(s.length);
+      var view = new Uint8Array(buf);
+      for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+      return buf;
+    }
+  });
+</script>
+
+</body>
+
+</html>
+<script  type ="text/javascript">
+    document.getElementById("loading").style.display="none";
+function nattu()
+{
+document.getElementById("loading").style.display="block";
+}
+function bling()
+{
+document.getElementById("loading").style.display="none";
+}
+</script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+    // $('#table').DataTable();
+    $('#table').DataTable({
+            "pageLength": 50, // Set the default number of rows per page to 50
+        });
+    // $('#submit').on('click', function(){
+    //     $firstname = $('#firstname').val();
+    //     $lastname = $('#lastname').val();
+    //     $address = $('#address').val();
+  
+    //     if($firstname == "" || $lastname == "" || $address == ""){
+    //         alert("Please complete field");
+    //     }else{
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "insert",
+    //             data:{
+    //                 firstname: $firstname,
+    //                 lastname: $lastname,
+    //                 address: $address,
+    //                 csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+    //             },
+    //             success: function(){
+    //                 alert('Save Data');
+    //                 $('#firstname').val('');
+    //                 $('#lastname').val('');
+    //                 $('#address').val('');
+    //                 window.location = "/";
+    //             }
+    //         });
+    //     }
+    // });
+    
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+    $('#table').DataTable();
+     
+    $('#datasubmit').on('click', function(){
+        $masteralias = $('#masteralias').val();
+        $masteraliascolumn = $('#masteraliascolumn').val();
+        $masteraliasinput = $('#masteraliasinput').val();
+  
+        if($masteralias == "" || $masteraliascolumn == "" || $masteraliasinput == ""){
+            // alert("Please complete field");
+             // Display an error message in the "message" div
+             $('#message').text('Please complete all fields')
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "/alias/",
+                data:{
+                  masteralias: $masteralias,
+                  masteraliascolumn: $masteraliascolumn,
+                  masteraliasinput: $masteraliasinput,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    // alert('Save Data');
+                    $('#message').text('Your data has been saved succesfully')
+                    $('#masteralias').val('');
+                    $('#masteraliascolumn').val('');
+                    $('#masteraliasinput').val('');
+                    // window.location = "/";
+                }
+            });
+        }
+    });
+});
+</script>
+<script type = "text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteralias-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteralias');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Alias%20dropdown')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteraliascolumn-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteraliascolumn');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>

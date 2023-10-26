@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracted Resume Data</title>
+    <style>
+        /* Create a container for the layout */
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Style the left side (content) */
+        .content {
+            flex: 1; /* Expand to take available space */
+            padding: 20px;
+        }
+
+        /* Style the right side (table) */
+        .table-container {
+            flex: 1; /* Expand to take available space */
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f2f2f2;
+            overflow: auto; /* Add scrollbars if content overflows */
+        }
+
+        /* Style the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extracted Resume Data</h1>
+
+    <div class="container">
+        <div class="content">
+            <!-- Your content goes here -->
+            <!-- <h2>Resume Text:</h2>
+            <pre>{{ resume_text }}</pre> -->
+        </div>
+        <div class="table-container">
+            <!-- Your table goes here -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Education</th>
+                        <th>Institutes</th>
+                        <th>Universities</th>
+                        <th>Companies</th>
+                        <th>Years</th>
+                        <th>Skills</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ extracted_data.name }}</td>
+                        <td>{{ extracted_data.contact_number }}</td>
+                        <td>{{ extracted_data.email }}</td>
+                        <td>
+                            {% for degree in extracted_data.education %}
+                                {{ degree }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <!-- {{ extracted_data.institute_entries|linebreaksbr }} -->
+                            {{ extracted_data.institute_entries}}
+                        </td>
+                        <td>
+                            <!-- {{ extracted_data.university_entries|linebreaksbr }} -->
+                             {{ extracted_data.university_entries}}
+                        </td>
+                        <!-- <td>
+                            {{ extracted_data.company_entries|linebreaksbr }}
+                        </td> -->
+                        <td>
+                            {{ extracted_data.years|linebreaksbr }}
+                        </td>
+
+                        {% for skill in skills %}
+                        {% if skill %}
+                            <tr>
+                                <td>{{ skill }}</td>
+                            </tr>
+                        {% endif %}
+                        <td>
+                            <a href="{% url 'edit_extracted_resume' extracted_resume.pk %}">Edit</a>
+                            <a href="{% url 'delete_extracted_resume' extracted_resume.pk %}">Delete</a>
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Edit</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+<link rel = "stylesheet" type = "text/css" href = "https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+     body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+.edittt {
+    /* margin-left: 550px;
+    margin-top: 150px; */
+    /* width: 300px;
+    height: 100px;
+    padding: 15px; */
+    /* background-color: aquamarine; */
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+.edittable {
+    border-radius: 8px !important;
+    box-shadow: none;
+    padding: 27px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* .edittable tr td textarea{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #591fc9;
+} */
+.subbtn {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+    cursor: pointer;
+}
+/* .subbtn:hover {
+  background: #025822;
+} */
+.add_btn_class {
+  content: "plz wait";
+  background: #025822;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+    margin: 4px -8px;
+}
+.form-style-1 {
+	/* margin:10px auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px; */
+    padding: 20px 20px 20px 24px;
+    margin: 0px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style-1 label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+.form-style-1 .field-divided{
+	width: 100%;
+}
+
+.form-style-1 .field-long{
+	width: 99%;
+}
+.form-style-1 .field-select{
+	width: 100%;
+}
+.form-style-1 .field-textarea{
+	height: 30px;
+    border: 1px solid #0b9b3f;
+    border-radius: 8px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+	background: #4B99AD;
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+	background: #4691A4;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+.bord_box {
+    padding: 8px;
+    background: #f9fafb;
+}
+.bord_box form {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.back_btnn {
+    position: absolute;
+    left: 38px;
+    top: 26px;
+}
+.back_btnn1 {
+    position: absolute;
+    left: 38px;
+    top: 26px;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.onetwobtn {
+  padding: 5px 30px;
+  background: #0b9b3f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.ontwbt {
+  margin: 10px 0px;
+}
+/* .chat_area {
+  height: 140px !important;
+} */
+.statu_s {
+  display: none !important;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    /* width: 99.6%; */
+    text-decoration: none;
+}
+.cke_chrome {
+    border: 1px solid #0b9b3f !important;
+}
+.optio_n {
+  /* background: #0b9b3f; */
+  border: 1px solid #0b9b3f;
+  height: 30px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.stat ul li {
+  list-style-type: none;
+}
+.stat {
+visibility: hidden;
+}
+button[name="save_home"],
+button[name="save_convert"],
+button[name="save_continue"],
+button[name="chiliadstaffingapi"],
+button[name="careerdesssapi"]{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[name="save_home"]:hover,
+button[name="save_convert"]:hover,
+button[name="save_continue"]:hover,
+button[name="chiliadstaffingapi"]:hover,
+button[name="careerdesssapi"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+.delete-btn {
+        padding: 4px 15px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+.delet_e_btn {
+  background-color: red;
+  text-decoration: none;
+    border: none;
+    color: white;
+    padding: 9px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}    
+.del_btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.no_btn {
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#success-desss {
+    text-align: center;
+    position: relative;
+    top: -590px;
+    font-weight: bold;
+}
+#success-message {
+    text-align: center;
+    position: relative;
+    top: -590px;
+    font-weight: bold;
+}
+#cke_editor {
+    border: 1px solid #0b9b3f;
+  }
+  .back:hover{
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+.inptbx {
+  display: flex;
+}
+.feldbx {
+  width: 50%;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.feldbx select {
+  width: 100%;
+}  
+
+
+.form-style-1 .inptbx:nth-child(1) {
+    display: none;
+}
+.upbtnandcdbtn {
+  list-style-type: none;
+}
+.upbtnandcdbtn button {
+  margin: 0px 22px 22px 22px;
+}
+
+
+ 
+  .table-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .table-column {
+    flex: 1;
+    padding: 10px;
+  }
+
+.table-container .table-column input {
+    margin: 5px 0px;
+  }
+  .desres {
+    display: flex;
+    margin-top: 20px;
+  }
+  .description {
+    width: 100%;
+    margin-right: 10px;
+  }
+  .resume {
+    width: 100%;
+    margin-left: 5px;
+  }
+  .messages a:hover {
+    color: #fff !important;
+  }
+  .messages a {
+    color: #fff !important;
+  }
+  .messages {
+    margin-top: 18px;
+    margin-left: 80px;
+  }
+  .greecolours{
+  margin-top:20px;
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+            <div class="bord_box">
+              <div class="inptbx">  
+                <div class="back_btnn1">
+                    <a class="back" href="{% url 'custombenchsales' %}">Back</a>
+                    <p>
+                      <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+                        Alias
+                      </button>
+                      </p>
+                      
+                      <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Alias</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form method="POST">
+                                  {% csrf_token %}
+                                  <div id="message" style="color: red;"></div>
+                                  <!-- <div class="mb-3">
+                                      <label>Firstname</label>
+                                         <input type="text" id="firstname" class="form-control" required/>
+                                  </div>         -->
+                                  <div class="mb-3">
+                                  <label>Alias Name</label>
+                                  <input list="masteralias-flavors" id="masteralias" id="masteralias" name="masteralias" class="form-control" required />
+                        
+                                  <datalist id="masteralias-flavors">
+                                             
+                                  </datalist>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label>Alias Type </label>
+                                      <input list="masteraliascolumn-flavors" id="masteraliascolumn"  id="masteraliascolumn" name="masteraliascolumn" class="form-control" required  />
+    
+                                      <datalist id="masteraliascolumn-flavors">
+                                                 
+                                      </datalist>
+                                      <!-- <input type="text" id="masteraliascolumn"  id="masteraliascolumn"  name="masteraliascolumn" class="form-control" required/> -->
+                                  </div>
+                                  <div class="mb-3">
+                                      <label>Alias Value</label>
+                                      <input type="text" id="masteraliasinput" id="masteraliasinput" name="masteraliasinput" class="form-control" placeholder=" Client/Job description/Position summary" required/>
+                                  </div>
+                               
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                            </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>  
+                      <!-- constant div -->
+                  </div>
+                  </div>
+                </div>
+                <div>
+                  {% if messages %}
+                      <ul class="messages">
+                          {% for message in messages %}
+                              <a{% if message.tags %} class="{{ message.tags }} back"{% endif %}>{{ message }}</a>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+
+                </div>
+              </div>
+                <!-- <div>
+                  {% if messages %}
+                      <ul class="messages">
+                          {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+
+                </div> -->
+                <!-- <div>
+                  {% if messages %}
+                      <ul class="messages">
+                          {% for message in messages %}
+                              <a{% if message.tags %} class="{{ message.tags }} back"{% endif %}>{{ message }}</a>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+
+                </div> -->
+                <!-- <div>
+                  <ul>
+                  <li> * Star fields are required</li>
+                  </ul>
+                </div> -->
+            <form action="/Custombenchsalescreate/" method="POST">
+                {% csrf_token %}
+                <div class="form-style-1">
+                  
+                  <div class="inptbx">  
+                    <div class="feldbx">
+                      <label>Index Horizontal</label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="indexhorizontal" value="{{indexhorizontal}}">
+                    </div>
+                    <div class="feldbx">
+                      <label>id</label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="id" value="{{object.id}}">
+                    </div>
+                    <div class="feldbx">
+                      <label>table</label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="tablelead" value="{{html_file}}">
+                    </div>
+                   <div class="feldbx">
+                    <label>Index Vertical</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="indexvertical"  value="{{indexvertical}}">
+                   </div>
+                   <div class="feldbx">
+                    <label>Php ID</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="bench_sale_lead_id"  value="{{bench_sale_lead_id}}">
+                   </div>
+                   
+                  </div> 
+                  <p>Status: {{status}}</p>
+                  <p>Training Status: {{table_message}}</p>
+                  <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
+                  <div class="inptbx">
+                    <div class="feldbx">
+                        <label>Benchsales First Name</label>
+                      
+                        <input type="text" class="field-long field-textarea" name="benchsalesfirstname" value="{{first_name}}">
+                    </div>
+                    
+                    <div class="feldbx">
+                        <label>Benchsales Last Name</label>
+                        <input type="text" class="field-long field-textarea" name="benchsaleslastname" value="{{last_name}}">
+                    </div>
+                  </div>  
+
+
+                  <div class="inptbx">
+                    <div class="feldbx">
+                        <label>Benchsales Company</label>
+                        <input type="text" class="field-long field-textarea" name="benchsalescompany" value="{{company_name}}">
+                    </div>
+                    <div class="feldbx">
+                      <label>Recruiter / Designation</label>
+                      <input type="text" class="field-long field-textarea" name="benchsalesdesignation" value="{{designation}}">
+                    </div>
+                    <div class="feldbx">
+                      <label>Benchsales Email</label>
+                      <input type="text" class="field-long field-textarea" name="benchsalesemail" value="{{email_id}}">
+                    </div>
+                  </div>  
+
+                <div class="inptbx"> 
+                  <div class="feldbx">
+                    <label>Benchsales Mobile</label>
+                    <input type="text" class="field-long field-textarea" name="benchsalesmobile" value="{{phone_number}}">
+                  
+                  </div>
+                <div class="feldbx">
+                    <label>Benchsales Address </label>
+                    <input type="text" class="field-long field-textarea" name="benchsalesaddress" value="{{address}}">
+                
+                </div>
+              </div>
+              <div class="inptbx"> 
+                <div class="feldbx">
+                  <label>Benchsales City</label>
+                  <input type="text" class="field-long field-textarea" name="benchsalescity" value="{{benchsalescity}}">
+                
+                </div>
+              <div class="feldbx">
+                  <label>Benchsales State </label>
+                  <input type="text" class="field-long field-textarea" name="benchsalesstate" value="{{benchsalesstate}}">
+              
+              </div>
+            </div>
+            <div class="inptbx"> 
+              <div class="feldbx">
+                <label>Benchsales Zipcode</label>
+                <input type="text" class="field-long field-textarea" name="benchsaleszipcode" value="{{benchsaleszipcode}}">
+              
+              </div>
+            <div class="feldbx">
+                <label>Benchsales Website </label>
+                <input type="text" class="field-long field-textarea" name="benchsaleswebsite" value="{{benchsaleswebsite}}">
+            
+            </div>
+            <!-- <ul>
+             
+                <li>{{ email_attachment }}</li>
+              
+            </ul> -->
+            <!-- {% if email_attachment %}
+            <ul>
+              {% for attachment in email_attachment %}
+                <li>
+                  <a href="{{attachment}}">Resume {{ forloop.counter }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% endif %} -->
+          </div>
+                  <div class="desres">
+                  <div class="description">
+                    <label>Description</label>
+                    <textarea id="editor" type="text" class="field-long field-textarea email_body" name="bsEmail_Body" >{{ object.bsEmail_Body|linebreaksbr }}</textarea>
+                  </div>
+                  <div class="resume">
+                    <label>Resume</label>
+                    <textarea id="editor2" type="text" class="field-long field-textarea email_body" name="resume" ></textarea>
+                  </div>
+                </div>
+               
+               
+                  
+                  
+<!-- 
+                <div class="inptbx">
+                  <div class="feldbx">
+                      <label>Benchsales First Name</label>
+                     
+                      <input type="text" class="field-long field-textarea" name="benchsalesfirstname" value="{{first_name}}">
+                  </div>
+                  <div class="feldbx">
+                      <label>Benchsales Last Name</label>
+                      <input type="text" class="field-long field-textarea" name="benchsaleslastname" value="{{last_name}}">
+                  </div>
+                </div>  
+
+
+                <div class="inptbx">
+                  <div class="feldbx">
+                      <label>Benchsales Company</label>
+                      <input type="text" class="field-long field-textarea" name="benchsalescompany" value="{{company_name}}">
+                  </div>
+                  <div class="feldbx">
+                    <label>Benchsales Email</label>
+                    <input type="text" class="field-long field-textarea" name="benchsalesemail" value="{{email_id}}">
+                  </div>
+                </div>  
+
+              <div class="inptbx"> 
+                <div class="feldbx">
+                  <label>Benchsales Mobile</label>
+                  <input type="text" class="field-long field-textarea" name="benchsalesmobile" value="{{phone_number}}">
+                 
+                </div>
+              <div class="feldbx">
+                  <label>Benchsales Address </label>
+                  <input type="text" class="field-long field-textarea" name="benchsalesaddress" value="{{address}}">
+               
+              </div>
+            </div> -->
+
+            
+      
+
+  
+  
+   
+</div>
+
+
+    
+
+    
+                <li class="upbtnandcdbtn">
+                  <!-- <form method="post"> -->
+                  <!-- <button type="submit" name="save_home">Update</button> -->
+                  <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
+                  <!-- <button name="chiliadstaffingapi" type="submit" class="btn btn-success">Update & Chiliadstaffing Lead</button> -->
+                  <!-- </form> -->
+                  <!-- <form id="myForm" action="" method="post">
+                    Your form elements here
+                    <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
+                    <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
+                  </form> -->
+
+                </li>
+
+                  
+                 
+                            
+                    </li>
+                    
+                    
+                  </div>
+              
+            </form>
+            <div class="form-style-1">
+              <form action="{% url 'custombenchsalescontent' id=emailleadsid %}" method="POST">
+                {% csrf_token %}
+              <button name="careerdesssapi" type="submit" class="btn btn-success">Save</button>
+              <div class="Description">
+                <label>Email Message</label>
+                <!-- <textarea id="editor1" type="text"  class="field-long field-textarea" name="leaddescription1" >{{description1|urlize|linebreaksbr}}</textarea> -->
+                <textarea id="editor1" type="text"  class="field-long field-textarea" name="benchsalesescription1" >{{object.bench_descriptions|urlize|linebreaksbr}}</textarea>
+              </div>
+              
+              </form>
+            </div>
+            <!-- <div class="stat">
+            <ul>
+              <li>
+                <div style="display:inline-block">
+                  <label>Page Status</label>
+                  <div class="ontwbt">
+
+              </li>
+            </ul> -->
+          </div>
+
+        
+          
+            
+     
+<!-- <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script> -->
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+  // Replace the textarea with CKEditor
+let resume = CKEDITOR.replace('editor2', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the text with spacing
+      var textWithSpacing = resume;
+
+      // Set the text with spacing in the editor
+      evt.editor.setData(textWithSpacing);
+    }
+  }
+});
+
+</script>
+
+<script>
+  // Replace the textarea with CKEditor
+let bsEmail_Body = CKEDITOR.replace('editor', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+     // Get the editor's raw data (HTML with <br> tags)
+     var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      // var modifiedData = rawData.replace(/<[^>]*>/g, '').replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+      
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+
+<script>
+  // Replace the textarea with CKEditor
+let Email_Body = CKEDITOR.replace('editor1', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      // var modifiedData = rawData.replace(/<[^>]*>/g, '').replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+      
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+
+<!-- <script>
+  // Replace the textarea with CKEditor
+CKEDITOR.replace('editor', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the text with spacing
+      var textWithSpacing = leaddescription;
+
+      // Set the text with spacing in the editor
+      evt.editor.setData(textWithSpacing);
+    }
+  }
+});
+
+</script> -->
+
+
+
+<script>
+
+  function add_class_onchange(){
+        var status = this.value;
+        // alert(status);
+        if(status != "")
+        var element = document.getElementById("add_class");
+        element.classList.add("add_btn_class");
+      
+  }
+
+
+// $(function(){
+
+// $("#status").change(function(){
+//     var status = this.value;
+//     alert(status);
+//     if(status != "")
+//     var element = document.getElementById("add_class");
+//         element.classList.add("Your class name");
+//     });
+
+// });
+</script>
+<script>
+  function showConfirmDialog() {
+    if (confirm("Are you sure you want to delete?")) {
+      document.getElementById("delete-btn").click();
+    }
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+    $('#table').DataTable();
+     
+    $('#datasubmit').on('click', function(){
+        $masteralias = $('#masteralias').val();
+        $masteraliascolumn = $('#masteraliascolumn').val();
+        $masteraliasinput = $('#masteraliasinput').val();
+  
+        if($masteralias == "" || $masteraliascolumn == "" || $masteraliasinput == ""){
+            // alert("Please complete field");
+             // Display an error message in the "message" div
+             $('#message').text('Please complete all fields')
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "/alias/",
+                data:{
+                  masteralias: $masteralias,
+                  masteraliascolumn: $masteraliascolumn,
+                  masteraliasinput: $masteraliasinput,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    // alert('Save Data');
+                    $('#message').text('Your data has been saved succesfully')
+                    $('#masteralias').val('');
+                    $('#masteraliascolumn').val('');
+                    $('#masteraliasinput').val('');
+                    // window.location = "/";
+                }
+            });
+        }
+    });
+});
+</script>
+<script type = "text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteralias-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteralias');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Alias%20dropdown')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteraliascolumn-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteraliascolumn');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<!-- <div class="container">
+  <h2 class="text-center"><u>Benchsale Leads</u></h2><br>            
+  <table class="table table-dark table-striped">
+    <thead> -->
+      <!-- <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+      </tr> -->
+    <!-- </thead>
+    <tbody> -->
+    <!-- jinja2 Technique -->
+    <!-- {% if d %}  
+    {% for i in d %}
+      <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+</div> -->
+<div class="container">
+  <h2 class="text-center"><u>Benchsale Leads</u></h2><br>            
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+
+      </tr>
+    </thead>
+    <tbody>
+    <!-- jinja2 Technique -->
+    {% if d %}  
+    {% for i in d %}
+      <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+        <td>{{i.5}}</td>
+        <td>{{i.6}}</td>
+        <td>{{i.7}}</td>
+        <td>{{i.8}}</td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+    
+    </tbody>
+    
+  </table>
+  <table>
+    <tbody>
+      {% if email_attachment %}
+      <thead>
+        <tr>Resume</tr>
+      </thead>
+      <tr>
+        {% for attachment in email_attachment %}
+        <tr>
+        <td><a href="{{attachment}}">Resume {{ forloop.counter }}</a></td>
+        </tr>
+        {% endfor %}
+      
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+<div id="success-message" style="display:none;">Your lead has been updated to chiliadstaffing.com successfully!</div>
+<div id="success-desss" style="display:none;">Your lead has been updated to career.desss.com successfully!</div>
+
+
+
+        </div>
+       </div>
+    </div>
+</body>
+</html>

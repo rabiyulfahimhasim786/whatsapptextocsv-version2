@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .back {
+        padding: 10px 20px;
+        background: #9b0b0b;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+      }
+      .next {
+        padding: 10px 20px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+      }
+    </style>
+    <head>
+<title>
+    Add Education
+</title>
+    </head>
+    <body>
+        <h1>
+            Add Candidate Education
+        </h1>
+        <form method="POST" action="/resume/extracted_resumes/addeducation/{{candidateeducation.id}}">
+            {% csrf_token %}
+        <!-- <label type="hidden"  for="resume">Skills:</label> -->
+        <input  type="hidden" name="resume" id="resume" rows="4" cols="50" value="{{candidateeducation.id}}">
+             <!-- Skills -->
+
+        <label for="institute">Institution:</label>
+        <textarea name="institute" id="institute" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="start_year">From:</label>
+        <textarea name="start_year" id="start_year" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="end_year">To:</label>
+        <textarea name="end_year" id="end_year" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="degree">Qualification:</label>
+        <textarea name="degree" id="degree" rows="4" cols="50" required></textarea><br><br>
+
+        <!-- Experience -->
+        <label for="majordegree">Major:</label>
+        <textarea name="majordegree" id="majordegree" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="specializationdegree">Specialization:</label>
+        <textarea name="specializationdegree" id="specializationdegree" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="others">Others:</label>
+        <textarea name="others" id="others" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="if_others">If Others:</label>
+        <textarea name="if_others" id="if_others" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="institutelocation">Place :</label>
+        <textarea name="institutelocation" id="institutelocation" rows="4" cols="50" required></textarea><br><br>
+
+        <a class="back" href="{% url 'edit_extracted_resume' pk=candidateeducation.id %}">Cancel</a>
+
+        <button class="next" type="submit">Submit</button>
+        </form>
+    </body>
+</html>

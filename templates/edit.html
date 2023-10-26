@@ -1,0 +1,1486 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Edit</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+<link rel = "stylesheet" type = "text/css" href = "https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+     body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+.edittt {
+    /* margin-left: 550px;
+    margin-top: 150px; */
+    /* width: 300px;
+    height: 100px;
+    padding: 15px; */
+    /* background-color: aquamarine; */
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+.edittable {
+    border-radius: 8px !important;
+    box-shadow: none;
+    padding: 27px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* .edittable tr td textarea{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #591fc9;
+} */
+.subbtn {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+    cursor: pointer;
+}
+/* .subbtn:hover {
+  background: #025822;
+} */
+.add_btn_class {
+  content: "plz wait";
+  background: #025822;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+}
+.form-style-1 {
+	/* margin:10px auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px; */
+    padding: 20px 20px 20px 24px;
+    margin: 0px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style-1 label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+.form-style-1 .field-divided{
+	width: 100%;
+}
+
+.form-style-1 .field-long{
+	width: 99%;
+}
+.form-style-1 .field-select{
+	width: 100%;
+}
+.form-style-1 .field-textarea{
+	height: 30px;
+    border: 1px solid #0b9b3f;
+    border-radius: 8px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+	background: #4B99AD;
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+	background: #4691A4;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+.bord_box {
+    padding: 8px;
+    background: #f9fafb;
+}
+.bord_box form {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.back_btnn {
+    position: absolute;
+    right: 31px;
+    top: 25px;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.onetwobtn {
+  padding: 5px 30px;
+  background: #0b9b3f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.ontwbt {
+  margin: 10px 0px;
+}
+/* .chat_area {
+  height: 140px !important;
+} */
+.statu_s {
+  display: none !important;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    /* width: 99.6%; */
+    text-decoration: none;
+}
+.optio_n {
+  /* background: #0b9b3f; */
+  border: 1px solid #0b9b3f;
+  height: 30px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.stat ul li {
+  list-style-type: none;
+}
+.stat {
+visibility: hidden;
+}
+button[name="save_home"],
+button[name="save_next"],
+button[name="save_alias"],
+button[name="save_aliasapi"],
+button[name="Careersales"],
+button[name="Benchsales"],
+button[name="save_continue"]{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[name="save_home"]:hover,
+button[name="save_next"]:hover,
+button[name="save_alias"]:hover,
+button[name="save_aliasapi"]:hover,
+button[name="Careersales"]:hover,
+button[name="Benchsales"]:hover,
+button[name="save_continues"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+.delete-btn {
+        padding: 4px 15px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+.delet_e_btn {
+  background-color: red;
+  text-decoration: none;
+    border: none;
+    color: white;
+    padding: 9px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}    
+.del_btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.no_btn {
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* button[name="delete_d"] {
+  background-color: #f44336;  */
+.conform_pop {
+  background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 10px;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.conform_pop h3 {
+  padding: 0px;
+  margin: 0px;
+}
+.datim {
+  display: flex;
+  justify-content: space-between;
+}
+.datim li {
+  width: 24.5%;
+}
+.optio_n {
+  width: 100%;
+} 
+.select2-container--default .select2-selection--single {
+    border: 1px solid #0b9b3f !important;
+}
+.select2-dropdown {
+  border: 1px solid #0b9b3f !important;
+}
+.second_row li {
+  width: 33% !important;
+  margin-right: 5px;
+}
+.datim select {
+  border: 1px solid #0b9b3f !important;
+}
+.select2-selection--multiple {
+  border: 1px solid #0b9b3f !important;
+}
+#aliastype {
+  height: 35px;
+}
+.greecolours{
+  margin-top:20px;
+}
+.alis {
+  position: absolute;
+  top: -29px;
+  left: -73px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+
+
+            <div class="bord_box">
+                <div class="back_btnn">
+                    <a class="back" href="{% url 'home' %}">Back</a>
+                    <div class="alis">
+                      <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+                        Alias
+                      </button>
+                    </div>
+                      
+                      <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Alias</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form method="POST">
+                                  {% csrf_token %}
+                                  <div id="message" style="color: red;"></div>
+                                  <!-- <div class="mb-3">
+                                      <label>Firstname</label>
+                                         <input type="text" id="firstname" class="form-control" required/>
+                                  </div>         -->
+                                  <div class="mb-3">
+                                  <label>Alias Name</label>
+                                  <input list="masteralias-flavors" id="masteralias" id="masteralias" name="masteralias" class="form-control" required />
+                        
+                                  <datalist id="masteralias-flavors">
+                                             
+                                  </datalist>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label>Alias Type </label>
+                                      <input list="masteraliascolumn-flavors" id="masteraliascolumn"  id="masteraliascolumn" name="masteraliascolumn" class="form-control" required  />
+    
+                                      <datalist id="masteraliascolumn-flavors">
+                                                 
+                                      </datalist>
+                                      <!-- <input type="text" id="masteraliascolumn"  id="masteraliascolumn"  name="masteraliascolumn" class="form-control" required/> -->
+                                  </div>
+                                  <div class="mb-3">
+                                      <label>Alias Value</label>
+                                      <input type="text" id="masteraliasinput" id="masteraliasinput" name="masteraliasinput" class="form-control" placeholder=" Client/Job description/Position summary" required/>
+                                  </div>
+                               
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                            </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>  
+                      <!-- constant div -->
+                  </div>
+                  </div>
+                <!-- <form id="delete-btn" method="POST" action="" style="display: none;">
+                  {% csrf_token %}
+                  <input type="hidden" name="delete_dynamic" value="1">
+              </form> -->
+            <form action="/update/{{object.id}}" method="POST">
+                {% csrf_token %}
+            <!-- <ul class="form-style-1"> -->
+            <ul class="form-style-1 datim">
+                  <!-- <li>
+                    <label>Date</label> -->
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <!-- <input type="text" class="field-long field-textarea" name="date" value="{{object.date}}">
+                </li> -->
+                    <li>
+                      <label>Date</label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="date" value="{{object.date}}">
+                    </li>
+                    <li>
+                        <label>Time</label>
+                        <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                        <input type="text" class="field-long field-textarea" name="title" value="{{object.title}}">
+                    </li>
+                    <li>
+                        <label>Mobile Number</label>
+                        <!-- <textarea class="field-long field-textarea" name="year">{{object.year}}</textarea> -->
+                        <input type="text" class="field-long field-textarea" name="year" value="{{object.year}}">
+                    </li>
+                    <li>
+                      <label></label>
+                      <!-- <textarea class="field-long field-textarea" name="checkstatus">{{object.checkstatus}}</textarea> -->
+                      <!-- <input type="text" class="field-long field-textarea" name="dropdownlist" value="{{object.dropdownlist}}"> -->
+                      <label for="id_locations" style="margin: 0px;">Lead Type</label>
+                      <select style="height: 34px;"  name="dropdownlist" id="dropdownlist" class="optio_n" required="" onchange="add_class_onchange()">
+                      <option  value="{{object.dropdownlist}}" selected="">{{object.dropdownlist}}</option>
+                
+                      <!-- <option value="New">New</option> -->
+                      <option value="3rd party Job posting & Recruitment">3rd party Job posting & Recruitment</option>
+                      <option value="Blog">Blog</option>
+                      <option value="Benchsales">Benchsales</option>
+                      <option value="Careersales">Careersales</option>
+                      <option value="Interview questions">Interview questions</option>
+                      <option value="Misc">Misc</option>
+                      <option value="Presentation">Presentation</option>
+                      <option value="Requirements">Requirements</option>
+                      <option value="Training">Training</option>
+                      <option value="Web content">Web content</option>
+                    
+                        <button class="subbtn">Submit</button>
+                    
+                      </select>
+                  </li>
+                  
+            </ul>  
+            <!-- <ul class="form-style-1 datim second_row">
+              <button type="submit" name="save_alias">Update & Alias</button>
+              <button type="submit" name="save_aliasapi">Update & Category</button>
+              
+            </ul> -->
+            <!-- <ul class="form-style-1 datim second_row">
+              <li>
+                <div class="feldbx" style="margin-right: 7px;">
+                  <label for="whatsappmaincategory">Alias Name </label>
+                 
+                  <input list="aliasname-flavors" id="aliasname" name="masteralias" value="{{object.masteralias}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+  
+                  <datalist id="aliasname-flavors">
+                             
+                  </datalist>
+                </div>
+              </li>
+              <li>
+                <div class="feldbx">
+                  <label for="whatsappmaincategory">Alias Type </label>
+                  <select  name="masteraliascolumn" id="aliastype" class="optio_n"  >
+                    <option  value="{{object.masteraliascolumn}}" selected="">{{object.masteraliascolumn}}</option>
+              
+                   
+                   
+                    <option value="alias_names">alias_names</option>
+                    <option value="alias_values">alias_values</option>
+                   
+                      <button class="subbtn">Submit</button>
+                  
+                    </select>
+ 
+                </div>
+              </li>
+              <li>
+                <div class="feldbx">
+                  <label for="whatsappmaincategory">Alias Value </label>
+                  
+                  <input type="text" class="field-long field-textarea" name="masteraliasinput" value="{{object.masteraliasinput}}" placeholder=" Client/Job description/Position summary">
+                </div>
+              </li>
+               <li>
+                 <div class="feldbx">
+                 <button type="submit" style="width: 100%;width: 100%;margin-top: 22px;padding: 9px 0px;margin-left: 4px;border-radius: 8px;" name="save_alias">Update & Alias</button>
+                 </div>
+              
+               </li>
+            </ul> -->
+            <ul class="form-style-1 datim second_row">
+              <li style="width: 25% !important;">
+              <div class="feldbx" style="margin-right: 7px;">
+                <label for="whatsappcompanytype">Technology Company  </label>
+                <!-- <select type="text" name="companyname" id="CompanySingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.companyname}}" ></select> -->
+                <!-- <select type="text" name="companyname" id="companyname" multiple style="width: 100%;" class="field-long field-textarea select_field_class" value="{{object.companyname}}" multiple="multiple"></select> -->
+                <input list="companyname-flavors" id="companyname" name="companyname" value="{{object.companyname}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+
+                <datalist id="companyname-flavors">
+                            <!-- Options will be dynamically added here -->
+                </datalist>
+             </div>
+            </li>
+            <li style="width: 25% !important;">
+              <div class="feldbx" style="margin-right: 7px;">
+                <label for="whatsappmaincategory">Main Category </label>
+                <!-- <select type="text" name="maincategory" id="MaincategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.maincategory}}" ></select> -->
+                <!-- <select type="text" name="maincategory" id="MaincategorySelect"  style="width: 100%;" class="field-long field-textarea select_field_class"  value="{{object.maincategory}}"  multiple="multiple"></select> -->
+                <!-- <select type="text" name="maincategory" id="maincategory_id" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  value="{{object.maincategory}}"  multiple="multiple"></select> -->
+                <input list="maincategory-flavors" id="maincategory" name="maincategory" value="{{object.maincategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+
+                <datalist id="maincategory-flavors">
+                           
+                </datalist>
+              </div>
+            </li>
+            <!-- <li>
+              <div class="feldbx">
+                <label for="whatsappmaincategory">Main Category ID </label>
+               
+                <input list="maincategoryid-flavors" id="maincategoryid" name="maincategoryid" value="{{object.maincategoryid}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+
+                <datalist id="maincategoryid-flavors">
+                           
+                </datalist>
+              </div>
+            </li> -->
+          </li>
+            <li style="width: 25% !important;">
+              <div class="feldbx" style="margin-right: 7px;">
+                <!-- subcategory_id -->
+                <label for="whatsappmaincategory">Sub Category / Product Line </label>
+                <!-- <label for="whatsappmaincategory">Sub Category *</label> -->
+                <!-- <select type="text" name="subcategory" id="subcategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.subcategory}}" ></select> -->
+                <!-- <select type="text" name="subcategory" id="subcategorySelect" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  value="{{object.maincategory}}"  multiple="multiple"></select> -->
+                <!-- <select type="text" name="subcategory" id="subcategory_id" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  value="{{object.maincategory}}"  multiple="multiple"></select> -->
+                <input list="subcategory-flavors" id="subcategory" name="subcategory" value="{{object.subcategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+
+                <datalist id="subcategory-flavors">
+                           
+                </datalist>
+              </div>
+              
+            </li>
+            <li style="width: 25% !important;">
+              <div class="feldbx" style="margin-right: 7px;">
+                <label for="whatsappRoleSingleSelect">Role </label>
+                <!-- <label for="whatsappmaincategory">Sub Category *</label> -->
+                <!-- <select type="text" name="roles" id="RoleSingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.roles}}" ></select> -->
+                <!-- <select type="text" name="roles" id="roles" multiple style="width: 100%;" class="field-long field-textarea select_field_class" value="{{object.roles}}" multiple="multiple"></select> -->
+                <input list="roles-flavors" id="roles" name="roles" value="{{object.roles}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+
+                <datalist id="roles-flavors">
+                            <!-- Options will be dynamically added here -->
+                </datalist>
+              </div>
+              
+            </li>
+               <li>
+                <div class="feldbx">
+                <button type="submit" style="width: 100%;width: 100%;margin-top: 22px;padding: 9px 0px;margin-left: 0px;border-radius: 8px;" name="save_aliasapi">Update & Category</button>
+                </div>
+              </li>
+            </ul>
+        
+              
+            
+           
+            <ul class="form-style-1">    
+                    <li>
+                      
+                      <button type="submit" name="save_continue">Update & Continue</button>
+                      <button type="submit" name="save_home">Update</button>
+                      <button type="submit" name="save_next">Update & Next</button>
+                    
+                      <button type="submit" name="Careersales">Careersales & Update & Next</button>
+                      <button type="submit" name="Benchsales">Benchsales & Update & Next</button>
+                  
+                      <form id="myForm" action="" method="post">
+                      
+                        <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
+                        <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
+                      </form>
+                    </li>
+                    <li>
+                        <label>Message</label>
+                        <textarea id="editor" class="field-long field-textarea chat_area" style="height: 150px;" name="filmurl">{{object.filmurl|linebreaksbr}}</textarea>
+                    </li>
+            
+            
+                    <li class="statu_s">
+                      <label>Status</label>
+                      <!-- <textarea class="field-long field-textarea" name="checkstatus">{{object.checkstatus}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="checkstatus" value="{{object.checkstatus}}">
+                  </li>
+                  
+                  <!-- <li>
+                    <label></label> -->
+                    <!-- <textarea class="field-long field-textarea" name="checkstatus">{{object.checkstatus}}</textarea> -->
+                    <!-- <input type="text" class="field-long field-textarea" name="dropdownlist" value="{{object.dropdownlist}}"> -->
+                    <!-- <label for="id_locations">Lead Type</label>
+                    <select  name="dropdownlist" id="dropdownlist" class="optio_n" required="" onchange="add_class_onchange()">
+                    <option  value="{{object.dropdownlist}}" selected="">{{object.dropdownlist}}</option>
+              
+               
+                    <option value="3rd party Job posting & Recruitment">3rd party Job posting & Recruitment</option>
+                    <option value="Blog">Blog</option>
+                    <option value="Benchsales">Benchsales</option>
+                    <option value="Careersales">Careersales</option>
+                    <option value="Interview questions">Interview questions</option>
+                    <option value="Misc">Misc</option>
+                    <option value="Presentation">Presentation</option>
+                    <option value="Requirements">Requirements</option>
+                    <option value="Training">Training</option>
+                    <option value="Web content">Web content</option>
+                  
+                      <button class="subbtn">Submit</button>
+                  
+                    </select>
+                </li> -->
+                <!-- <li>
+                 
+                  
+                  <button type="submit" name="save_continue">Update & Continue</button>
+                  <button type="submit" name="save_home">Update</button>
+                  <button type="submit" name="save_next">Update & Next</button>
+                 
+                  <button type="submit" name="Careersales">Careersales & Update & Next</button>
+                  <button type="submit" name="Benchsales">Benchsales & Update & Next</button>
+                
+                  <form id="myForm" action="" method="post">
+                   
+                    <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
+                    <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
+                  </form>
+                 
+                </li> -->
+
+                  
+                 
+                            
+                    
+                    
+                    
+                </ul>
+            </form>
+            <div class="stat">
+            <ul>
+              <li>
+                <div style="display:inline-block">
+                  <label>Page Status</label>
+                  <div class="ontwbt">
+                  <a class="onetwobtn" href="{% url 'status' object.id %}">Status {{object.checkstatus}} </a></div></div>
+              </li>
+            </ul>
+          </div>
+          
+ 
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+  // Replace the textarea with CKEditor
+let filmurl = CKEDITOR.replace('editor', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the text with spacing
+      var textWithSpacing = filmurl;
+
+      // Set the text with spacing in the editor
+      evt.editor.setData(textWithSpacing);
+    }
+  }
+});
+
+</script>
+
+<script>
+
+
+  $(document).ready(function() {
+    var $select = $('#CompanySingleSelect');
+
+    $select.select2({
+        placeholder: 'Select Company Type',
+        allowClear: true,  // Allow clearing the selection
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=technology_companies',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//role select
+
+$(document).ready(function() {
+    var $select = $('#RoleSingleSelect');
+
+    $select.select2({
+        placeholder: 'Select Role Type',
+        allowClear: true,  // Allow clearing the selection
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_job_title',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+
+</script>
+<script>
+  function showConfirmDialog() {
+    if (confirm("Are you sure you want to delete?")) {
+      document.getElementById("delete-btn").click();
+    }
+  }
+</script>
+<script>
+  
+  $(document).ready(function() {
+    var $mainCategorySelect = $('#MaincategorySelect');
+    var $subcategorySelect = $('#subcategorySelect');
+
+    // Initialize the Main Category Select2 dropdown
+    $mainCategorySelect.select2({
+        placeholder: 'Select Main Category Type',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    // Initialize the Sub Category Select2 dropdown
+    $subcategorySelect.select2({
+        placeholder: 'Select Sub Category Type'
+    });
+
+    // Load main categories using AJAX
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories',
+        dataType: 'json',
+        success: function(data) {
+            $mainCategorySelect.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $mainCategorySelect.append(new Option(item.name, item.id)); // Use item.id instead of item.name
+            });
+        }
+    });
+
+    // Set up an event listener for changes in the Main Category dropdown
+    $mainCategorySelect.on('select2:select', function(e) {
+        var mainCategoryId = e.params.data.id;
+        
+        // Update the URL of the Sub Category dropdown based on the selected Main Category
+        $subcategorySelect.select2({
+            placeholder: 'Select Sub Category Type',
+            allowClear: true,  // Allow clearing the selection
+            tags: true,      // Allow adding custom tags
+            data: [],  // Initial empty data
+
+
+            // Handle selection
+            templateResult: function(data) {
+                return data.text;
+            },
+            
+            // Handle deselection
+            templateSelection: function(data) {
+                return data.text;
+            }
+        });
+
+        $.ajax({
+            url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=' + mainCategoryId,
+            dataType: 'json',
+            success: function(data) {
+                $subcategorySelect.empty();  // Clear existing options
+                data.data.forEach(function(item) {
+                    $subcategorySelect.append(new Option(item.name, item.name)); // Use item.id instead of item.name
+                });
+            }
+        });
+
+        $subcategorySelect.on('select2:select', function(e) {
+            var value = e.params.data.id;
+            $subcategorySelect.val(value).trigger('change');
+        });
+
+        $subcategorySelect.on('select2:unselect', function(e) {
+            $subcategorySelect.val(null).trigger('change');
+        });
+    });
+});
+
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=technology_companies')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('companyname-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('companyname');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_job_title')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('roles-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('roles');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('aliasname-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('aliasname');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('aliastype-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('aliastype');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  //companyname
+// $(document).ready(function() {
+//     var $select = $('#companyname');
+
+//     $select.select2({
+//         placeholder: 'Type and select companyname',
+//         allowClear: true,  // Allow clearing the selection
+//         tags: true,      // Allow adding custom tags
+//         data: [],  // Initial empty data
+
+//         // Handle selection
+//         templateResult: function(data) {
+//             return data.text;
+//         },
+        
+//         // Handle deselection
+//         templateSelection: function(data) {
+//             return data.text;
+//         }
+//     });
+
+//     $.ajax({
+//         url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=technology_companies',
+//         dataType: 'json',
+//         success: function(data) {
+//             $select.empty();  // Clear existing options
+//             data.data.forEach(function(item) {
+//                 $select.append(new Option(item.name, item.name));
+//             });
+//         }
+//     });
+
+//     $select.on('select2:select', function(e) {
+//         var value = e.params.data.id;
+//         $select.val(value).trigger('change');
+//     });
+
+//     $select.on('select2:unselect', function(e) {
+//         $select.val(null).trigger('change');
+//     });
+// });
+  //maincategory
+//   $(document).ready(function() {
+//     var $select = $('#maincategory');
+
+//     $select.select2({
+//         placeholder: 'Type and select maincategory',
+//         allowClear: true,  // Allow clearing the selection
+//         tags: true,      // Allow adding custom tags
+//         data: [],  // Initial empty data
+
+//         // Handle selection
+//         templateResult: function(data) {
+//             return data.text;
+//         },
+        
+//         // Handle deselection
+//         templateSelection: function(data) {
+//             return data.text;
+//         }
+//     });
+
+//     $.ajax({
+//         url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories',
+//         dataType: 'json',
+//         success: function(data) {
+//             $select.empty();  // Clear existing options
+//             data.data.forEach(function(item) {
+//                 $select.append(new Option(item.name, item.name));
+//             });
+//         }
+//     });
+
+//     $select.on('select2:select', function(e) {
+//         var value = e.params.data.id;
+//         $select.val(value).trigger('change');
+//     });
+
+//     $select.on('select2:unselect', function(e) {
+//         $select.val(null).trigger('change');
+//     });
+// });
+
+ //roles
+//  $(document).ready(function() {
+//     var $select = $('#roles');
+
+//     $select.select2({
+//         placeholder: 'Type and select Roles',
+//         allowClear: true,  // Allow clearing the selection
+//         tags: true,      // Allow adding custom tags
+//         data: [],  // Initial empty data
+
+//         // Handle selection
+//         templateResult: function(data) {
+//             return data.text;
+//         },
+        
+//         // Handle deselection
+//         templateSelection: function(data) {
+//             return data.text;
+//         }
+//     });
+
+//     $.ajax({
+//         url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_job_title',
+//         dataType: 'json',
+//         success: function(data) {
+//             $select.empty();  // Clear existing options
+//             data.data.forEach(function(item) {
+//               // if (item.id==''|| item.id=='NULL'){
+//               //   $select.append(new Option(item.name, 'Null'+','+item.name))
+//               // }else{
+//               //   $select.append(new Option(item.name, item.id+','+item.name));
+//               // }
+
+//               $select.append(new Option(item.name, item.name));
+//             });
+//         }
+//     });
+
+//     $select.on('select2:select', function(e) {
+//         var value = e.params.data.id;
+//         $select.val(value).trigger('change');
+//     });
+
+//     $select.on('select2:unselect', function(e) {
+//         $select.val(null).trigger('change');
+//     });
+// });
+ </script>
+<script>
+  $(document).ready(function() {
+    var $mainCategorySelect = $('#maincategory_id');
+    var $subcategorySelect = $('#subcategory_id');
+
+    // Initialize the Main Category Select2 dropdown
+    $mainCategorySelect.select2({
+        placeholder: 'Type and select Maincategory ',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    // Initialize the Sub Category Select2 dropdown
+    $subcategorySelect.select2({
+        placeholder: 'Select Sub Category Type',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+    });
+
+    // Load main categories using AJAX
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories',
+        dataType: 'json',
+        success: function(data) {
+            $mainCategorySelect.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                if (item.id == '' || item.id == 'NULL') {
+                    $mainCategorySelect.append(new Option(item.name, 'Null' + ',' + item.name))
+                } else {
+                    $mainCategorySelect.append(new Option(item.name, item.id + ',' + item.name));
+                }
+            });
+        }
+    });
+    $mainCategorySelect.on('select2:unselect', function(e) {
+        $mainCategorySelect.val(null).trigger('change');
+    });
+    // Set up an event listener for changes in the Main Category dropdown
+    $mainCategorySelect.on('select2:select', function(e) {
+        var mainCategoryId = e.params.data.id;
+
+        // Update the URL of the Sub Category dropdown based on the selected Main Category
+        $subcategorySelect.val(null).trigger('change'); // Clear Sub Category selection
+        
+        $.ajax({
+            url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=' + mainCategoryId,
+            dataType: 'json',
+            success: function(data) {
+                $subcategorySelect.empty();  // Clear existing options
+                data.data.forEach(function(item) {
+                    $subcategorySelect.append(new Option(item.name, item.name));
+                });
+            }
+        });
+    });
+   
+    
+    // Handle Sub Category selection and deselection outside the Main Category event listener
+    $subcategorySelect.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $subcategorySelect.val(value).trigger('change');
+    });
+
+    $subcategorySelect.on('select2:unselect', function(e) {
+        $mainCategorySelect.val(null).trigger('change');
+    });
+
+    // $subcategorySelect.on('select2:select', function(e) {
+    //   var value = e.params.data.id;
+    //   $subcategorySelect.val(value).trigger('change');
+
+    //   // Clear the Main Category selection
+    //   $mainCategorySelect.val(null).trigger('change');
+    // });
+
+    // $subcategorySelect.on('select2:unselect', function(e) {
+    //     // Clear the Main Category selection
+    //     $mainCategorySelect.val(null).trigger('change');
+    // });
+    
+});
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mainCategorySelect = document.getElementById('maincategory');
+    const subCategorySelect = document.getElementById('subcategory');
+    const mainCategoryFlavors = document.getElementById('maincategory-flavors');
+    const subCategoryInput = document.getElementById('subcategory-flavors'); // The input for displaying subcategory data
+    // const mainCategoryidSelect = document.getElementById('maincategoryid');
+    // const mainCategoryidFlavors = document.getElementById('maincategoryid-flavors');
+    // Fetch main categories from a URL (replace with your API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories')
+      .then(response => response.json())
+      .then(data => {
+        const jsonData = data.data;
+        let mainCategoryexistingValue = mainCategorySelect.value.trim(); // Get the existing value
+        // let mainCategoryidexistingValue = mainCategoryidSelect.value.trim();
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          // option.value = item.id+','+item.name;
+          option.value = item.id+','+item.name;
+          option.setAttribute('data-id', item.id); // Store the ID as a data attribute
+          mainCategoryFlavors.appendChild(option);
+          
+        });
+        
+
+        mainCategorySelect.addEventListener('input', function() {
+          const selectedOption = mainCategoryFlavors.querySelector(`option[value="${this.value}"]`);
+          if (selectedOption) {
+            const mainCategoryId = selectedOption.getAttribute('data-id');
+            // Fetch subcategories based on the selected main category ID
+            fetchSubcategories(mainCategoryId);
+          }
+        });
+        // jsonData.forEach(item => {
+        //     const option = document.createElement('option');
+        //     option.value = item.id;
+        //     mainCategoryidFlavors.appendChild(option);
+        //     // Only append the option if it's not the same as the existing value
+            
+        //   });
+        //   // Listen for input changes to update the existing value
+        //   mainCategoryidSelect.addEventListener('input', function() {
+        //     mainCategoryidexistingValue = this.value.trim();
+        //   });
+       
+     
+      })
+      .catch(error => {
+        console.error('Error fetching main categories:', error);
+      });
+
+    // function fetchSubcategories(mainCategoryId) {
+    //   // Fetch subcategories using the main category ID
+    //   fetch(`https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=${mainCategoryId}`)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       console.log(data); // Log the data for debugging
+       
+    //      subCategorySelect.innerHTML = ''; // Clear existing subcategories
+    //      subCategoryInput.value = ''; // Clear the sub-category input
+    //      const jsonData = data.data; // Use data.data to access the 'data' array
+    //      let existingValue = subCategorySelect.value.trim(); // Get the existing value
+
+    //       jsonData.forEach(item => {
+    //         const option = document.createElement('option');
+    //         option.value = item.name;
+    //         subCategoryInput.appendChild(option);
+    //         // Only append the option if it's not the same as the existing value
+    //         if (item.name !== existingValue) {
+              
+    //           subCategoryInput.appendChild(option);
+    //         }
+    //         else if (item.name == '') {
+    //           subCategoryInput.appendChild("Not found");
+    //         }
+    //       });
+    //       // Listen for input changes to update the existing value
+    //       subCategorySelect.addEventListener('input', function() {
+    //         existingValue = this.value.trim();
+    //       });
+    //     })
+    //   .catch(error => {
+    //     console.error('Error fetching data:', error);
+    //   });
+          
+    // }
+    function fetchSubcategories(mainCategoryId) {
+      // Fetch subcategories using the main category ID
+      fetch(`https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=${mainCategoryId}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+
+          subCategoryInput.value = ''; // Clear the sub-category input
+
+          const jsonData = data.data;
+          let existingValue = subCategorySelect.value.trim(); // Get the existing value
+          subCategoryInput.innerHTML = ''; // Clear the sub-category input options
+
+          if (jsonData.length === 0) {
+            subCategoryInput.value = 'Not found';
+          } else {
+            jsonData.forEach(item => {
+              const option = document.createElement('option');
+              option.value = item.name;
+              if ( option.value === 'undefined') {
+                option.value = 'Not found';
+              } 
+              subCategoryInput.appendChild(option);
+              // console.log(option);
+              // Only append the option if it's not the same as the existing value
+              if (item.name !== existingValue) {
+                subCategoryInput.appendChild(option);
+              }
+            });
+          }
+
+
+          // Listen for input changes to update the existing value
+          subCategorySelect.addEventListener('input', function() {
+            existingValue = this.value.trim();
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching subcategories:', error);
+        });
+    }
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+    $('#table').DataTable();
+     
+    $('#datasubmit').on('click', function(){
+        $masteralias = $('#masteralias').val();
+        $masteraliascolumn = $('#masteraliascolumn').val();
+        $masteraliasinput = $('#masteraliasinput').val();
+  
+        if($masteralias == "" || $masteraliascolumn == "" || $masteraliasinput == ""){
+            // alert("Please complete field");
+             // Display an error message in the "message" div
+             $('#message').text('Please complete all fields')
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "/alias/",
+                data:{
+                  masteralias: $masteralias,
+                  masteraliascolumn: $masteraliascolumn,
+                  masteraliasinput: $masteraliasinput,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    // alert('Save Data');
+                    $('#message').text('Your data has been saved succesfully')
+                    $('#masteralias').val('');
+                    $('#masteraliascolumn').val('');
+                    $('#masteraliasinput').val('');
+                    // window.location = "/";
+                }
+            });
+        }
+    });
+});
+</script>
+<script type = "text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteralias-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteralias');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Alias%20dropdown')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteraliascolumn-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteraliascolumn');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+
+
+
+
+        </div>
+       </div>
+    </div>
+</body>
+
+</html>

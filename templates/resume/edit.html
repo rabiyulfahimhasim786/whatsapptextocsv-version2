@@ -1,0 +1,3582 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+      .container {
+        width: 95% !important;
+        max-width: none !important;
+        margin: auto;
+      }
+      .overalledtscr {
+          display: flex;
+          margin-top: -25px;
+      }
+      .lef {
+          width: 40%;
+          margin-right: 25px;
+      }
+      .rit {
+          width: 60%;
+          /* margin-top: 16px; */
+      }
+      .bck-btn {
+          display: flex;
+          margin-left: auto;
+          margin-top: 28px;
+      }
+
+    
+      tr:nth-child(even){background-color: #ebe1ff}
+      .nam_con_emai input {
+        width: 100%;
+        height: 28px;
+        border: 1px solid #0b9b3f;
+        border-radius: 8px;
+      }
+      
+      /* .tab_le {
+        margin-top: 30px;
+      } */
+      .tab_le table thead {
+        padding: 10px;
+        background: #0b9b3f;
+        color: #fff;
+      }
+      .tab_le tbody tr td {
+        line-height: 30px;
+      }
+      .back {
+        padding: 10px 20px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        z-index: 999;
+        cursor: pointer;
+        margin-left: 48px;
+      }
+      .back:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+      .back1 {
+        padding: 10px 20px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        z-index: 999;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .back1:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+      .sklexp {
+        display: flex;
+        /* margin-top: 30px; */
+      }
+      .skills p {
+        margin: 6px 0px;
+      }
+      .skills input {
+        width: 100%;
+        padding: 7px 0px;
+        height: 30px;
+        border-bottom: 1px solid #eee;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        outline: none;
+      }
+      .experience  input {
+        width: 99%;
+        padding: 7px 0px;
+        height: 30px;
+        border-bottom: 1px solid #eee;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        outline: none;
+      }
+
+      .tab_le tbody tr td input {
+        width: 100%;
+        padding: 7px 0px;
+        height: 30px;
+        border-bottom: 1px solid #eee;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        outline: none;
+      }
+      .lablebc label {
+        margin: 0px;
+      }
+      .lablebc1 label {
+        margin: 0px;
+      }
+      .lablebc {
+        background: #0b9b3f;
+        padding: 3px 0px;
+        color: #fff;
+      }
+      .lablebc1 {
+        background: #0b9b3f;
+        padding: 3px 0px;
+        color: #fff;
+      }
+      .updatebtn {
+        padding: 5px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        border: none;
+        font-size: 15px;
+        margin: 10px 0px;
+      }
+      .next {
+  padding: 5px 12px;
+    margin: 0;
+    background: #0b9b3f;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+}
+      .tophead1 {
+        text-align: center;
+      }
+      .tab_le label {
+        font-weight: bold;
+      }
+      .techsk label {
+        font-weight: bold;
+      }
+      /* .titles {
+        margin-top: 30px;
+      } */
+      .bs-example{
+    	margin: 20px;
+    }
+    .submi_t_btn {
+        padding: 4px 15px;
+        background: #0b9b3f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .submi_t_btn:hover {
+        background: #01471b;
+    }
+
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+/* Modal Content */
+.modal-content {
+  /* background-color: #fefefe; */
+  margin: auto;
+  padding: 20px;
+  /* border: 1px solid #888; */
+  width: 30%;
+  border-radius: 15px !important;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 12px;
+  top: 5px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close1 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close1:hover,
+.close1:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close2 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close3 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close3:hover,
+.close3:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.closet {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.closet:hover,
+.closet:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* refer */
+.close4 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close4:hover,
+.close4:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close5 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close5:hover,
+.close5:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close6 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close6:hover,
+.close6:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close9 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close9:hover,
+.close9:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close10 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close10:hover,
+.close10:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close11 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close11:hover,
+.close11:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close12 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close12:hover,
+.close12:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close7 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -35px;
+  z-index: 10000;
+  right: 10px;
+  top: 0px;
+}
+
+.close7:hover,
+.close7:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#fancybox-content {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 10px;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1102;
+    border: 0px solid #fff;
+    background: #fff !important;
+    display: table;
+}
+.popup_head {
+    padding: 10px 15px;
+    font-size: 20px;
+    background: #0b9b3f;
+    color: #fff;
+    font-weight: 600;
+}
+.add_more_table {
+    padding: 20px 0;
+    margin: 0 auto;
+    display: table;
+}
+.but_popup {
+    padding: 0;
+    margin: 0 auto;
+    border-bottom: none!important;
+    text-align: center;
+    margin: 18px 0px;
+}
+.c_btn {
+    padding: 6px 12px;
+    margin: 0;
+    background: #ea1a22;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+}
+.s_btn {
+    padding: 6px 12px;
+    margin: 10px 18px 0 0;
+    background: #3aae49;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+}
+.add_more_table {
+    padding: 20px 0;
+    margin: 0 auto;
+    /* display: flex; */
+    justify-content: space-evenly;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.add_more_table li {
+    padding: 0px 10px;
+    margin: 0;
+    float: left;
+    width: 50%;
+    list-style: none;
+}
+.add_more_table li p {
+    color: #252525;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    padding: 6px 0;
+}
+.add_more_table li input {
+    padding: 6px 6px;
+    margin: 0;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    width: 100%;
+    color: #484848;
+}
+.search-exp {
+    z-index: 99;
+    background-color: #fff;
+    right: 0px;
+}
+.add_more_table li select {
+    padding: 5px 5px;
+    margin: 0 0 4px 0;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    width: 46%;
+    float: left;
+}
+#myBtn i {
+    color: #3aae49;
+}
+.modal-content {
+  width: 60% !important;
+}
+.slex {
+  display: flex;
+  justify-content: center;
+}
+.skiexp {
+  display: grid;
+  margin: 0px 5px;
+}
+.skiexp input {
+  border: 1px solid #707070;
+  border-radius: 5px;
+}
+.cancelbtn {
+  padding: 6px 12px;
+    margin: 0;
+    background: #ea1a22;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.cancelbtn:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.subbtn {
+  padding: 6px 12px;
+    margin: 10px 18px 0 0;
+    background: #3aae49;
+    color: #fff !important;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+}
+#skill_pop {
+  height: 164px;
+}
+#skill_pop1 {
+  height: auto;
+}
+#skill_pop3 {
+  height: auto;
+}
+.adskil i {
+  color: #0b9b3f;
+  padding-right: 3px;
+}
+.adskil {
+  float: right;
+  cursor: pointer;
+}
+.tech_skl {
+  height: 300px;
+  overflow: hidden;
+}
+.tech_skl:hover {
+  overflow-y: scroll;
+}
+.educatiioninbox {
+  display: grid;
+  width: 49%;
+  margin-right: 13px;
+}
+.educatiioninbox1 {
+  display: grid;
+  width: 49%;
+}
+.int_frm_to {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.edicationbox {
+  display: flex;
+  justify-content: space-between;
+}
+.expe_rence {
+  height: 300px;
+  overflow: hidden;
+}
+.expe_rence:hover {
+  overflow: scroll;
+}
+.nam_con_emai {
+  display: flex;
+  margin-bottom: 10px;
+}
+.nam_con1 {
+  border-top: 1px solid #eee;
+}
+.secondbx {
+  margin: 0px 8px;
+}
+.nam_con_emai_inbox {
+  width: 100%;
+}
+.nam_con_emai_inbox label {
+  margin: 0px;
+}
+.techtable {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.techtable:hover {
+  overflow-y: scroll;
+}
+.del_et {
+  margin-right: 5px;
+}
+.del_et {
+  position: relative;
+  left: -18px;
+}
+.edtic i {
+  margin: 0px 0px;
+    margin-left: 5px;
+}
+.rit form {
+  margin-bottom: 10px;
+}
+.upbt1 {
+  margin-top: 0px;
+  margin-bottom: 18px;
+}
+.tophd {
+  position: relative;
+  top: -47px;
+  border-bottom: 1px solid #0b9b3f;
+}
+.educatiioninbox input {
+  border: 1px solid #707070 !important;
+  border-radius: 5px !important;
+}
+.educatiioninbox1 input {
+  border: 1px solid #707070 !important;
+  border-radius: 5px !important;
+}
+.educatbox {
+  display: flex;
+}
+.educatbox select {
+  width: 50%;
+  border: 1px solid #707070 !important;
+  border-radius: 5px !important;
+}
+.sklius input {
+  width: 100%;
+  margin: 5px 5px;
+}
+.sklius {
+  display: flex;
+}
+.fa-trash-o {
+  color: red;
+}
+.fa-plus {
+  color: green;
+}
+.thrcked {
+  margin-left: 50px;
+  margin-top: -1128px;
+}
+.lefform {
+  height: 150vh;
+  overflow: auto;
+}
+.lefform {
+    /* max-height: 250px;
+    padding: 1rem; */
+    overflow-y: hidden;
+    direction: ltr;
+    scrollbar-color: #d4aa70 #e4e4e4;
+    scrollbar-width: thin;
+    border-radius: 10px;
+}
+.lefform:hover {
+    overflow-y: scroll;
+}
+.lefform::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .lefform::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
+  
+  .lefform::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: #0b9b3f;
+  }
+
+  .rit {
+  height: 150vh;
+  overflow: auto;
+}
+.rit {
+    /* max-height: 250px;
+    padding: 1rem; */
+    overflow-y: hidden;
+    direction: ltr;
+    scrollbar-color: #d4aa70 #e4e4e4;
+    scrollbar-width: thin;
+    border-radius: 10px;
+}
+.rit:hover {
+    overflow-y: scroll;
+}
+.rit::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .rit::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
+  
+  .rit::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: #0b9b3f;
+  }
+
+  .cke_chrome {
+    border: 1px solid #0b9b3f !important;
+  }
+  </style>
+<head>
+    <title>Edit Extracted Resume</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Select2 CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+
+</head>
+<body>
+  <div class="bck-btn">
+    
+    <a class="back" href="{% url 'extracted_resumes'%}">Resume List</a>
+    <a class="back1" href="/media/{{resumefile.file.name}}">resume</a>
+  </div>
+  
+<div class="container"> 
+  <div>
+    <h1 class="tophead1 tophd">Edit Extracted Resume</h1>
+  </div>
+  <div class="overalledtscr">
+    <div class="lef">
+      <form class="lefform"  method="POST" action="/resume/extracted_resumes/update_or_create/{{extracted_profile.id}}">
+        {% csrf_token %}
+        <input type="hidden" value="{{extracted_profile.id}}" name="resume">
+        <div class="techsk titles">
+          <label for="resume_data" class="techsk">Text</label>
+          <textarea name="resume_data" cols="40" rows="10" id="id_resume_data">{{reparser_professional.ResumeParser}}</textarea>
+        </div>
+        <div class="techsk titles">
+          <label for="experience_data" class="techsk">Experience</label>
+          <textarea name="experience_data" cols="40" rows="10" id="id_experience_data">{{reparser_professional.ExperienceParser}}</textarea>
+        </div>
+        <div class="techsk titles">
+          <label for="education_data">Education</label>
+          <textarea name="education_data" cols="40" rows="10" id="id_education_data">{{reparser_professional.EducationParser}}</textarea>
+        </div>
+        <div class="techsk titles">
+          <label for="certificate_data">Certificate</label>
+          <textarea name="certificate_data" cols="40" rows="10" value="{{reparser_professional.CertificateParser}}" id="id_certificate_data">{{reparser_professional.CertificateParser}}</textarea>
+        </div>
+        <button class="updatebtn upbt1" type="submit" style="margin-top: 20px;">Update</button>
+      </form>
+      
+      <form action="/resume/extracted_resumes/profile/{{extracted_profile.id}}" method="POST">
+        {% csrf_token %}
+      </div>
+        
+      <div class="rit">
+        <div class="techsk titles">
+          <label>Profile Details</label>
+          <label></label>
+        </div>
+
+      <div class="nam_con_emai nam_con1">  
+        <div class="nam_con_emai_inbox">
+          <label for="id_name">First Name:</label>
+          <input type="text" name="name" value="{{ extracted_profile.name }}" maxlength="255"  id="id_name">  
+        </div>
+        <div class="nam_con_emai_inbox secondbx">
+          <label for="id_name">Last Name:</label>
+          <input type="text" name="lastname" value="{{extracted_profile.lastname}}" maxlength="255"  id="id_name">  
+        </div>
+        
+        <div class="nam_con_emai_inbox">
+          <label for="id_contact_number">Contact number:</label>
+          <input type="text" name="contact_number" value="{{extracted_profile.contact_number}}" maxlength="30" id="id_contact_number">    
+        </div>
+
+        
+      </div>  
+      <!-- <div class="rit"> -->
+
+        <div class="nam_con_emai">  
+          <div class="nam_con_emai_inbox">
+            <label for="id_phone_carrier">Phone carrier:</label>
+            <input type="text" name="phone_carrier" value="{{extracted_profile.phone_carrier}}" maxlength="255"  id="id_phone_carrier">  
+          </div>
+        
+          <div class="nam_con_emai_inbox secondbx">
+            <label for="id_email">Email:</label>
+            <input type="email" name="email" value="{{extracted_profile.email}}" maxlength="255" id="id_email">
+          </div>
+
+          <div class="nam_con_emai_inbox">
+            <label for="id_total_experience">Experience:</label>
+            <input type="text" name="total_experience" value="{{extracted_profile.total_experience}}" maxlength="255" id="id_total_experience">    
+          </div>
+          
+        </div> 
+        <div class="nam_con_emai">  
+          <div class="nam_con_emai_inbox">
+            <label for="id_category">Category:</label>
+            <input type="text" name="category" value="{{extracted_profile.category}}" maxlength="255"  id="id_category">  
+          </div>
+        
+          <div class="nam_con_emai_inbox secondbx">
+            <label for="id_specialization">Education:</label>
+            <input type="text" name="specialization" value="{{extracted_profile.education}}" maxlength="255" id="id_specialization">    
+          </div>
+
+          <div class="nam_con_emai_inbox">
+            <label for="id_specialization">Specialization:</label>
+            <input type="text" name="specialization" value="{{extracted_profile.specialization}}" maxlength="255" id="id_specialization">    
+          </div>
+          
+        </div> 
+
+        <div class="nam_con_emai">  
+          <div class="nam_con_emai_inbox">
+            <label for="id_legalstatus">Legal status:</label>
+            <input type="text" name="legalstatus" value="{{extracted_profile.legalstatus}}" maxlength="255"  id="id_legalstatus">  
+          </div>
+        
+          <div class="nam_con_emai_inbox secondbx">
+            <label for="id_password">Password:</label>
+            <input type="text" name="password" value="{{extracted_profile.password}}" maxlength="255" id="id_password">    
+          </div>
+
+          <div class="nam_con_emai_inbox">
+            <label for="id_address">Address:</label>
+            <input type="text" name="address" value="{{extracted_profile.address}}" maxlength="255" id="id_address">    
+          </div>
+          
+        </div> 
+
+        <div class="nam_con_emai">  
+          <div class="nam_con_emai_inbox">
+            <label for="id_city">City:</label>
+            <input type="text" name="city" value="{{extracted_profile.city}}" maxlength="255"  id="id_city">  
+          </div>
+        
+          <div class="nam_con_emai_inbox secondbx">
+            <label for="id_state">State:</label>
+            <input type="text" name="state" value="{{extracted_profile.state}}" maxlength="255" id="id_state">    
+          </div>
+
+          <div class="nam_con_emai_inbox">
+            <label for="id_zipcode">Zipcode:</label>
+            <input type="text" name="zipcode" value="{{extracted_profile.zipcode}}" maxlength="255" id="id_zipcode">    
+          </div>
+          
+        </div> 
+        <div>
+          <button class="updatebtn upbt1" type="submit">Update</button>
+        </div>
+      </form> 
+      
+      
+      <div class="">
+        <form action="/resume/extracted_resumes/objective/{{extracted_objective.id}}" method="POST">
+          {% csrf_token %}
+          <div class="techsk titles">
+            <label for="id_objectives" class="techsk">Objectives</label>
+            <!-- <input type="text" name="objectives" value="{{extracted_resume.objectives}}" maxlength="255" id="id_objectives"> -->
+            <textarea name="objectives" cols="40" rows="10" id="id_objectives">{{extracted_objective.objectives}}</textarea>
+          </div>
+          <div>
+            <button class="updatebtn" type="submit">Update</button>
+          </div>
+        </form> 
+        <form action="/resume/extracted_resumes/professional/{{extracted_professional.id}}" method="POST">
+          {% csrf_token %}
+          <div class="techsk titles">
+            <label for="id_professional_summary">Profession summary</label>
+            <!-- <input type="text" name="professional_summary" value="{{extracted_resume.professional_summary}}" maxlength="255" id="id_professional_summary"> -->
+            <textarea name="professional_summary" cols="40" rows="10" id="id_professional_summary">{{extracted_professional.professional_summary}}</textarea>
+          </div>
+          <div>
+            <button class="updatebtn" type="submit">Update</button>
+          </div>
+        </form>  
+      </div>
+      
+      <div class="techsk titles">
+        <label>Techinical skills</label>
+        
+        <td> <div class="adskil"><a class="editbtn" id="myBtn1" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Technical Skills</a></div></td>
+        <label></label>
+      <form class="" action="/resume/extracted_resumes/skill/{{extracted_resume.id}}" method="POST">
+          {% csrf_token %}
+        <div class="sklexp tech_skl">
+          
+        <div class="skills ">
+          <div class="lablebc">
+          <label for="id_existing_skills">Skills:</label>
+         </div>
+          {% for skill in skill_data %}
+
+          <input type="text" name="leadskills{{  forloop.counter }}" value="{{skill.skills }}">
+
+
+          {% endfor %}
+        </div>
+        <div class="experience">
+        <div class="lablebc1">
+        <label for="id_existing_skills">Experience:</label>
+        </div>
+        {% for skill in skill_data %}
+
+        <input type="text" name="leadexperience{{  forloop.counter }}" value="{{skill.experience }}">
+        
+
+        {% endfor %}
+       </div>
+       <div class="skills ">
+        <div class="lablebc">
+        <label for="id_existing_skills">Action</label>
+       </div>
+        {% for skill in skill_data %}
+
+        <p><a class="delete-btn" data-id="{{skill.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i>
+        </a></p>
+        {% endfor %}
+       </div>
+       <div class="skills ">
+        <div class="lablebc" style="padding: 3px 0px;">
+        <label for="id_existing_skills"></label>
+       </div>
+        {% for skill in skill_data %}
+
+        
+        <p class="del_et"><a href="#"  onclick="return edit_skills_experience('{{extracted_resume.pk}}','{{skill.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a></p>
+        {% endfor %}
+       </div>
+       </div>
+      
+      <div>
+        <button class="updatebtn" type="submit">Update</button>
+      </div>
+      </form>
+
+      <form method="POST" action="/resume/extracted_resumes/add/{{extracted_profile.id}}">
+        {% csrf_token %}
+        <div id="myModal1" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                    <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                        <div id="skill_pop">
+                            <h3 class="popup_head">Technical Skills</h3>
+                            <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                            
+                            <!-- Skills -->
+                            <div class="slex">
+                            <div class="skiexp">
+                            <label for="skills">Skills:</label>
+                            <input type="text" name="skills" id="skills" required>
+                            </div>
+                            
+                            <!-- Experience -->
+                            <div class="skiexp">
+                            <label for="experience">Experience:</label>
+                            <input type="text" name="experience" id="experience" required>
+                            </div>
+                            </div>
+
+                            <div class="but_popup">
+                                <a class="back cancelbtn" href="">Cancel</a>
+                                <!-- <a class="subbtn">Submit</a> -->
+                                <button class="back next" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+<!-- edit form for skill and experience  -->
+    <form method="POST" action="/resume/extracted_resumes/edit_skills_experience/{{extracted_profile.id}}">
+      {% csrf_token %}
+        <input type="hidden" name="master_id" id="master_id" value="">
+        <input type="hidden" name="skills_experience_id" id="skills_experience_id" value="">
+        <div id="edit_skills_experience_myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                  <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                      <div id="skill_pop">
+                          <h3 class="popup_head">Technical Skills</h3>
+                          <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                          
+                          <!-- Skills -->
+                          <div class="slex">
+                          <div class="skiexp">
+                          <label for="skills">Skills:</label>
+                          <input type="text" name="skills" id="edit_skills" value="{{candidateskill_instance.skills}}" required >
+                          </div>
+                          
+                          <!-- Experience -->
+                          <div class="skiexp">
+                          <label for="experience">Experience:</label>
+                          <input type="text" name="experience" id="edit_experience" value="{{candidateskill_instance.experience}}" required>
+                          </div>
+                          </div>
+
+                          <div class="but_popup">
+                              <a class="back cancelbtn" href="">Cancel</a>
+                              <!-- <a class="subbtn">Submit</a> -->
+                              <button class="back next" type="submit">Submit</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+    </form>
+    
+
+    </div>
+
+      <div class="tab_le">
+        <div class="titles">
+        <label>Education</label>
+        
+        <td> <div class="adskil"><a class="editbtn" id="myBtn2" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Education</a></div></td>
+        <!-- <td> <a class="editbtn" id="myBtn2" >Add Education</a></td> -->
+        <label></label>
+        <form action="/resume/extracted_resumes/education/{{extracted_resume.id}}" method="POST">
+          {% csrf_token %}
+        <table>
+          <thead>
+            <tr>
+              <th>Qualification</th>
+              <!-- <th>Major</th> -->
+              <!-- <th>Specialization</th> -->
+              <th>Institution</th>
+              <th>From</th>
+              <th>To</th>
+              <th colspan="2">Action</th>
+              <!-- <th>Others</th>
+              <th>If Others</th>
+              <th>Location</th>
+              <th>Action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              
+              <td>
+                {% for education in education_data %}
+                    <input type="text" name="leaddegree{{ forloop.counter }}" value="{{ education.degree }}">
+                {% endfor %}
+              </td>
+              <td>
+                {% for education in education_data %}
+                    <input type="text" name="leadinstitute{{ forloop.counter }}" value="{{ education.institute }}">          
+                {% endfor %}
+              </td>
+            
+              <td>
+                {% for education in education_data %}
+                    <input type="text" name="leadstart_year{{ forloop.counter }}" value="{{ education.start_year }}">             
+                {% endfor %}
+              </td>
+              <td>
+                {% for education in education_data %}     
+                    <input type="text" name="leadend_year{{ forloop.counter }}" value="{{ education.end_year }}">          
+                {% endfor %}
+              </td>
+ 
+              <td>
+                {% for education in education_data %}     
+                <a class="edudelete-btn" data-id="{{education.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                </a>          
+                {% endfor %}
+              </td>                  
+              <td>
+                {% for education in education_data %} 
+                <a href="#"  onclick="return edit_education('{{extracted_resume.pk}}','{{education.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="updatebtn" type="submit">Update</button>
+        </div>
+      </form>
+
+      <form method="POST" action="/resume/extracted_resumes/addeducation/{{extracted_profile.id}}">
+        {% csrf_token %}
+        <div id="myModal2" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close3">&times;</span>
+                <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                    <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                        <div id="skill_pop1">
+                            <!--<form name="smt_skill" id="skill" action="saveskill.php" method="post">-->
+                            <h3 class="popup_head">Education</h3>
+                            <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                            
+                            <!-- Institution -->
+                            <div>
+
+                        <div class="int_frm_to">
+                            <div class="educatiioninbox">  
+                            <label for="institute">Institution:</label>
+                            <input type="text" name="institute" id="institute" required>
+                            </div>
+
+                          <div class="educationinbox" style="display: grid;width: 25%;margin-right: 3px;">
+                            <label for="start_year">From:</label>
+                            <select name="start_year" id="start_year" required>
+                                <option value="" disabled selected>From</option>
+                            </select>
+                        </div>
+                    
+                        <!-- To -->
+                        <div class="educationinbox" style="display: grid;width: 25%;">
+                            <label for="end_year">To:</label>
+                            <select name="end_year" id="end_year" required>
+                                <option value="" disabled selected>To</option>
+                            </select>
+                        </div>
+    
+                        </div>
+
+                            <!-- Qualification -->
+                        <div class="edicationbox">    
+                            <div class="educatiioninbox1">
+                            <label for="degree">Qualification:</label>
+                            <!-- <input type="text" name="degree" id="degree" required> -->
+                            <input list="degree-flavors" id="degree" name="degree" />
+
+                            <datalist id="degree-flavors">
+                              <!-- Options will be dynamically added here -->
+                            </datalist>
+                            </div>
+    
+                            <!-- Major -->
+                            <div class="educatiioninbox1">
+                            <label for="majordegree">Major:</label>
+                            <input type="text" name="majordegree" id="majordegree" required>
+                            </div>
+                          </div>    
+    
+                            <!-- Specialization -->
+                          <div class="edicationbox">  
+                            <div class="educatiioninbox1">
+                            <label for="specializationdegree">Specialization:</label>
+                            <!-- <input type="text" name="specializationdegree" id="specializationdegree" required> -->
+                            <input list="specializationdegree-flavors" id="specializationdegree" name="specializationdegree" />
+
+                            <datalist id="specializationdegree-flavors">
+                              <!-- Options will be dynamically added here -->
+                            </datalist>
+                          </div>
+    
+                            <!-- Others -->
+                            <div class="educatiioninbox1">
+                            <label for="others">Others:</label>
+                            <input type="text" name="others" id="others">
+                          </div>
+                          </div>
+    
+                            <!-- If Others -->
+                            <div class="edicationbox">
+                            <div class="educatiioninbox1">
+                            <label for="if_others">If Others:</label>
+                            <input type="text" name="if_others" id="if_others">
+                          </div>
+    
+                            <!-- Place -->
+                            <div class="educatiioninbox1">
+                            <label for="institutelocation">Place:</label>
+                            <input type="text" name="institutelocation" id="institutelocation">
+                          </div>
+                          </div>
+    
+                          </div>
+
+                          <div class="but_popup">
+                            <a class="back cancelbtn" href="">Cancel</a>
+                            <button class="back next" type="submit">Submit</button>
+                          </div>
+                            <!--  </form>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- edit eduction below form -->
+
+    <form method="POST" action="/resume/extracted_resumes/edit_education/{{extracted_profile.id}}">
+      {% csrf_token %}
+      <input type="hidden" name="master_id" id="edumaster_id" value="">
+      <input type="hidden" name="education_degree_id" id="education_degree_id" value="">
+      <div id="edit_education_myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close3">&times;</span>
+              <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                  <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                      <div id="skill_pop1">
+                          <!--<form name="smt_skill" id="skill" action="saveskill.php" method="post">-->
+                          <h3 class="popup_head">Education</h3>
+                          <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                          
+                          <!-- Institution -->
+                          <div>
+
+                      <div class="int_frm_to">
+                          <div class="educatiioninbox">  
+                          <label for="institute">Institution:</label>
+                          <input type="text" name="institute" id="edit_institute"  value="{{candidateeducation_instance.institute}}" required>
+                          </div>
+  
+                        <div class="educationinbox" style="display: grid;width: 25%;margin-right: 3px;">
+                          <label for="start_year">From:</label>
+                          <select name="start_year" id="edit_start_year" required>
+                              <!-- JavaScript will populate options here -->
+                          </select>
+                      </div>
+                      
+                      <div class="educationinbox"  style="display: grid;width: 25%;">
+                          <label for="end_year">To:</label>
+                          <select name="end_year" id="edit_end_year" required>
+                              <!-- JavaScript will populate options here -->
+                          </select>
+                      </div>
+  
+                      </div>
+
+                          <!-- Qualification -->
+                      <div class="edicationbox">    
+                          <div class="educatiioninbox1">
+                          <label for="degree">Qualification:</label>
+                          <!-- <input type="text" name="degree" id="edit_degree" value="{{candidateeducation_instance.degree}}" required> -->
+                         
+                          <input list="degree-flavors" id="edit_degree" name="degree" value="{{candidateeducation_instance.degree}}" required/>
+
+                          <datalist id="degree-flavors">
+                            <!-- Options will be dynamically added here -->
+                          </datalist>
+                          </div>
+  
+                          <!-- Major -->
+                          <div class="educatiioninbox1">
+                          <label for="majordegree">Major:</label>
+                          <input type="text" name="majordegree" id="edit_majordegree" value="{{candidateeducation_instance.majordegree}}" required>
+                          </div>
+                        </div>    
+  
+                          <!-- Specialization -->
+                        <div class="edicationbox">  
+                          <div class="educatiioninbox1">
+                          <label for="specializationdegree">Specialization:</label>
+                          <!-- <input type="text" name="specializationdegree" id="edit_specializationdegree" value="{{candidateeducation_instance.specializationdegree}}" required> -->
+                          <input list="specializationdegree-flavors" id="edit_specializationdegree" name="specializationdegree" value="{{candidateeducation_instance.specializationdegree}}" required/>
+
+                          <datalist id="specializationdegree-flavors">
+                            <!-- Options will be dynamically added here -->
+                          </datalist>
+                        </div>
+  
+                          <!-- Others -->
+                          <div class="educatiioninbox1">
+                          <label for="others">Others:</label>
+                          <input type="text" name="others" id="edit_others" value="{{candidateeducation_instance.others}}" required>
+                        </div>
+                        </div>
+  
+                          <!-- If Others -->
+                          <div class="edicationbox">
+                          <div class="educatiioninbox1">
+                          <label for="if_others">If Others:</label>
+                          <input type="text" name="if_others" id="edit_if_others" value="{{candidateeducation_instance.if_others}}"  required>
+                        </div>
+  
+                          <!-- Place -->
+                          <div class="educatiioninbox1">
+                          <label for="institutelocation">Place:</label>
+                          <input type="text" name="institutelocation" id="edit_institutelocation" value="{{candidateeducation_instance.institutelocation}}"  required>
+                        </div>
+                        </div>
+  
+                        </div>
+
+                        <div class="but_popup">
+                          <a class="back cancelbtn" href="">Cancel</a>
+                          <button class="back next" type="submit">Submit</button>
+                        </div>
+                          <!--  </form>-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+
+        </div>
+        <div class="titles">
+        <label>Experience</label>
+        <!-- <td> <a class="editbtn" href="{% url 'add_candidate_experience' extracted_resume.pk %}">Add Experience</a></td> -->
+        <td> <div class="adskil"><a class="editbtn" id="myBtn3" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Experience</a></div></td>
+        <label></label>
+        <form action="/resume/extracted_resumes/experience/{{extracted_resume.id}}" method="POST">
+          {% csrf_token %}
+        <table style="width: 100%;">
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Job Title</th>
+              <th>Skills Used</th>
+              <th>Location</th>
+              <th colspan="3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              
+              <td>
+                {% for work in work_data %}    
+                    <input type="text" name="leaddcompanyname{{ forloop.counter }}" value="{{ work.companyname }}">         
+                {% endfor %}
+              </td>
+              <td>
+                {% for work in work_data %}               
+                    <input type="text" name="leadjob_title{{ forloop.counter }}" value="{{ work.job_title }}">              
+                {% endfor %}
+              </td>
+              <td>
+                {% for work in work_data %}               
+                    <input type="text" name="leadskillused{{ forloop.counter }}" value="{{ work.skillused }}">                
+                {% endfor %}
+              </td>           
+              <td>
+                {% for work in work_data %}                 
+                    <input type="text" name="leadjoblocation{{ forloop.counter }}" value="{{ work.joblocation }}">               
+                {% endfor %}
+              </td>
+              
+              <td>
+                {% for work in work_data %}    
+                <a class="workdelete-btn" data-id="{{work.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                </a>          
+                {% endfor %}
+              </td>
+              <td>
+                {% for work in work_data %} 
+                <a href="#" class="edtic" onclick="return edit_experience('{{extracted_resume.pk}}','{{work.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+                {% endfor %}
+              </td>
+              <td>
+                {% for work in work_data %} 
+                <a href="#"  onclick="return edit_job_skills_used('{{extracted_resume.pk}}','{{work.id}}');"><i class="fa fa-plus" aria-hidden="true"></i>
+                </a>
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button class="updatebtn" type="submit">Update</button>
+        </div>
+      </form>
+
+      <form method="POST" action="/resume/extracted_resumes/addexperience/{{extracted_profile.id}}">
+        {% csrf_token %}
+      <div id="myModal3" class="modal">
+      <!-- Modal content -->
+        <div class="modal-content">
+              <span class="close1">&times;</span>
+          <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                    <div id="skill_pop3">
+                     
+                        <h3 class="popup_head">Experience</h3>
+                  <div class="expe_rence">      
+                        <input  type="hidden" name="resume" id="resume" rows="4" cols="50" value="{{extracted_profile.id}}">
+                        <!-- company name -->
+                    <div class="edicationbox">    
+                      <div class="educatiioninbox1">
+                        <label for="company name">company name :</label>
+                        <!-- <textarea name="companyname" id="companyname" rows="4" cols="50" required></textarea> -->
+                        <input type="text" name="companyname" id="companyname" required>
+                      </div>
+                        <!-- job title -->
+                      <div class="educatiioninbox1">  
+                        <label for="job title">job title:</label>
+                        <!-- <textarea name="job_title" id="job_title" rows="4" cols="50" required></textarea> -->
+                        <input type="text" name="job_title" id="job_title" required>
+                      </div>  
+                    </div>  
+                        <!-- job location -->
+
+                    <div class="int_frm_to">    
+                      <div class="educatiioninbox">  
+                        <label for="job Location">job Location:</label>
+                        <!-- <textarea name="joblocation" id="joblocation" rows="4" cols="50" required></textarea><br><br> -->
+                        <input type="text" name="joblocation" id="joblocation" required>
+                      </div>  
+                        <!-- Time Period -->
+                        <div>
+                        <div>
+                        <label for="Time Period">I currently work here:</label>
+                      </div>
+                        <div>
+                        <input type="checkbox" id="presentCheckbox" onclick="handleNewPresentCheckbox(this);" />
+                        </div>
+                      </div> 
+                        <label id="new_presentLabel" style="display:none;position: relative;bottom: -102px;left: -163px;">Present</label>
+                        <input type="hidden" name="present" id="new_presentInput" value="" style="display:none;">
+                        
+                        
+                        
+                        </div>
+
+                        
+                          <label for="Time Period">Time Period:</label>
+
+                        <div class="educatbox">  
+                          <div class="educatiioninbox1">
+                          <label for="Time Period">From</label>
+                          <div class="educatbox">
+                          <select name="job_start_year" id="job_start_year">
+                            <!-- JavaScript will generate options here -->
+                          </select>
+                          <select name="job_start_month" id="job_start_month" style="margin: 0px 18px;">
+                            <!-- JavaScript will generate options here -->
+                          </select>
+                          </div>
+                          </div>
+
+                        
+                        <div id="year-month">
+                          <label for="Time Period">To</label>
+                          <div class="educatbox">
+                          <select name="job_end_year" id="job_end_year">
+                            <!-- JavaScript will generate options here -->
+                          </select>
+                          <select name="job_end_month" id="job_end_month" style="margin: 0px 18px;">
+                            <!-- JavaScript will generate options here -->
+                          </select>
+                        </div>
+                        </div>
+
+                        </div>
+
+
+                        <!-- Description -->
+                        <label for="Description">Description:</label>
+                        <textarea  name="Description" id="id_Description"  rows="4" cols="50" required></textarea><br>
+                        <!-- Responsibilites -->
+                        <label for="Responsibilites">Responsibilites:</label>
+                        <textarea  name="Responsibilites" id="id_Responsibilites" rows="4" cols="50" required></textarea><br>
+                        <!-- Accomplishments -->
+                        <label for="Accomplishments">Accomplishments:</label>
+                        <textarea  name="Accomplishments"  id="id_Accomplishments"id="job location" rows="4" cols="50" required></textarea>
+                        <!-- Skills Used -->
+                        <!-- <label for="Skills Used">Skills Used:</label> -->
+                        <!-- <textarea  name="skillused"  id="id_Skills_Used" rows="4" cols="50" required></textarea><br><br> -->
+                        <input type="hidden" type="text" name="skillused" id="id_Skills_Used" >
+                        <div class="but_popup">
+                          <a class="back cancelbtn" href="">Cancel</a>
+                          <button class="back next" type="submit">Submit</button>
+                        </div>
+                    </div>    
+                  
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </form>
+
+    <!-- edit form for experience  -->
+
+    <form method="POST" action="/resume/extracted_resumes/edit_experience/{{extracted_profile.id}}">
+      {% csrf_token %}
+      <input type="hidden" name="master_id" id="expmaster_id" value="">
+      <input type="hidden" name="res_des_id" id="res_des_id" value="">
+    <div id="edit_experience_myModal" class="modal">
+    <!-- Modal content -->
+      <div class="modal-content">
+            <span class="closet">&times;</span>
+        <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+              <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                  <div id="skill_pop3">
+                   
+                      <h3 class="popup_head">Experience</h3>
+                <div class="expe_rence">      
+                      <input  type="hidden" name="resume" id="resume" rows="4" cols="50" value="{{extracted_profile.id}}">
+                      <!-- company name -->
+                  <div class="edicationbox">    
+                    <div class="educatiioninbox1">
+                      <label for="company name">company name :</label>
+                     
+                      <input type="text" name="companyname" id="edit_companyname"  value="{{candidateexperience_instance.companyname}}" required>
+                    </div>
+                      <!-- job title -->
+                    <div class="educatiioninbox1">  
+                      <label for="job title">job title:</label>
+                      
+                      <input type="text" name="job_title" id="edit_job_title"  value="{{candidateexperience_instance.job_title}}"  required>
+                    </div>  
+                  </div>  
+                      <!-- job location -->
+
+                  <div class="int_frm_to">    
+                    <div class="educatiioninbox">  
+                      <label for="job Location">job Location:</label>
+                     
+                      <input type="text" name="joblocation" id="edit_joblocation"  value="{{candidateexperience_instance.joblocation}}" required>
+                    </div>  
+                      <!-- Time Period -->
+                   
+                <div>
+                  <div><label for="Time Period">I currently work here:</label></div>
+                  <div><input type="checkbox" id="presentCheckbox" onclick="handlePresentCheckbox(this);" /></div>
+                </div>
+                  <label id="presentLabel" style="display:none; position: relative;bottom: -102px;left: -163px;">Present</label>
+                  <input type="hidden" name="present" id="presentInput" value="" style="display:none;">
+                  
+                  
+                  </div> 
+
+                  <label for="Time Period">Time Period:</label>
+                <div class="educatbox">  
+                  <div class="educatiioninbox1">
+                    
+                    <label for="Time Period">From</label>
+                    <div class="educatbox">
+                    <select name="job_start_year" id="edit_job_start_year">
+                      <!-- JavaScript will generate options here -->
+                    </select>
+                    <!-- <label for="Time Period">From Month</label> -->
+                    <select name="job_start_month" id="edit_job_start_month" style="margin: 0px 18px;">
+                      <!-- JavaScript will generate options here -->
+                    </select>
+                    </div>
+                  </div>
+
+                  <div id="year-month1">
+                    <label for="Time Period">To</label>
+                  <div class="educatbox">
+                    <select name="job_end_year" id="edit_job_end_year">
+                      <!-- JavaScript will generate options here -->
+                    </select>
+                    <!-- <label for="Time Period">End Month</label> -->
+                    <select name="job_end_month" id="edit_job_end_month" style="margin: 0px 18px;">
+                      <!-- JavaScript will generate options here -->
+                    </select>
+                  </div>
+                  </div>
+                </div>  
+                  
+                  
+
+
+
+                      <!-- Description -->
+                      <label for="Description">Description:</label>
+                      <textarea  name="Description" id="edit_Description" value="{{candidateexperience_instance.Description}}"  rows="4" cols="50" required>{{candidateexperience_instance.Description}}</textarea><br>
+                      <!-- <textarea name="Description" id="edit_Description" rows="4" cols="50" required></textarea><br><br> -->
+
+                      <!-- Responsibilites -->
+                      <label for="Responsibilites">Responsibilites:</label>
+                      <textarea  name="Responsibilites" id="edit_Responsibilites"  value="{{candidateexperience_instance.Responsibilites}}" rows="4" cols="50" required>{{candidateexperience_instance.Responsibilites}}</textarea><br>
+                      <!-- Accomplishments -->
+                      <label for="Accomplishments">Accomplishments:</label>
+                      <textarea  name="Accomplishments"  id="edit_Accomplishments"  value="{{candidateexperience_instance.Accomplishments}}" rows="4" cols="50" required>{{candidateexperience_instance.Accomplishments}}</textarea>
+                      <!-- Skills Used -->
+                      <!-- <label for="Skills Used">Skills Used:</label> -->
+                      <!-- <textarea  name="skillused"  id="edit_Skills_Used" value="{{candidateexperience_instance.skillused}}"  rows="4" cols="50" required></textarea><br><br> -->
+                      <input  type="hidden" type="text" name="skillused"  id="edit_Skills_Used" value="{{candidateexperience_instance.skillused}}"  required>
+                      <div class="but_popup">
+                        <a class="back cancelbtn" href="">Cancel</a>
+                        <button class="back next" type="submit">Submit</button>
+                      </div>
+                  </div>    
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+  <!-- add form for experience job  skill used -->
+
+  <form method="POST" action="/resume/extracted_resumes/edit_skills_used/{{extracted_profile.id}}">
+    {% csrf_token %}
+    <input type="hidden" name="master_id" id="jobmaster_id" value="">
+    <input type="hidden" name="job_skills_id" id="job_skills_id" value="">
+  <div id="edit_skills_used_myModal" class="modal">
+  <!-- Modal content -->
+    <div class="modal-content">
+          <span class="close7">&times;</span>
+      <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+            <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                <div id="skill_pop3">
+                 
+                    <h3 class="popup_head">Experience</h3>
+              <div class="">      
+                    <input  type="hidden" name="resume" id="resume" rows="4" cols="50" value="{{extracted_profile.id}}">
+                
+                    <!-- Skills Used -->
+                  <div>
+                    <label for="Skills Used" style="margin-left: 5px;">Skills Used:</label>
+                  </div>
+                 
+                    
+                   <div>
+                   <div class="sklius">
+                    <input type="text" name="skillused1"  id="edit_skills1" value="{{job}}" >
+                    <input type="text" name="skillused2"  id="edit_skills2" value="{{job}}" >
+                    <input type="text" name="skillused3"  id="edit_skills3" value="{{job}}" >
+                   
+                    <input type="text" name="skillused4"  id="edit_skills4" value="{{job}}" >
+                    <input type="text" name="skillused5"  id="edit_skills5" value="{{job}}" >
+                  </div>
+                    <div class="sklius">
+                    <input type="text" name="skillused6"  id="edit_skills6" value="{{job}}" >
+                   
+                   
+                    <input type="text" name="skillused7"  id="edit_skills7" value="{{job}}" >
+                    <input type="text" name="skillused8"  id="edit_skills8" value="{{job}}" >
+                    <input type="text" name="skillused9"  id="edit_skills9" value="{{job}}" >
+                  
+                    <input type="text" name="skillused10"  id="edit_skills10" value="{{job}}" >
+                  </div>
+                  </div> 
+                   
+                    
+                  
+                     
+                    <!-- <textarea  name="skillused"  id="edit_Skills_Used" value="{{candidateexperience_instance.skillused}}"  rows="4" cols="50" required></textarea><br><br> -->
+                    <!-- <input type="text" name="skillused"  id="edit_Skills_Used" value="{{candidateexperience_instance.skillused}}"  required> -->
+                    <div class="but_popup">
+                      <a class="back cancelbtn" href="">Cancel</a>
+                      <button class="back next" type="submit">Submit</button>
+                    </div>
+                </div>    
+              
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
+      </div>
+
+  <!-- Reference start -->    
+      <div class="techsk titles" >
+        <label>Reference</label>
+        
+        <td> <div class="adskil"><a class="editbtn" id="myBtn4" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Reference</a></div></td>
+        <label></label>
+       
+         
+      <form class="" action="/resume/extracted_resumes/reference/{{extracted_resume.id}}" method="POST">
+          {% csrf_token %}
+          <table style="width:100%">
+            <thead>
+              <tr>
+                <th>Referred By</th>
+                <th>Referrer Email</th>
+                <th colspan="3">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td>
+          {% for reference in reference_data %}
+
+          <input type="text" name="leadreferred{{  forloop.counter }}" value="{{reference.referred_by }}">
+
+
+          {% endfor %}
+        </td>
+        <td>
+        {% for reference in reference_data %}
+
+        <input type="text" name="leadreferrer{{  forloop.counter }}" value="{{reference.referrer_email }}">
+        
+
+        {% endfor %}
+        </td>
+       <td>
+       {% for reference in reference_data %}
+
+       <p style="margin: 0px; margin-right: 8px;"> <a class="referencedelete-btn" data-id="{{reference.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i>
+        </a></p>
+        {% endfor %}
+       </td>
+          <td>
+          {% for reference in reference_data %}
+         <p style="margin: 0px;"> <a href="#"  onclick="return edit_Referred_email('{{extracted_resume.pk}}','{{reference.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </a></p>
+          {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>     
+      <div>
+        <button class="updatebtn" type="submit">Update</button>
+      </div>
+      </form>
+
+
+      <form method="POST" action="/resume/extracted_resumes/addreference/{{extracted_profile.id}}">
+        {% csrf_token %}
+        <div id="myModal4" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close2">&times;</span>
+                <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                    <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                        <div id="skill_pop">
+                            <h3 class="popup_head">Reference</h3>
+                            <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                            
+                            <!-- Skills -->
+                            <div class="slex">
+                            <div class="skiexp">
+                            <label for="skills">Referred by</label>
+                            <input type="text" name="referred_by" id="referred_by" required>
+                            </div>
+                            
+                            <!-- Experience -->
+                            <div class="skiexp">
+                            <label for="experience">Referrer Email</label>
+                            <input type="text" name="referrer_email" id="referrer_email" required>
+                            </div>
+                            </div>
+
+                            <div class="but_popup">
+                                <a class="back cancelbtn" href="">Cancel</a>
+                                <!-- <a class="subbtn">Submit</a> -->
+                                <button class="back next" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- edit form for reference  -->
+
+
+    <form method="POST" action="/resume/extracted_resumes/edit_by_email/{{extracted_profile.id}}">
+      {% csrf_token %}
+      <input type="hidden" name="master_id" id="refmaster_id" value="">
+      <input type="hidden" name="referby_email_id" id="referby_email_id" value="">
+      <div id="edit_referby_email_myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close4">&times;</span>
+              <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                  <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                      <div id="skill_pop">
+                          <h3 class="popup_head">Reference</h3>
+                          <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                          
+                          <!-- Skills -->
+                          <div class="slex">
+                          <div class="skiexp">
+                          <label for="skills">Referred by</label>
+                          <input type="text" name="referred_by" id="edit_referred_by" value="{{candidatereference_instance.referred_by}}" required>
+                          </div>
+                          
+                          <!-- Experience -->
+                          <div class="skiexp">
+                          <label for="experience">Referrer Email</label>
+                          <input type="text" name="referrer_email" id="edit_referrer_email" value="{{candidatereference_instance.referrer_email}}"  required>
+                          </div>
+                          </div>
+
+                          <div class="but_popup">
+                              <a class="back cancelbtn" href="">Cancel</a>
+                              <!-- <a class="subbtn">Submit</a> -->
+                              <button class="back next" type="submit">Submit</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+  </div>
+
+  <!-- certificate start -->
+
+  <div class="techsk titles" >
+    <label>Certification</label>
+    
+    <td> <div class="adskil"><a class="editbtn" id="myBtn5" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Certification</a></div></td>
+    <label></label>
+   
+    
+    <div class="tab_le">
+    <form class="" action="/resume/extracted_resumes/certificate/{{extracted_resume.id}}" method="POST">
+      {% csrf_token %}
+      <table style="width:100%">
+        <thead>
+          <tr>
+            <th> Certification code</th>
+            <th>Certification Name</th>
+            <th>Date of Certification</th>
+            <th colspan="3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>     
+              {% for certificate in certificate_data %}
+ 
+             <input type="text" name="leadcertificatecode{{  forloop.counter }}" value="{{certificate.Certification_code }}">
+       
+       
+             {% endfor %}
+           </td>
+           <td>
+            {% for certificate in certificate_data %}
+
+            <input type="text" name="leadcertificatename{{  forloop.counter }}" value="{{certificate.certification_name }}">
+            
+            {% endfor %}
+          </td>
+          <td>
+            {% for certificate in certificate_data %}
+
+            <input type="text" name="leaddatecertification{{  forloop.counter }}" value="{{certificate.date_of_certification }}">
+            
+            {% endfor %}
+          </td>
+          <td>
+            {% for certificate in certificate_data %}
+
+            <p style="margin: 0px; margin-right: 8px;"><a class="certificatedelete-btn" data-id="{{certificate.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></p>
+            {% endfor %}
+          </td>
+          <td>
+            {% for certificate in certificate_data %}
+            <p style="margin: 0px; margin-right: 8px;"><a href="#"  onclick="return edit_certificate_name('{{extracted_resume.pk}}','{{certificate.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a></p>
+            {% endfor %}
+          </td>
+    </tr>
+  </tbody>
+</table>  
+  <div>
+    <button class="updatebtn" type="submit">Update</button>
+  </div>
+  </form>
+</div>
+  
+<!-- popup form for certificate -->
+
+  <form method="POST" action="/resume/extracted_resumes/addcertificate/{{extracted_profile.id}}">
+    {% csrf_token %}
+    <div id="myModal5" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close6">&times;</span>
+            <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                    <div id="skill_pop">
+                        <h3 class="popup_head">Certification</h3>
+                        <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                        
+                        <!-- Skills -->
+                        <div class="slex">
+                        <div class="skiexp">
+                        <label for="skills">Certification Code</label>
+                        <input type="text" name="Certification_code" id="Certification_code" required>
+                        </div>
+                        
+                        <!-- Experience -->
+                        <div class="skiexp">
+                        <label for="experience">Certification Name</label>
+                        <input type="text" name="certification_name" id="certification_name" required>
+                        </div>
+                        
+                        
+                        <div class="skiexp">
+                          <label for="experience">Date of Certification</label>
+                          <input type="text" name="date_of_certification" id="date_of_certification" required>
+                          </div>
+                          </div>
+
+                        <div class="but_popup">
+                            <a class="back cancelbtn" href="">Cancel</a>
+                            <!-- <a class="subbtn">Submit</a> -->
+                            <button class="back next" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- edit form for certificate  -->
+
+
+<form method="POST" action="/resume/extracted_resumes/edit_certificate_code/{{extracted_profile.id}}">
+  {% csrf_token %}
+  <input type="hidden" name="master_id" id="cermaster_id" value="">
+  <input type="hidden" name="code_name_id" id="code_name_id" value="">
+  <div id="edit_certificate_code_name_myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span class="close5">&times;</span>
+          <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+              <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                  <div id="skill_pop">
+                      <h3 class="popup_head">Certification</h3>
+                      <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                      
+                      <!-- Skills -->
+                      <div class="slex">
+                      <div class="skiexp">
+                      <label for="skills">Certification Code</label>
+                      <input type="text" name="Certification_code" id="edit_Certification_code" value="{{candidatecertificate_instance.Certification_code}}" required>
+                      </div>
+                      
+                      <!-- Experience -->
+                      <div class="skiexp">
+                      <label for="experience">Certification Name</label>
+                      <input type="text" name="certification_name" id="edit_certification_name" value="{{candidatecertificate_instance.certification_name}}"  required>
+                      </div>
+                      
+
+                      <div class="skiexp">
+                        <label for="experience">Date of Certification</label>
+                        <input type="text" name="date_of_certification" id="edit_date_of_certification" value="{{candidatecertificate_instance.date_of_certification}}"  required>
+                        </div>
+                        </div>
+
+                      <div class="but_popup">
+                          <a class="back cancelbtn" href="">Cancel</a>
+                          <!-- <a class="subbtn">Submit</a> -->
+                          <button class="back next" type="submit">Submit</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
+</div>
+
+<!-- Award start -->
+<div class="techsk titles" >
+  <label>Awards and Achievements</label>
+  
+  <td> <div class="adskil"><a class="editbtn" id="myBtn9" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Awards</a></div></td>
+  <label></label>
+
+  
+<div class="tab_le">
+  <form class="" action="/resume/extracted_resumes/award/{{extracted_resume.id}}" method="POST">
+    {% csrf_token %}
+    <table style="width:100%">
+      <thead>
+        <tr>
+          <th>Awards and Achievements</th>
+          <th colspan="3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
+          <td>     
+            {% for awards in award_data %}
+
+          <input type="text" name="leadaward{{  forloop.counter }}" value="{{awards.award }}">
+    
+    
+          {% endfor %}
+        </td>
+        
+        <td>
+          {% for awards in award_data %}
+
+          <p style="margin: 0px; margin-right: 8px;"><a class="awarddelete-btn" data-id="{{awards.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></p>
+          {% endfor %}
+        </td>
+        <td>
+          {% for awards in award_data %}
+          <p style="margin: 0px; margin-right: 8px;"><a href="#"  onclick="return edit_awarddetail_name('{{extracted_resume.pk}}','{{awards.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
+          {% endfor %}
+        </td>
+  </tr>
+</tbody>
+</table>
+
+<div>
+  <button class="updatebtn" type="submit">Update</button>
+</div>
+</form>
+</div>
+
+<!-- edit form for award -->
+<form method="POST" action="/resume/extracted_resumes/edit_award/{{extracted_profile.id}}">
+  {% csrf_token %}
+  <input type="hidden" name="master_id" id="awardmaster_id" value="">
+  <input type="hidden" name="award_name_id" id="award_name_id" value="">
+  <div id="edit_award_name_myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span class="close9">&times;</span>
+          <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+              <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                  <div id="skill_pop">
+                      <h3 class="popup_head">Awards and Achievements</h3>
+                      <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                      
+                      <!-- Skills -->
+                      <div class="slex">
+                      <div class="skiexp">
+                      <label for="skills">Awards</label>
+                      <input type="text" name="award" id="edit_award" value="{{candidateaward_instance.award}}" required>
+                      </div>
+                                           
+                        </div>
+  
+                      <div class="but_popup">
+                          <a class="back cancelbtn" href="">Cancel</a>
+                          <!-- <a class="subbtn">Submit</a> -->
+                          <button class="back next" type="submit">Submit</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </form>
+
+
+<!-- popup form for award  -->
+
+<form method="POST" action="/resume/extracted_resumes/addaward/{{extracted_profile.id}}">
+  {% csrf_token %}
+  <div id="myModal9" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span class="close11">&times;</span>
+          <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+              <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                  <div id="skill_pop">
+                      <h3 class="popup_head">Awards and Achievements</h3>
+                      <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                      
+                      <!-- Skills -->
+                      <div class="slex">
+                      <div class="skiexp">
+                      <label for="skills">Awards</label>
+                      <input type="text" name="award" id="award" required>
+                      </div>
+                    </div>
+                      
+
+                      <div class="but_popup">
+                          <a class="back cancelbtn" href="">Cancel</a>
+                          <!-- <a class="subbtn">Submit</a> -->
+                          <button class="back next" type="submit">Submit</button>
+                      </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
+
+
+
+</div>
+
+  <!-- Hobbies start -->
+  <div class="techsk titles" >
+    <label>Hobbies</label>
+    
+    <td> <div class="adskil"><a class="editbtn" id="myBtn10" ><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Hobbies</a></div></td>
+    <label></label>
+
+    
+    <div class="tab_le">
+    <form class="" action="/resume/extracted_resumes/hobbies/{{extracted_resume.id}}" method="POST">
+      {% csrf_token %}
+      <table style="width:100%">
+        <thead>
+          <tr>
+            <th>Hobbies</th>
+            <th colspan="3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>     
+              {% for hobbie in hobbies_data %}
+
+            <input type="text" name="leadhobbies{{  forloop.counter }}" value="{{hobbie.hobbies }}">
+      
+      
+            {% endfor %}
+          </td>
+          
+          <td>
+            {% for hobbie in hobbies_data %}
+
+            <p style="margin: 0px; margin-right: 8px;"><a class="hobbiesdelete-btn" data-id="{{hobbie.id }}" data-base="{{extracted_resume.pk}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></p>
+            {% endfor %}
+          </td>
+          <td>
+            {% for hobbie in hobbies_data %}
+            <p style="margin: 0px; margin-right: 8px;"><a href="#"  onclick="return edit_hobbiesdetail_name('{{extracted_resume.pk}}','{{hobbie.id}}');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
+            {% endfor %}
+          </td>
+    </tr>
+  </tbody>
+  </table>
+
+
+  <div>
+    <button class="updatebtn" type="submit">Update</button>
+  </div>
+  </form>
+  <!-- </div> -->
+
+  <!-- edit form for hobbies  -->
+
+  <form method="POST" action="/resume/extracted_resumes/edit_hobbies/{{extracted_profile.id}}">
+    {% csrf_token %}
+    <input type="hidden" name="master_id" id="hobbiesmaster_id" value="">
+    <input type="hidden" name="hobbies_name_id" id="hobbies_name_id" value="">
+    <div id="edit_hobbies_name_myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close10">&times;</span>
+            <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                    <div id="skill_pop">
+                        <h3 class="popup_head">Hobbies</h3>
+                        <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                        
+                        <!-- Skills -->
+                        <div class="slex">
+                        <div class="skiexp">
+                        <label for="skills">Hobbies</label>
+                        <input type="text" name="hobbies" id="edit_hobbies" value="{{candidatehobbies_instance.hobbies}}" required>
+                        </div>
+                                            
+                          </div>
+  
+                        <div class="but_popup">
+                            <a class="back cancelbtn" href="">Cancel</a>
+                            <!-- <a class="subbtn">Submit</a> -->
+                            <button class="back next" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+  <!-- popup form for hobbies -->
+
+  <form method="POST" action="/resume/extracted_resumes/addhobbies/{{extracted_profile.id}}">
+    {% csrf_token %}
+    <div id="myModal10" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close12">&times;</span>
+            <div id="fancybox-content" style="border-width: 10px; width: 271px; height: auto;">
+                <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+                    <div id="skill_pop">
+                        <h3 class="popup_head">Hobbies</h3>
+                        <input type="hidden" name="resume" id="resume" value="{{extracted_profile.id}}">
+                        
+                        <!-- Skills -->
+                        <div class="slex">
+                        <div class="skiexp">
+                        <label for="skills">Hobbies</label>
+                        <input type="text" name="hobbies" id="hobbies" required>
+                        </div>
+                      </div>
+                        
+
+                        <div class="but_popup">
+                            <a class="back cancelbtn" href="">Cancel</a>
+                            <!-- <a class="subbtn">Submit</a> -->
+                            <button class="back next" type="submit">Submit</button>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+  
+
+
+  
+</div>
+    
+
+
+
+      
+        
+
+
+  </div>
+</div>  
+
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js" ></script>
+   
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('editor', {
+    // Set the height of the editor as per your requirement
+    height: 700,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>  
+  
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_objectives', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script> 
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_resume_data', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>   
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_experience_data', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>   
+
+<script async>
+  //id_education_data
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_education_data', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>  
+
+<script async>
+  //id_certificate_data
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_certificate_data', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>  
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_professional_summary', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+
+
+</script>  
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('edit_professional_summary', {
+    // Set the height of the editor as per your requirement
+    height: 100,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+
+
+</script>  
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_Accomplishments', {
+    // Set the height of the editor as per your requirement
+    height: 400,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>  
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('edit_Accomplishments', {
+    // Set the height of the editor as per your requirement
+    height: 400,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+
+  function setCKEditorAccomplishments(content) {
+    var editor = CKEDITOR.instances['edit_Accomplishments'];
+    if (editor) {
+      editor.setData(content);
+    }
+  }
+</script> 
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_Responsibilites', {
+    // Set the height of the editor as per your requirement
+    height: 400,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+</script>  
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('edit_Responsibilites', {
+    // Set the height of the editor as per your requirement
+    height: 400,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+
+  function setCKEditorResponsibilites(content) {
+    var editor = CKEDITOR.instances['edit_Responsibilites'];
+    if (editor) {
+      editor.setData(content);
+    }
+  }
+</script>  
+
+
+<script async>
+  // Replace the textarea with CKEditor
+  CKEDITOR.replace('id_Description', {
+    // Set the height of the editor as per your requirement
+    height: 400,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+
+</script> 
+
+
+<script async>
+  // Initialize CKEditor
+  CKEDITOR.replace('edit_Description', {
+    // Set the height of the editor as per your requirement
+    height: 400,
+    // Define a callback to handle the ready event
+    on: {
+      instanceReady: function (evt) {
+        // Get the editor's raw data (HTML with <br> tags)
+        var rawData = evt.editor.getData();
+        // Remove excessive <br> tags and keep single <br> tags for line breaks
+        var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+
+        // Set the modified data in the editor
+        evt.editor.setData(modifiedData);
+      }
+    }
+  });
+
+  function setCKEditorContent(content) {
+    var editor = CKEDITOR.instances['edit_Description'];
+    if (editor) {
+      editor.setData(content);
+    }
+  }
+
+</script>
+
+
+
+</body>
+</html>
+
+
+<script>
+  var modal1 = document.getElementById("myModal1");
+  var btn1 = document.getElementById("myBtn1");
+  var span1 = document.getElementsByClassName("close")[0];
+
+  btn1.onclick = function() {
+    modal1.style.display = "block";
+  }
+
+  span1.onclick = function() {
+    modal1.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+  var modal2 = document.getElementById("myModal2");
+  var btn2 = document.getElementById("myBtn2");
+  var span2 = document.getElementsByClassName("close3")[0]; // Change index to 1
+
+  btn2.onclick = function() {
+    modal2.style.display = "block";
+  }
+
+  span2.onclick = function() {
+    modal2.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal2) {
+      modal2.style.display = "none";
+    }
+  }
+</script>
+
+
+<script>
+  var modal3 = document.getElementById("myModal3");
+  var btn3 = document.getElementById("myBtn3");
+  var span3 = document.getElementsByClassName("close1")[0]; // Change index to 2
+
+  btn3.onclick = function() {
+    modal3.style.display = "block";
+    body.style.overflow = "hidden"
+  }
+
+  span3.onclick = function() {
+    modal3.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal3) {
+      modal3.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+  var modal4 = document.getElementById("myModal4");
+  var btn4 = document.getElementById("myBtn4");
+  var span4 = document.getElementsByClassName("close2")[0]; // Change index to 2
+
+  btn4.onclick = function() {
+    modal4.style.display = "block";
+    body.style.overflow = "hidden"
+  }
+
+  span4.onclick = function() {
+    modal4.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal4) {
+      modal4.style.display = "none";
+    }
+  }
+// popup for certificate
+  var modal5 = document.getElementById("myModal5");
+  var btn5 = document.getElementById("myBtn5");
+  var span5 = document.getElementsByClassName("close6")[0]; // Change index to 2
+
+  btn5.onclick = function() {
+    modal5.style.display = "block";
+    body.style.overflow = "hidden"
+  }
+
+  span5.onclick = function() {
+    modal5.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal5) {
+      modal5.style.display = "none";
+    }
+  }
+
+// popup for award
+  var modal9 = document.getElementById("myModal9");
+  var btn9 = document.getElementById("myBtn9");
+  var span9 = document.getElementsByClassName("close11")[0]; // Change index to 2
+
+  btn9.onclick = function() {
+    modal9.style.display = "block";
+    body.style.overflow = "hidden"
+  }
+
+  span9.onclick = function() {
+    modal9.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal9) {
+      modal9.style.display = "none";
+    }
+  }
+
+// popup for hobbies
+  var modal10 = document.getElementById("myModal10");
+  var btn10 = document.getElementById("myBtn10");
+  var span10 = document.getElementsByClassName("close12")[0]; // Change index to 2
+
+  btn10.onclick = function() {
+    modal10.style.display = "block";
+    body.style.overflow = "hidden"
+  }
+
+  span10.onclick = function() {
+    modal10.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal10) {
+      modal10.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+  $(document).ready(function(){
+  $('.delete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/skillsdelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+</script>
+
+<script>
+  $(document).ready(function(){
+  $('.edudelete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/educationdelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+</script>
+
+<script>
+  $(document).ready(function(){
+  $('.workdelete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/experiencedelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+</script>
+
+<script>
+  $(document).ready(function(){
+  $('.referencedelete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/referencedelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+// delete button function for certificate
+$(document).ready(function(){
+  $('.certificatedelete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/certificatedelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+// delete button function for award
+$(document).ready(function(){
+  $('.awarddelete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/awarddelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+// delete button function for hobbies
+$(document).ready(function(){
+  $('.hobbiesdelete-btn').click(function(){
+      var id = $(this).data('id');
+      var base = $(this).data('base');
+      console.log(base);
+      console.log(id);
+      if(confirm("Are you sure you want to delete this item?")){
+          var csrf=$('input[name=csrfmiddlewaretoken]').val();
+          $.ajax({
+              url: '/resume/extracted_resumes/hobbiesdelete/'+base,
+              method: "POST",
+              data: {
+                  id: id,
+                  csrfmiddlewaretoken: csrf
+              },
+             
+              success: function(response){
+                  $('tr#'+id+'').css('background-color', '#ccc');
+                  $('tr#'+id+'').fadeOut('slow');
+                  // window.location.href = '/edit/'+id;
+                  window.location.reload();
+                 
+              }
+          });
+      }
+  });
+});
+
+
+// job skill 
+
+function edit_job_skills_used(master_id, jobskill_id)
+{
+  $("#jobmaster_id").val(master_id);
+  $("#job_skills_id").val(jobskill_id);
+  $('#edit_skills_used_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_job_skills',
+    data : {"jobmaster_id" : master_id,  "jobskill_id": jobskill_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_skills1").val(response.skills1);
+        $("#edit_skills2").val(response.skills2);
+        $("#edit_skills3").val(response.skills3);
+        $("#edit_skills4").val(response.skills4);
+        $("#edit_skills5").val(response.skills5);
+        $("#edit_skills6").val(response.skills6);
+        $("#edit_skills7").val(response.skills7);
+        $("#edit_skills8").val(response.skills8);
+        $("#edit_skills9").val(response.skills9);
+        $("#edit_skills10").val(response.skills10);
+          
+      }else{
+       alert('Data not Found!')
+      }
+      console.log(response.skills1);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close7").on("click", function () {
+    $('#edit_skills_used_myModal').hide();
+  });
+});
+
+
+
+
+// Edit function for skills
+function edit_skills_experience(master_id, skill_id)
+{
+  $("#master_id").val(master_id);
+  $("#skills_experience_id").val(skill_id);
+  $('#edit_skills_experience_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_skills_experience',
+    data : {"master_id" : master_id,  "skill_id": skill_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_skills").val(response.skills);
+        $("#edit_experience").val(response.experience);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close").on("click", function () {
+    $('#edit_skills_experience_myModal').hide();
+  });
+});
+
+
+
+
+// Edit function for Education
+function edit_education(master_id, education_id)
+{
+  $("#edumaster_id").val(master_id);
+  $("#education_degree_id").val(education_id);
+  $('#edit_education_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_education',
+    data : {"edumaster_id" : master_id,  "education_id": education_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_degree").val(response.degree);
+        $("#edit_majordegree").val(response.majordegree);
+        $("#edit_specializationdegree").val(response.specializationdegree);
+        $("#edit_institute").val(response.institute);
+        $("#edit_start_year").val(response.start_year);
+        $("#edit_end_year").val(response.end_year);
+        $("#edit_institutelocation").val(response.institutelocation);
+        $("#edit_others").val(response.others);
+        $("#edit_if_others").val(response.if_others);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close3").on("click", function () {
+    $('#edit_education_myModal').hide();
+  });
+});
+
+
+
+// Edit function for Referred
+function edit_Referred_email(master_id, refer_id)
+{
+  $("#refmaster_id").val(master_id);
+  $("#referby_email_id").val(refer_id);
+  $('#edit_referby_email_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen__by_email',
+    data : {"refmaster_id" : master_id,  "refer_id": refer_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_referred_by").val(response.referred_by);
+        $("#edit_referrer_email").val(response.referrer_email);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close4").on("click", function () {
+    $('#edit_referby_email_myModal').hide();
+  });
+});
+
+
+
+// Edit function for certificate
+function edit_certificate_name(master_id, certificate_id)
+{
+  $("#cermaster_id").val(master_id);
+  $("#code_name_id").val(certificate_id);
+  $('#edit_certificate_code_name_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_certificate',
+    data : {"cermaster_id" : master_id,  "certificate_id": certificate_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_Certification_code").val(response.Certification_code);
+        $("#edit_certification_name").val(response.certification_name);
+        $("#edit_date_of_certification").val(response.date_of_certification);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close5").on("click", function () {
+    $('#edit_certificate_code_name_myModal').hide();
+  });
+});
+
+// Edit function for award
+function edit_awarddetail_name(master_id, award_id)
+{
+  $("#awardmaster_id").val(master_id);
+  $("#award_name_id").val(award_id);
+  $('#edit_award_name_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_award',
+    data : {"awardmaster_id" : master_id,  "award_id": award_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_award").val(response.award);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close9").on("click", function () {
+    $('#edit_award_name_myModal').hide();
+  });
+});
+
+// Edit function for hobbies
+function edit_hobbiesdetail_name(master_id, hobbies_id)
+{
+  $("#hobbiesmaster_id").val(master_id);
+  $("#hobbies_name_id").val(hobbies_id);
+  $('#edit_hobbies_name_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_hobbies',
+    data : {"hobbiesmaster_id" : master_id,  "hobbies_id": hobbies_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_hobbies").val(response.hobbies);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".close10").on("click", function () {
+    $('#edit_hobbies_name_myModal').hide();
+  });
+});
+
+// Edit function for experience
+function edit_experience(master_id, experience_id)
+{
+  $("#expmaster_id").val(master_id);
+  $("#res_des_id").val(experience_id);
+  $('#edit_experience_myModal').show();
+  // var base_url = 'http://127.0.0.1:8000/';
+  $.ajax({
+    type : "get",
+    url: '/resume/extracted_resumes/get_edit_screen_experience',
+    data : {"expmaster_id" : master_id,  "experience_id": experience_id},
+    success: function(response) {
+      if(response != ''){
+        $("#edit_companyname").val(response.companyname);
+        $("#edit_job_title").val(response.job_title);
+        $("#edit_joblocation").val(response.joblocation);
+        $("#edit_job_start_year").val(response.job_start_year);
+        $("#edit_job_end_year").val(response.job_end_year);
+        $("#edit_job_start_month").val(response.job_start_month);
+        $("#edit_job_end_month").val(response.job_end_month);
+        $("#edit_present").val(response.present);
+        // $("#edit_Description").val(response.Description);
+        // $("#edit_Responsibilites").val(response.Responsibilites);
+        // $("#edit_Accomplishments").val(response.Accomplishments);
+        // Set CKEditor content with retrieved data
+        setCKEditorContent(response.Description);
+        setCKEditorResponsibilites(response.Responsibilites);
+        setCKEditorAccomplishments(response.Accomplishments);
+        $("#edit_Skills_Used").val(response.skillused);
+      }else{
+       alert('Data not Found!')
+      }
+      // console.log(response.skills);
+     
+    }
+  });
+
+  return false;
+  
+}
+
+// Add an event listener for the close button
+$(document).ready(function () {
+  $(".closet").on("click", function () {
+    $('#edit_experience_myModal').hide();
+  });
+});
+</script>
+
+<!-- Edit Experience -->
+
+<script>
+  // JavaScript to generate "From Year" and "End Year" options
+  var fromYearSelect = document.getElementById("edit_job_start_year");
+  var endYearSelect = document.getElementById("edit_job_end_year");
+  var currentYear = new Date().getFullYear(); // Dynamically calculate the current year
+  var startYear = 1950;
+
+  // Add default "Select Year" option
+  var defaultYearOption = document.createElement("option");
+  defaultYearOption.text = "Select Year";
+  defaultYearOption.value = ""; // You can set an empty value or any value you prefer
+  fromYearSelect.appendChild(defaultYearOption);
+  endYearSelect.appendChild(defaultYearOption.cloneNode(true));
+
+  for (var year = startYear; year <= currentYear; year++) {
+    var option = document.createElement("option");
+    option.text = year;
+    option.value = year;
+    fromYearSelect.appendChild(option);
+    endYearSelect.appendChild(option.cloneNode(true));
+  }
+
+  // JavaScript to generate "From Month" and "End Month" options
+  var fromMonthSelect = document.getElementById("edit_job_start_month");
+  var endMonthSelect = document.getElementById("edit_job_end_month");
+  var months = ["Select Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  for (var i = 0; i < months.length; i++) {
+    var option = document.createElement("option");
+    option.text = months[i];
+    option.value = months[i]; // Months are 0-indexed, 0 for "Select Month"
+    fromMonthSelect.appendChild(option);
+    endMonthSelect.appendChild(option.cloneNode(true));
+  }
+
+  function generateMonths(yearSelect, monthSelect) {
+  var selectedYear = parseInt(yearSelect.value, 10);
+  var selectedMonth = monthSelect.value; // Get the month name
+  var currentYear = new Date().getFullYear();
+  var currentMonth = new Date().getMonth(); // 0 for January
+
+  monthSelect.innerHTML = ''; // Clear previous options
+
+  for (var i = 0; i < months.length; i++) {
+    // If the selected year is in the future or it's the current year, but the month is in the future
+    if (selectedYear > currentYear || (selectedYear === currentYear && i > currentMonth + 1)) {
+      continue; // Skip future months
+    }
+
+    var option = document.createElement("option");
+    option.text = months[i];
+    option.value = months[i]; // Use month names as values
+    monthSelect.appendChild(option);
+  }
+}
+
+  // Add event listeners to "From Year" and "End Year" to generate "Month" options when they change
+  fromYearSelect.addEventListener("change", function () {
+    generateMonths(fromYearSelect, fromMonthSelect);
+  });
+  endYearSelect.addEventListener("change", function () {
+    generateMonths(endYearSelect, endMonthSelect);
+  });
+
+  function handlePresentCheckbox(checkbox) {
+    var presentLabel = document.getElementById("presentLabel");
+    var presentInput = document.getElementById("presentInput");
+    var endYearSelect = document.getElementById("edit_job_end_year");
+    var endMonthSelect = document.getElementById("edit_job_end_month");
+    var endYearDiv = document.getElementById("year-month1");
+
+    if (checkbox.checked) {
+      presentLabel.style.display = "inline"; // Show "Present" label
+      presentInput.value = "present"; // Set the "present" value
+      endYearDiv.style.display = "none"; // Hide "End Year" and "End Month" div
+      endYearSelect.value = ""; // Clear "End Year" value
+      endMonthSelect.value = ""; // Clear "End Month" value
+    } else {
+      presentLabel.style.display = "none"; // Hide "Present" label
+      presentInput.value = ""; // Clear the "present" value
+      endYearDiv.style.display = "block"; // Show "End Year" and "End Month" div
+    }
+  }
+</script>
+
+
+<!-- Add Experience -->
+
+<script>
+  // JavaScript to generate "From Year" and "End Year" options
+  var fromYearSelect = document.getElementById("job_start_year");
+  var endYearSelect = document.getElementById("job_end_year");
+  var currentYear = new Date().getFullYear(); // Dynamically calculate the current year
+  var startYear = 1950;
+
+  // Add default "Select Year" option
+  var defaultYearOption = document.createElement("option");
+  defaultYearOption.text = "Select Year";
+  defaultYearOption.value = ""; // You can set an empty value or any value you prefer
+  fromYearSelect.appendChild(defaultYearOption);
+  endYearSelect.appendChild(defaultYearOption.cloneNode(true));
+
+  for (var year = startYear; year <= currentYear; year++) {
+    var option = document.createElement("option");
+    option.text = year;
+    option.value = year;
+    fromYearSelect.appendChild(option);
+    endYearSelect.appendChild(option.cloneNode(true));
+  }
+
+  // JavaScript to generate "From Month" and "End Month" options
+  var fromMonthSelect = document.getElementById("job_start_month");
+  var endMonthSelect = document.getElementById("job_end_month");
+  var months = ["Select Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  for (var i = 0; i < months.length; i++) {
+    var option = document.createElement("option");
+    option.text = months[i];
+    // option.value = i; // Months are 0-indexed, 0 for "Select Month"
+    option.value = months[i]; // Months are 0-indexed, 0 for "Select Month"
+    fromMonthSelect.appendChild(option);
+    endMonthSelect.appendChild(option.cloneNode(true));
+  }
+
+  function generateNewMonths(yearSelect, monthSelect) {
+  var selectedYear = parseInt(yearSelect.value, 10);
+  // var selectedMonth = parseInt(monthSelect.value, 10);
+  var selectedMonth = monthSelect.value; // Get the month name
+  var currentYear = new Date().getFullYear();
+  var currentMonth = new Date().getMonth(); // 0 for January
+
+  monthSelect.innerHTML = ''; // Clear previous options
+
+  for (var i = 0; i < months.length; i++) {
+    // If the selected year is in the future or it's the current year, but the month is in the future
+    if (selectedYear > currentYear || (selectedYear === currentYear && i > currentMonth + 1)) {
+      continue; // Skip future months
+    }
+
+    var option = document.createElement("option");
+    option.text = months[i];
+    option.value = months[i]; // Months are 0-indexed
+    monthSelect.appendChild(option);
+  }
+}
+
+  // Add event listeners to "From Year" and "End Year" to generate "Month" options when they change
+  fromYearSelect.addEventListener("change", function () {
+    generateNewMonths(fromYearSelect, fromMonthSelect);
+  });
+  endYearSelect.addEventListener("change", function () {
+    generateNewMonths(endYearSelect, endMonthSelect);
+  });
+
+  function handleNewPresentCheckbox(checkbox) {
+    var presentLabel = document.getElementById("new_presentLabel");
+    var presentInput = document.getElementById("new_presentInput");
+    var endYearSelect = document.getElementById("job_end_year");
+    var endMonthSelect = document.getElementById("job_end_month");
+    var endYearDiv = document.getElementById("year-month");
+
+    if (checkbox.checked) {
+      presentLabel.style.display = "inline"; // Show "Present" label
+      presentInput.value = "present"; // Set the "present" value
+      endYearDiv.style.display = "none"; // Hide "End Year" and "End Month" div
+      endYearSelect.value = ""; // Clear "End Year" value
+      endMonthSelect.value = ""; // Clear "End Month" value
+    } else {
+      presentLabel.style.display = "none"; // Hide "Present" label
+      presentInput.value = ""; // Clear the "present" value
+      endYearDiv.style.display = "block"; // Show "End Year" and "End Month" div
+    }
+  }
+</script>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=education')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('degree-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('degree');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=specialcategory')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('specializationdegree-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('specializationdegree');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  // Ensure the DOM is fully loaded before running the script
+  document.addEventListener("DOMContentLoaded", function () {
+      // Get the select elements
+      const startYearSelect = document.getElementById("start_year");
+      const endYearSelect = document.getElementById("end_year");
+
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Loop to populate the year dropdowns, starting from 1970 to the current year
+      for (let year = 1970; year <= currentYear; year++) {
+          // Create an option element for each year
+          const option = document.createElement("option");
+          option.value = year;
+          option.text = year;
+
+          // Append the option to both select elements, but skip if the value is empty (for "From" and "To" options)
+          if (year !== "") {
+              startYearSelect.appendChild(option.cloneNode(true));
+              endYearSelect.appendChild(option);
+          }
+      }
+  });
+</script>
+
+<script>
+  // Ensure the DOM is fully loaded before running the script
+  document.addEventListener("DOMContentLoaded", function () {
+      // Get the select elements
+      const startYearSelect = document.getElementById("edit_start_year");
+      const endYearSelect = document.getElementById("edit_end_year");
+
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Loop to populate the year dropdowns, starting from 1970 to the current year
+      for (let year = 1970; year <= currentYear; year++) {
+          // Create an option element for each year
+          const option = document.createElement("option");
+          option.value = year;
+          option.text = year;
+
+          // Append the option to both select elements, but skip if the value is empty (for "From" and "To" options)
+          if (year !== "") {
+              startYearSelect.appendChild(option.cloneNode(true));
+              endYearSelect.appendChild(option);
+          }
+      }
+  });
+</script>

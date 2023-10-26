@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<head>
+<title>View</title>
+<style>
+     body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+.edittt {
+    /* margin-left: 550px;
+    margin-top: 150px; */
+    /* width: 300px;
+    height: 100px;
+    padding: 15px; */
+    /* background-color: aquamarine; */
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+.edittable {
+    border-radius: 8px !important;
+    box-shadow: none;
+    padding: 27px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* .edittable tr td textarea{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #591fc9;
+} */
+.subbtn {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+    cursor: pointer;
+}
+/* .subbtn:hover {
+  background: #025822;
+} */
+.add_btn_class {
+  content: "plz wait";
+  background: #025822;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+}
+.form-style-1 {
+	/* margin:10px auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px; */
+    padding: 20px 20px 20px 24px;
+    margin: 0px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style-1 label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+.form-style-1 .field-divided{
+	width: 100%;
+}
+
+.form-style-1 .field-long{
+	width: 99%;
+}
+.form-style-1 .field-select{
+	width: 100%;
+}
+.form-style-1 .field-textarea{
+	height: 30px;
+    border: 1px solid #0b9b3f;
+    border-radius: 8px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+	background: #4B99AD;
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+	background: #4691A4;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+.bord_box {
+    padding: 8px;
+    background: #f9fafb;
+}
+.bord_box form {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.back_btnn {
+    position: absolute;
+    right: 38px;
+    top: 25px;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.onetwobtn {
+  padding: 5px 30px;
+  background: #0b9b3f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.ontwbt {
+  margin: 10px 0px;
+}
+/* .chat_area {
+  height: 140px !important;
+} */
+.statu_s {
+  display: none !important;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    /* width: 99.6%; */
+    text-decoration: none;
+}
+.optio_n {
+  /* background: #0b9b3f; */
+  border: 1px solid #0b9b3f;
+  height: 30px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.stat ul li {
+  list-style-type: none;
+}
+.stat {
+visibility: hidden;
+}
+button[name="save_home"],
+button[name="save_convert"],
+button[name="save_continue"],
+button[name="chiliadstaffingapi"],
+button[name="careerdesssapi"]{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[name="save_home"]:hover,
+button[name="save_convert"]:hover,
+button[name="save_continue"]:hover,
+button[name="chiliadstaffingapi"]:hover,
+button[name="careerdesssapi"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+.delete-btn {
+        padding: 4px 15px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+.delet_e_btn {
+  background-color: red;
+  text-decoration: none;
+    border: none;
+    color: white;
+    padding: 9px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}    
+.del_btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.no_btn {
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#success-desss {
+    text-align: center;
+    position: relative;
+    top: -590px;
+    font-weight: bold;
+}
+#success-message {
+    text-align: center;
+    position: relative;
+    top: -590px;
+    font-weight: bold;
+}
+.email_body {
+  height: 200px !important;
+}
+#cke_bsEmail_Body {
+  border: 1px solid #4CAF50;
+  width: 99.2%;
+  /* border-radius: 10px; */
+}
+#textarea1 {
+  width: 99%;
+  border: 1px solid #0b9b3f;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.shadow-sm {
+  padding: 3px 10px;
+    border-radius: 5px;
+    background: #0b9b3f;
+    border: none;
+    color: #fff;
+}
+
+
+  .bold-text {
+    font-weight: bold;
+  }
+
+  .italic-text {
+    font-style: italic;
+  }
+
+  .text-align-left {
+    text-align: left;
+  }
+
+  .text-align-center {
+    text-align: center;
+  }
+
+  .text-align-right {
+    text-align: right;
+  }
+
+  .uppercase-text {
+    text-transform: uppercase;
+  }
+
+  .lowercase-text {
+    text-transform: lowercase;
+  }
+
+  .capitalize-text {
+    text-transform: capitalize;
+  }
+  #cke_editor {
+    border: 1px solid #0b9b3f;
+  }
+  .backbuttons{
+    margin-top: 16px;
+    margin-left: 20px;
+  }
+
+
+
+
+</style>
+</head>
+
+<body>
+
+
+            <div class="bord_box">
+                <div class="back_btnn">
+                    <!-- <a class="back" href="{% url 'custombenchsales' %}">Back</a> -->
+                    <a class="back " href="/custombenchsalesedits/{{object.id}}">Edit</a>
+                    <!-- <a class="back" href="{% url 'search' %}">Search</a> -->
+
+                </div>
+      
+            <form action="/custombenchsalesupdate/{{object.id}}" method="POST">
+                {% csrf_token %}
+                <div class="backbuttons">
+                <a class="back" href="{% url 'custombenchsales' %}">Back</a>
+                </div>
+                <ul class="form-style-1">
+                    <li>
+                      <label>Subject</label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="bsSubject" value="{{object.bsSubject}}">
+                   </li>
+                   <li>
+                    <label>From</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="bsFrom" value="{{object.bsFrom}}">
+                  </li>
+                  <li>
+                    <label>Received Time</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="bsReceived_Time" value="{{object.bsReceived_Time}}">
+                 </li>
+                 
+                 <!-- <li>
+                    <label>Email Body</label> -->
+                    <!-- <input type="text" class="field-long field-textarea email_body" name="Email_Body" value="{{object.Email_Body}}"> -->
+                    <!-- <textarea type="text" class="field-long field-textarea email_body" name="bsEmail_Body" >{{object.bsEmail_Body}}</textarea>
+                </li> -->
+                 <!-- <li>
+                  <label>Email Body</label>
+                  <textarea type="text" class="field-long field-textarea email_body" name="bsEmail_Body">{{object.bsEmail_Body}}</textarea>
+               </li>  -->
+               <li>
+                    <label>Email Body</label>
+                    <!-- <input type="text" class="field-long field-textarea email_body" name="Email_Body" value="{{object.Email_Body}}"> -->
+                     <textarea id="editor" type="text" class="field-long field-textarea email_body" name="bsEmail_Body" >{{ object.bsEmail_Body|linebreaksbr }}</textarea>
+                </li>
+               
+              
+               
+              
+              
+                 
+                   
+              
+                <!-- <li>
+                  <button type="submit" name="save_home">Update</button>
+                  <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
+                  <button name="chiliadstaffingapi" type="submit" class="btn btn-success">Update & Chiliadstaffing Lead</button>
+
+                  <form id="myForm" action="" method="post">
+
+                    <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
+                    <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
+                  </form>
+
+                </li> -->
+
+                  
+                 
+                            
+                    </li>
+                    
+                    
+                </ul>
+            </form>
+            <div class="stat">
+            <ul>
+              <li>
+                <div style="display:inline-block">
+                  <label>Page Status</label>
+                  <div class="ontwbt">
+                  <a class="onetwobtn" href="{% url 'status' object.id %}">Status {{object.bcheckstatus}} </a></div></div>
+              </li>
+            </ul>
+          </div>
+
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+  // Replace the textarea with CKEditor
+let bsEmail_Body = CKEDITOR.replace('editor', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the text with spacing
+      var textWithSpacing = bsEmail_Body;
+
+      // Set the text with spacing in the editor
+      evt.editor.setData(textWithSpacing);
+    }
+  }
+});
+
+</script>
+<!-- <script>
+  $(document).ready(function() {
+      CKEDITOR.replace('bsEmail_Body');
+  });
+</script> -->
+<!-- <script>
+  $(document).ready(function() {
+      // Get the HTML data from your source (e.g., API response, database, etc.)
+      var htmlData = "{{object.bsEmail_Body}}";
+
+      // Replace the textarea with CKEditor
+      CKEDITOR.replace('bsEmail_Body');
+
+      // Set the HTML data in CKEditor
+      CKEDITOR.instances.bsEmail_Body.setData(htmlData);
+  });
+</script> -->
+
+
+<script>
+
+  function add_class_onchange(){
+        var status = this.value;
+        // alert(status);
+        if(status != "")
+        var element = document.getElementById("add_class");
+        element.classList.add("add_btn_class");
+      
+  }
+
+
+// $(function(){
+
+// $("#status").change(function(){
+//     var status = this.value;
+//     alert(status);
+//     if(status != "")
+//     var element = document.getElementById("add_class");
+//         element.classList.add("Your class name");
+//     });
+
+// });
+</script>
+<script>
+  function showConfirmDialog() {
+    if (confirm("Are you sure you want to delete?")) {
+      document.getElementById("delete-btn").click();
+    }
+  }
+</script>
+
+
+<!-- <script>
+  document.querySelector("button[name='chiliadstaffingapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Show success message
+      document.getElementById("success-message").style.display = "block";
+  });
+
+  document.querySelector("button[name='careerdesssapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Show success message
+      document.getElementById("success-desss").style.display = "block";
+  });
+</script> -->
+
+        </div>
+       </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,2527 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Edit</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+<link rel = "stylesheet" type = "text/css" href = "https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+     body{
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        }
+.edittt {
+    /* margin-left: 550px;
+    margin-top: 150px; */
+    /* width: 300px;
+    height: 100px;
+    padding: 15px; */
+    /* background-color: aquamarine; */
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+.edittable {
+    border-radius: 8px !important;
+    box-shadow: none;
+    padding: 27px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* .edittable tr td textarea{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #591fc9;
+} */
+.subbtn {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+    cursor: pointer;
+}
+/* .subbtn:hover {
+  background: #025822;
+} */
+.add_btn_class {
+  content: "plz wait";
+  background: #025822;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 99.6%;
+}
+.form-style-1 {
+	/* margin:10px auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px; */
+    padding: 20px 20px 20px 20px;
+    margin: 0px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style-1 label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+.form-style-1 .field-divided{
+	width: 100%;
+}
+
+.form-style-1 .field-long{
+	width: 100%;
+}
+.form-style-1 .field-select{
+	width: 100%;
+}
+.form-style-1 .field-textarea{
+	height: 30px;
+    border: 1px solid #0b9b3f;
+    border-radius: 8px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+	background: #4B99AD;
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+	background: #4691A4;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+.bord_box {
+    padding: 8px;
+    background: #f9fafb;
+}
+.bord_box form {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.back_btnn {
+    position: absolute;
+    right: 38px;
+    top: 25px;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.onetwobtn {
+  padding: 5px 30px;
+  background: #0b9b3f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.ontwbt {
+  margin: 10px 0px;
+}
+/* .chat_area {
+  height: 140px !important;
+} */
+.statu_s {
+  display: none !important;
+}
+.back {
+    background: #0b9b3f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    /* width: 99.6%; */
+    text-decoration: none;
+}
+.optio_n {
+  /* background: #0b9b3f; */
+  border: 1px solid #0b9b3f;
+  height: 30px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.stat ul li {
+  list-style-type: none;
+}
+.stat {
+visibility: hidden;
+}
+button[name="save_home"],
+button[name="save_convert"],
+button[name="save_continue"],
+button[name="chiliadstaffingapi"],
+button[name="careerdesssapi"]{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[name="save_home"]:hover,
+button[name="save_convert"]:hover,
+button[name="save_continue"]:hover,
+button[name="chiliadstaffingapi"]:hover,
+button[name="careerdesssapi"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+.delete-btn {
+        padding: 4px 15px;
+        background: #dc2626;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+    }
+.delet_e_btn {
+  background-color: red;
+  text-decoration: none;
+    border: none;
+    color: white;
+    padding: 9px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}    
+.del_btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.no_btn {
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#success-desss {
+    text-align: center;
+    position: relative;
+    top: -590px;
+    font-weight: bold;
+}
+#success-message {
+    text-align: center;
+    position: relative;
+    top: -590px;
+    font-weight: bold;
+}
+/* #cke_editor {
+    border: 1px solid #0b9b3f;
+  } */
+.inptbx {
+  display: flex;
+}
+.feldbx {
+  width: 50%;
+  margin-right: 10px;
+  /* margin-right: 5px; */
+  margin-top: 10px;
+}
+.feldbx select {
+  width: 100%;
+}
+.elededits {
+  display: flex;
+  margin-top: 35px;
+}
+.description {
+  width: 50%;
+  margin-top: 70px;
+}
+.lefsid_inbox {
+  width: 50%;
+  margin-left: 30px;
+}
+/* .cke_contents  {
+  height: 892px !important;
+} */
+.btn-success {
+  margin-top: 15px !important;
+}
+.emledid {
+  display: none;
+}
+.bkbtnoval {
+  position: absolute;
+    /* right: 38px; */
+  top: 26px;
+}
+.bkbtn {
+  position: absolute;
+  right: 38px;
+  top: 42px;
+}
+.stats {
+  font-size: 15px;
+}
+.messages {
+  padding: 0px;
+  margin-top: 28px;
+}
+.optio_n {
+  width: 100%;
+  margin: 0px;
+}
+#leadremote-options {
+  /* position: absolute; */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+#leadremote-options li {
+  cursor: pointer;
+}
+#leadduration-options {
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+#leadduration-options li {
+  cursor: pointer;
+}
+#legal-status-options {
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+#legal-status-options li {
+  cursor: pointer;
+}
+#leadworktype-options {
+  /* position: absolute; */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+#leadworktype-options li {
+  cursor: pointer;
+}
+#leadinterviewtype-options {
+  /* position: absolute; */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+#leadinterviewtype-options li {
+  cursor: pointer;
+}
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #4CAF50 !important;
+  border-radius: 8px !important;
+}
+.btn.btn-success{
+  display: inline-block;
+}
+.btn.btn-success .back{
+  padding: 8px 20px 9px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #4caf50;
+}
+.btn.btn-success .back:hover{
+  background-color: #3e8e41;
+}
+.lefckedt {
+  padding: 0px !important;
+  width: 50%;
+  margin-top: 61px;
+}
+
+  .cke {
+    border: 1px solid #0b9b3f !important;
+  }
+  .greecolours{
+  margin-top:20px;
+}
+.deletetest button{
+  /* margin-right: 12px;
+  margin-top: 7px; */
+  background: transparent;
+    border: none;
+    margin-top: 33px;
+    margin-right: 5px;
+    color: red;
+}
+
+</style>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+
+
+            <div class="bord_box">
+              <p>
+                <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+                  Alias
+                </button>
+              </p>
+                
+                <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Alias</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div id="message" style="color: red;"></div>
+                   
+                            <div class="mb-3">
+                            <label>Alias Name</label>
+                            <input list="masteralias-flavors" id="masteralias" id="masteralias" name="masteralias" class="form-control" required />
+                  
+                            <datalist id="masteralias-flavors">
+                                       
+                            </datalist>
+                            </div>
+                            <div class="mb-3">
+                                <label>Alias Type </label>
+                                <input list="masteraliascolumn-flavors" id="masteraliascolumn"  id="masteraliascolumn" name="masteraliascolumn" class="form-control" required  />
+
+                                <datalist id="masteraliascolumn-flavors">
+                                           
+                                </datalist>
+                              
+                            </div>
+                            <div class="mb-3">
+                                <label>Alias Value</label>
+                                <input type="text" id="masteraliasinput" id="masteraliasinput" name="masteraliasinput" class="form-control" placeholder=" Client/Job description/Position summary" required/>
+                            </div>
+                         
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                      </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>  
+                <!-- <div class="back_btnn">
+                    <a class="back" href="{% url 'customemailleads' %}">Back</a>
+                 </div>
+                <div>
+                  {% if messages %}
+                      <ul class="messages">
+                          {% for message in messages %}
+                              <a{% if message.tags %} class="{{ message.tags }} back"{% endif %}>{{ message }}</a>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
+
+                </div> -->
+                <!-- <div>
+                  <ul>
+                  <li> * Star fields are required</li>
+                  </ul>
+                </div> -->
+                <!-- <div class="btn btn-success">
+                  <a href="{% url 'emailduplicatefilm' emailleadsid %}" class="btn btn-primary back">Duplicate</a>
+                </div> -->
+            <form action="/customemailleadscreate/" method="POST">
+                {% csrf_token %}
+                <div class="form-style-1">
+                  <a class="back" href="{% url 'customemailleads' %}">Back</a>
+                  <!-- <form method="post"> -->
+                    <!-- <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button> -->
+                    <!-- <button name="chiliadstaffingapi" type="submit" class="btn btn-success">Update & Chiliadstaffing Lead</button> -->
+                   <!-- </form> -->
+                  <div>
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <a{% if message.tags %} class="{{ message.tags }} back"{% endif %}>{{ message }}</a>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+  
+                  </div>
+                  <!-- <div>
+                    {% if duplicate_count > 0 %}
+                        <p>There are {{ duplicate_count }} duplicate entries for this ID.</p>
+                    {% else %}
+                        <p>No duplicates found for this ID.</p>
+                    {% endif %}
+                  </div> -->
+                <div class="elededits">
+                  <!-- <div class="description">
+                    <label>Description</label>
+                    <textarea id="editor" type="text"  class="field-long field-textarea" name="leaddescription" >{{description|urlize|linebreaksbr}}</textarea>
+                    
+                    
+                  </div> -->
+                  <ul class="form-style-1 lefckedt">
+                    <li>
+                      <label>Contact Details & Position Qualifications</label>
+                    
+                      <textarea id="contacteditor" type="text" class="field-long field-textarea email_body" name="contactdetails" >{{object.contactdetails|urlize|linebreaksbr}}</textarea>
+                    </li>
+                    <li>
+                      <label>Short JD / Job Description</label>
+                      
+                      <textarea id="jobdescriptioneditor" type="text" class="field-long field-textarea email_body" name="shortjobdescription" >{{object.shortjobdescription|urlize|linebreaksbr}}</textarea>
+                    </li>
+                    <li>
+                      <label>Responsibilities (Optional)</label>
+                      
+                      <textarea id="responsibilitieseditor" type="text" class="field-long field-textarea email_body" name="responsibilities" >{{object.responsibilities|urlize|linebreaksbr}}</textarea>
+                    </li>
+                    
+                    <li>
+                      <label>Qualifications (Optional)</label>
+                      
+                      <textarea id="qualificationseditor" type="text" class="field-long field-textarea email_body" name="qualifications" >{{object.qualifications|urlize|linebreaksbr}}</textarea>
+                    </li>
+                     
+                    <li>
+                      <label>Comments</label>
+                      
+                      <textarea id="commentseditor" type="text" class="field-long field-textarea email_body" name="comments" >{{object.comments|urlize|linebreaksbr}}</textarea>
+                    </li>
+                    <li>
+                      <label>Keywords</label>
+                      
+                      <textarea id="keywordseditor" type="text" class="field-long field-textarea email_body" name="keywords" >{{object.keywords|urlize|linebreaksbr}}</textarea>
+                    </li>
+                  </ul>
+                 
+                  <div class="lefsid_inbox">
+                <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
+                    <!-- <div class="btn btn-success">
+                      <a href="{% url 'emailduplicatefilm' emailleadsid %}" class="btn btn-primary back">Duplicate</a>
+                    </div> -->
+                    <div class="bkbtnoval">
+                      <div class="">
+                        
+                      <p class="stats">Status: {{is_status_check}}</p>
+                     
+                      
+                     </div>
+                    </div>
+                    <div class="bkbtn">
+                      
+                      <!-- <a class="back" href="{% url 'customemailleads' %}">Back</a> -->
+                      <a class="back " href="/customemailleadsview/{{object.id}}">View</a>
+                      <!-- <p>
+                        <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+                          Alias
+                        </button>
+                      </p>
+                        
+                        <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Alias</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div id="message" style="color: red;"></div>
+                           
+                                    <div class="mb-3">
+                                    <label>Alias Name</label>
+                                    <input list="masteralias-flavors" id="masteralias" id="masteralias" name="masteralias" class="form-control" required />
+                          
+                                    <datalist id="masteralias-flavors">
+                                               
+                                    </datalist>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Alias Type </label>
+                                        <input list="masteraliascolumn-flavors" id="masteraliascolumn"  id="masteraliascolumn" name="masteraliascolumn" class="form-control" required  />
+      
+                                        <datalist id="masteraliascolumn-flavors">
+                                                   
+                                        </datalist>
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Alias Value</label>
+                                        <input type="text" id="masteraliasinput" id="masteraliasinput" name="masteraliasinput" class="form-control" placeholder=" Client/Job description/Position summary" required/>
+                                    </div>
+                                 
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                              </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>   -->
+                        <!-- constant div -->
+                    </div>
+                   <div class="inptbx">
+                    
+                    <div class="feldbx">
+                      <label>First Name </label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea" name="leadfirstname" value="{{first_name}}">
+                    </div>
+                    <div class="feldbx">
+                    <label>Last Name </label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="leadlastname" value="{{last_name}}" >
+                    </div>
+                    </div>
+                  <div class="inptbx">
+                    <div class="feldbx">
+                    <label>Email</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="leademail" value="{{email_id}}" >
+                    </div>
+                 
+                    <div class="feldbx">
+                    <label>User Name</label>
+                    <input type="text" class="field-long field-textarea" name="leadusername" value="{{username}}">
+                    </div>
+                  </div>
+                 <!-- <li class="statu_s">
+                    <label>password</label> -->
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <!-- <input type="text" class="field-long field-textarea" name="password" value="{{object.password}}">
+                 </li>
+                 <li> -->
+                    <!-- <label>Password</label> -->
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <!-- <input type="text" class="field-long field-textarea" name="Technology" value="{{object.Technology}}">
+                 </li> -->
+                 <div class="inptbx">
+                  <div class="feldbx">
+                    <label>Company </label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="leadcompany" value="{{company_name}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Phone Number </label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="leadphonenumber" value="{{phone_number}}" >
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="feldbx">
+                    <label>Address</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="leadaddress" value="{{address}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Address 2</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="leadaddress2" value="">
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="feldbx">
+                        <label>City</label>
+                        <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                        <input type="text" class="field-long field-textarea" name="leadcity" value="{{city}}">
+                  </div>
+                
+                  <div class="feldbx">
+                        <label>State</label>
+                        <input type="text" class="field-long field-textarea" name="leadstate" value="{{state}}">
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="feldbx">
+                        <label>Zip Code</label>
+                        <input type="text" class="field-long field-textarea" name="leadzipcode" value="{{zipcode}}">
+                  </div>
+                    <!-- <li>
+                      <label>Occupation</label>
+                      <input type="text" class="field-long field-textarea" name="leadoccupation" >
+                  </li> -->
+                  <div class="feldbx">
+                    <label>Job Title / Position</label>
+                    <input type="text" class="field-long field-textarea" name="leadposition" value="{{position}}">
+                  </div>
+                  <div class="feldbx">
+                    <label>Recruiter / Designation</label>
+                    <input type="text" class="field-long field-textarea" name="designation" value="{{designation}}">
+                  </div>
+                </div>
+                  
+                 <div class="inptbx">
+                 
+                  <div class="feldbx">
+                    <label>Total Experience *</label>
+                    <!-- <select type="text"  name="leadexperience" id="multiSelect" multiple style="width: 100%;" class="field-long field-textarea" required="" ></select> -->
+                    <select type="text" name="leadexperience" id="leadexperience" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                    </div>
+                  <div class="feldbx">
+              <label>Rate </label>
+              <input type="text" class="field-long field-textarea" name="leadrate" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx emledid">
+                    <label>Id</label>
+
+                    <input type="text" class="field-long field-textarea" name="emailleadid" value="{{emailleadsid}}">
+                  </div>
+                  <div class="feldbx emledid">
+                    <label>Php Id</label>
+
+                    <input type="text" class="field-long field-textarea" name="phplead_id" value="{{phplead_id}}">
+                  </div>
+                  
+                </div>
+
+              <div class="inptbx">
+                 
+                  <!-- <div class="feldbx">            
+                    <label for="leadremote">Workplace Type *</label>
+                    <input type="text" name="leadremote" id="leadremote" class="optio_n" required="">
+                    
+                    <span><ul id="leadremote-options">
+                     
+                    </ul></span>
+                    
+                  </div> -->
+
+                  <!-- <div class="feldbx">            
+                    <label for="leadremote">Workplace Type *</label>
+                    <select type="text" name="leadremote" id="WorkplacemultiSelect" multiple style="width: 100%;" class="field-long field-textarea" required=""></select>
+                  </div> -->
+
+                  <div class="feldbx">
+                    <label>Workplace Type </label>
+                    <!-- <input type="text" name="leadremote" id="leadremote" class="optio_n" value="{{workplace_value}}" placeholder="Type and select Workplace Type" multiple="multiple">
+                    
+                    
+                    <span><ul id="leadremote-options">
+                     
+                    </ul></span> -->
+                    <select type="text" name="leadremote" id="leadremote" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  
+                  
+                    </div>
+                
+                
+                
+
+              
+              
+                  <!-- <div class="feldbx">            
+                    <label for="leadduration">Duration *</label>
+                    <input type="text" name="leadduration" id="leadduration" class="optio_n" required="">
+                    
+                    <span><ul id="leadduration-options">
+                     
+                    </ul></span>
+                    
+                  </div> -->
+                  <!-- <div class="feldbx">            
+                    <label for="leadduration">Duration *</label>
+                    <select type="text"  name="leadduration" id="DurationmultiSelect" multiple style="width: 100%;" class="field-long field-textarea" name="leadduration" required=""></select>
+                    
+                  </div> -->
+                  <div class="feldbx">
+                    <label>Duration </label>
+                    <!-- <input type="text" name="leadduration" id="leadduration" class="optio_n" value="{{duration}}" placeholder="Type and select Duration" multiple="multiple">
+                    
+                    
+                    <span><ul id="leadduration-options">
+                     
+                    </ul></span> -->
+                    <select type="text" name="leadduration" id="leadduration" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  
+                    </div>
+                </div>
+                
+                <div class="inptbx">
+                  
+                  <!-- <div class="feldbx">            
+                    <label for="leadlegalstatus">Legalstatus *</label>
+                    <input type="text" name="leadlegalstatus" id="leadlegalstatus" class="optio_n" required="">
+                    
+                    <span><ul id="legal-status-options">
+                     
+                    </ul></span>
+                    
+                  </div> -->
+                  <div class="feldbx">            
+                    <label for="leadlegalstatus">Legalstatus *</label>
+                    <select type="text" name="leadlegalstatus" id="LegalstatusmultiSelect" multiple style="width: 100%;" class="field-long field-textarea select_field_class"    multiple="multiple"></select>
+                  </div>
+                    <div class="feldbx">
+                    <label>Job location </label>
+                    <input type="text" class="field-long field-textarea" name="leadlocation" value="{{location}}" >
+                  </div>
+                 </div>
+
+                 
+                <div class="inptbx">
+                  <!-- <div class="feldbx">            
+                    <label for="leadworktype">Job Type *</label>
+                   
+                    <select type="text"  name="leadworktype" id="jobmultiSelect" multiple style="width: 100%;" class="field-long field-textarea" required=""></select>
+                   
+                    
+                  </div> -->
+                  <div class="feldbx">
+                    <label>Job Type </label>
+                    <!-- <input type="text" name="leadworktype" id="leadworktype" class="optio_n" value="{{job_type_value}}" placeholder="Type and select Job Type"  multiple="multiple">
+                    
+                    
+                    <span><ul id="leadworktype-options">
+                     
+                    </ul></span> -->
+                    <select type="text" name="leadworktype" id="leadworktype" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  
+                    </div>
+                 <!-- <div class="feldbx">            
+                  <label for="leadworktype">Job Type *</label>
+                  <input type="text" name="leadworktype" id="leadworktype" class="optio_n" required="">
+                  
+                  <span><ul id="leadworktype-options">
+                   
+                  </ul></span>
+                  
+                </div> -->
+                 
+               <!-- <div class="feldbx">            
+                <label for="leadinterviewtype">Interview Type *</label>
+                <input type="text" name="leadinterviewtype" id="leadinterviewtype" class="optio_n" required="">
+                
+                <span><ul id="leadinterviewtype-options">
+                 
+                </ul></span>
+                
+               </div> -->
+                  <div class="feldbx">            
+                    <label for="leadinterviewtype">Interview Type </label>
+                    <!-- <select type="text" name="leadinterviewtype" id="InterviewmultiSelect" multiple style="width: 100%;" class="field-long field-textarea"  multiple="multiple"></select> -->
+                    <!-- <input type="text" name="leadinterviewtype" id="InterviewmultiSelect" multiple style="width: 100%;" class="field-long field-textarea"  multiple="multiple"> -->
+                    <select type="text" name="leadinterviewtype" id="InterviewmultiSelect" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                 <!-- <div class="feldbx">
+                  
+                  
+                  <label for="id_locations">Interview Type *</label>
+                  <select  name="leadinterviewtype" id="leadinterviewtype" class="optio_n" required="" onchange="add_class_onchange()">
+                  <option  value="{{object.leadinterviewtype}}" selected="">{{object.leadinterviewtype}}</option>
+            
+                  <option value="Phone ">Phone </option>
+                  <option value="Physical">Physical</option>
+                  
+       
+                    <button class="subbtn">Submit</button>
+                
+                  </select>
+                 </div> -->
+
+              
+                <!-- <div class="feldbx">
+                <label>Remote *</label>
+                <input type="text" class="field-long field-textarea" name="leadremote" value="{{object.leadremote}}" required>
+                </div> -->
+               
+                <!-- <div class="inptbx">
+                  <div class="feldbx">
+              <label>Experience </label>
+              <input type="text" class="field-long field-textarea" name="leadexperience" value="{{object.leadexperience}}" >
+                  </div>
+                  <div class="feldbx">
+              <label>Rate </label>
+              <input type="text" class="field-long field-textarea" name="leadrate" value="{{object.leadrate}}" >
+                  </div>
+                </div> -->
+
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi1" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 1 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills1" value="{{skill1}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional1" id="leadoptional1" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi2" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 2 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills2" value="{{skill2}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience2" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <select type="text" name="leadoptional2" id="leadoptional2" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi3" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 3 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills3" value="{{skill3}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience3" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional3" id="leadoptional3" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi4" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 4 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills4" value="{{skill4}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience4" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional4" id="leadoptional4" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi5" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 5 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills5" value="{{skill5}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience5" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional5" id="leadoptional5" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi6" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 6 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills6" value="{{skill6}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience6" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional6" id="leadoptional6" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi7" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 7 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills7" value="{{skill7}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience7" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional7" id="leadoptional7" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi8" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 8 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills8" value="{{skill8}}" >
+                  </div>
+                  <div class="feldbx">
+                  <label>Experience </label>
+                  <input type="text" class="field-long field-textarea" name="leadexperience8" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional8" id="leadoptional8" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi9" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                 <label>Skills 9 </label>
+                 <input type="text" class="field-long field-textarea" name="leadskills9" value="{{skill9}}" >
+                  </div>
+                  <div class="feldbx">
+                 <label>Experience </label>
+                 <input type="text" class="field-long field-textarea" name="leadexperience9" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional9" id="leadoptional9" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <div class="inptbx">
+                  <div class="deletetest">
+                    <button name="skillsdeleteapi10" type="submit" class=""><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+                  </div>
+                  <div class="feldbx">
+                  <label>Skills 10 </label>
+                  <input type="text" class="field-long field-textarea" name="leadskills10" value="{{skill10}}" >
+                  </div>
+                  <div class="feldbx">
+                   <label>Experience </label>
+                   <input type="text" class="field-long field-textarea" name="leadexperience10" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx">
+                    <label>Required </label>
+                    <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
+                    <select type="text" name="leadoptional10" id="leadoptional10" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
+                  </div>
+                </div>
+                <!-- <div class="inptbx">
+                  <div class="feldbx">
+              <label>Total Experience </label>
+              <input type="text" class="field-long field-textarea" name="leadexperience" value="{{object.leadexperience}}" >
+                  </div>
+                  <div class="feldbx">
+              <label>Rate </label>
+              <input type="text" class="field-long field-textarea" name="leadrate" value="{{object.leadrate}}" >
+                  </div>
+                  <div class="feldbx emledid">
+                    <label>Id</label>
+
+                    <input type="text" class="field-long field-textarea" name="emailleadid" value="{{emailleadsid}}">
+                  </div>
+                  
+                </div> -->
+
+               <!-- overall closing div -->
+
+            <button name="careerdesssapi" type="submit" class="btn btn-success">Update &amp; Career Desss Lead</button>
+
+
+               <!-- <div class="btn btn-success">
+                <a href="{% url 'emailduplicatefilm' emailleadsid %}" class="btn btn-primary back">Duplicate</a>
+              </div> -->
+
+                  </div> 
+                  
+                
+                </div>
+                
+                  <!-- <form method="post"> -->
+
+                  <!-- <button type="submit" name="save_home">Update</button> -->
+                  <!-- <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button> -->
+                  <!-- <button name="chiliadstaffingapi" type="submit" class="btn btn-success">Update & Chiliadstaffing Lead</button> -->
+                 <!-- </form> -->
+                  <!-- <form id="myForm" action="" method="post">
+                    Your form elements here
+                    <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
+                    <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
+                  </form> -->
+
+            
+            </form>
+            
+
+        <!-- </form> -->
+        <!-- <div class="btn btn-success">
+          <a href="{% url 'emailduplicatefilm' emailleadsid %}" class="btn btn-primary back">Duplicate</a>
+        </div> -->
+            <div class="stat">
+            <ul>
+              <li>
+                <div style="display:inline-block">
+                  <label>Page Status</label>
+                  <div class="ontwbt">
+
+              </li>
+            </ul>
+          </div>
+          <form action="{% url 'customemailleadcontent' id=emailleadsid %}" method="POST">
+            {% csrf_token %}
+          <!-- <button name="careerdesssapi" type="submit" class="btn btn-success">Save</button> -->
+          <div class="Description">
+            <label>Email Message</label>
+            <!-- <textarea id="editor1" type="text"  class="field-long field-textarea" name="leaddescription1" >{{description1|urlize|linebreaksbr}}</textarea> -->
+            <textarea id="editor1" type="text"  class="field-long field-textarea" name="leaddescription1" >{{object.Email_descriptions|urlize|linebreaksbr}}</textarea>
+          </div>
+          
+          </form>
+<!-- <script>
+  function addBreakTags(text) {
+      return text.replace(/\n/g, '<br>');
+  }
+  </script> -->
+     
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+          <script>
+            // Replace the textarea with CKEditor
+            CKEDITOR.replace('editor', {
+              // Set the height of the editor as per your requirement
+              height: 400,
+              // Define a callback to handle the ready event
+              on: {
+                instanceReady: function (evt) {
+                  // Get the editor's raw data (HTML with <br> tags)
+                  var rawData = evt.editor.getData();
+                  // Remove excessive <br> tags and keep single <br> tags for line breaks
+                  var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+                  // Set the modified data in the editor
+                  evt.editor.setData(modifiedData);
+                }
+              }
+            });
+          </script>
+           <script>
+            // Replace the textarea with CKEditor
+            CKEDITOR.replace('editor1', {
+              // Set the height of the editor as per your requirement
+              height: 400,
+              // Define a callback to handle the ready event
+              on: {
+                instanceReady: function (evt) {
+                  // Get the editor's raw data (HTML with <br> tags)
+                  var rawData = evt.editor.getData();
+                  // Remove excessive <br> tags and keep single <br> tags for line breaks
+                  var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+                  // Set the modified data in the editor
+                  evt.editor.setData(modifiedData);
+                }
+              }
+            });
+          </script>
+<script>
+  // Replace the textarea with CKEditor
+let contactdetails = CKEDITOR.replace('contacteditor', {
+  // Set the height of the editor as per your requirement
+  height: 80,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+
+
+<script>
+  // Replace the textarea with CKEditor
+let shortjobdescription = CKEDITOR.replace('jobdescriptioneditor', {
+  // Set the height of the editor as per your requirement
+  height: 80,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+
+<script>
+  // Replace the textarea with CKEditor
+let responsibilities = CKEDITOR.replace('responsibilitieseditor', {
+  // Set the height of the editor as per your requirement
+  height: 80,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+<script>
+  // Replace the textarea with CKEditor
+let qualifications = CKEDITOR.replace('qualificationseditor', {
+  // Set the height of the editor as per your requirement
+  height: 80,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+<script>
+  // Replace the textarea with CKEditor
+let comments = CKEDITOR.replace('commentseditor', {
+  // Set the height of the editor as per your requirement
+  height: 80,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>
+<script>
+  // Replace the textarea with CKEditor
+let keywords = CKEDITOR.replace('keywordseditor', {
+  // Set the height of the editor as per your requirement
+  height: 80,
+  autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the editor's raw data (HTML with <br> tags)
+      var rawData = evt.editor.getData();
+      // Remove excessive <br> tags and keep single <br> tags for line breaks
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+          
+      // Set the modified data in the editor
+      evt.editor.setData(modifiedData);
+    }
+  }
+});
+
+</script>      
+
+
+
+<!-- <script>
+  // Replace the textarea with CKEditor
+CKEDITOR.replace('editor', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // autoParagraph: false,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the text with spacing
+      var textWithSpacing = leaddescription;
+
+      // Set the text with spacing in the editor
+      evt.editor.setData(textWithSpacing);
+    }
+  }
+});
+
+</script> -->
+
+
+
+
+<script>
+
+  function add_class_onchange(){
+        var status = this.value;
+        // alert(status);
+        if(status != "")
+        var element = document.getElementById("add_class");
+        element.classList.add("add_btn_class");
+      
+  }
+
+
+// $(function(){
+
+// $("#status").change(function(){
+//     var status = this.value;
+//     alert(status);
+//     if(status != "")
+//     var element = document.getElementById("add_class");
+//         element.classList.add("Your class name");
+//     });
+
+// });
+</script>
+<script>
+  function showConfirmDialog() {
+    if (confirm("Are you sure you want to delete?")) {
+      document.getElementById("delete-btn").click();
+    }
+  }
+</script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- legalstatus -->
+<script>
+$(document).ready(function() {
+    $('#leadlegalstatus').on('keyup', function() {
+        var inputVal = $(this).val();
+        
+        $.ajax({
+            type: 'GET',
+            url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=legal_status',
+            dataType: 'json',
+            success: function(response) {
+                var options = '';
+                var legalStatusData = response.data;
+                
+                for (var i = 0; i < legalStatusData.length; i++) {
+                    var legalStatusName = legalStatusData[i].name;
+                    
+                    if (legalStatusName.toLowerCase().indexOf(inputVal.toLowerCase()) !== -1) {
+                        // options += '<li onclick=select_value_to_input("' + legalStatusName + '")>' + legalStatusName + '</li>';
+                        options += '<li onclick="select_value_to_input(\'' + legalStatusName + '\')">' + legalStatusName + '</li>';
+                        console.log(legalStatusName);
+                    }
+                }
+                
+                $('#legal-status-options').html(options);
+            }
+        });
+    });
+});
+function select_value_to_input(data){
+  $('#leadlegalstatus').val(data);
+  $('#legal-status-options').html('');
+ 
+}
+</script>
+
+<!-- 
+<script>
+  // leadremote
+$(document).ready(function() {
+    $('#leadremote').on('keyup', function() {
+        var inputVal = $(this).val();
+        if (inputVal==''){
+          $('#leadremote-options').html('');
+ 
+        }
+        else{
+        
+          $.ajax({
+              type: 'GET',
+              url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=workplace_type',
+              dataType: 'json',
+              success: function(response) {
+                  var options = '';
+                  var legalStatusData = response.data;
+                  
+                  for (var i = 0; i < legalStatusData.length; i++) {
+                      var legalStatusName = legalStatusData[i].name;
+                      
+                      if (legalStatusName.toLowerCase().indexOf(inputVal.toLowerCase()) !== -1) {
+                          // options += '<li onclick=select_value_to_input("' + legalStatusName + '")>' + legalStatusName + '</li>';
+                          options += '<li onclick="leadremote_select(\'' + legalStatusName + '\')">' + legalStatusName + '</li>';
+                          console.log(legalStatusName);
+                      }
+                  }
+                  
+                  $('#leadremote-options').html(options);
+              }
+          });
+          }
+    });
+});
+function leadremote_select(data){
+  $('#leadremote').val(data);
+  $('#leadremote-options').html('');
+ 
+}
+</script> -->
+<script>
+
+  //leadoptional1 optional
+  $(document).ready(function() {
+    var $select = $('#leadoptional1');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+
+  //leadoptional2 optional
+  $(document).ready(function() {
+    var $select = $('#leadoptional2');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+
+  //leadoptional3 optional
+  $(document).ready(function() {
+    var $select = $('#leadoptional3');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+
+  //leadoptional4 optional
+  $(document).ready(function() {
+    var $select = $('#leadoptional4');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadoptional4 optional
+$(document).ready(function() {
+    var $select = $('#leadoptional5');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+
+  //leadoptional5 optional
+  $(document).ready(function() {
+    var $select = $('#leadoptional6');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadoptional4 optional
+$(document).ready(function() {
+    var $select = $('#leadoptional7');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadoptional4 optional
+$(document).ready(function() {
+    var $select = $('#leadoptional8');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadoptional4 optional
+$(document).ready(function() {
+    var $select = $('#leadoptional9');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadoptional4 optional
+$(document).ready(function() {
+    var $select = $('#leadoptional10');
+
+    $select.select2({
+        placeholder: 'Type and select Required field',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=skills%20and%20experience',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+</script>
+<script>
+  //lead duration
+  $(document).ready(function() {
+    var $select = $('#leadduration');
+
+    $select.select2({
+        placeholder: 'Type and select Duration',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=duration',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadremote
+$(document).ready(function() {
+    var $select = $('#leadremote');
+
+    $select.select2({
+        placeholder: 'Type and select Workplace Type',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=workplace_type',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//leadexperience
+$(document).ready(function() {
+    var $select = $('#leadexperience');
+
+    $select.select2({
+        placeholder: 'Type and select Total Experience',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=Remote',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+// leadworktype
+$(document).ready(function() {
+    var $select = $('#leadworktype');
+
+    $select.select2({
+        placeholder: 'Type and select Job Type',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=job',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+// InterviewmultiSelect
+$(document).ready(function() {
+    var $select = $('#InterviewmultiSelect');
+
+    $select.select2({
+        placeholder: 'Type and select Interview Type',
+        allowClear: true,  // Allow clearing the selection
+        tags: true,      // Allow adding custom tags
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=interview_type',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+</script>
+<script>
+  // leadduration
+// $(document).ready(function() {
+//     $('#leadduration').on('keyup', function() {
+//         var inputVal = $(this).val();
+//         if (inputVal==''){
+//           $('#leadduration-options').html('');
+ 
+//         }
+//         else{
+//           $.ajax({
+//             type: 'GET',
+//             url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=duration',
+//             dataType: 'json',
+//             success: function(response) {
+//                 var options = '';
+//                 var legalStatusData = response.data;
+                
+//                 for (var i = 0; i < legalStatusData.length; i++) {
+//                     var legalStatusName = legalStatusData[i].name;
+                    
+//                     if (legalStatusName.toLowerCase().indexOf(inputVal.toLowerCase()) !== -1) {
+//                         // options += '<li onclick=select_value_to_input("' + legalStatusName + '")>' + legalStatusName + '</li>';
+//                         options += '<li onclick="leadduration_select(\'' + legalStatusName + '\')">' + legalStatusName + '</li>';
+//                         console.log(legalStatusName);
+//                     }
+//                 }
+                
+//                 $('#leadduration-options').html(options);
+//             }
+//         });
+//         }
+
+       
+        // $.ajax({
+        //     type: 'GET',
+        //     url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=duration',
+        //     dataType: 'json',
+        //     success: function(response) {
+        //         var options = '';
+        //         var legalStatusData = response.data;
+                
+        //         for (var i = 0; i < legalStatusData.length; i++) {
+        //             var legalStatusName = legalStatusData[i].name;
+                    
+        //             if (legalStatusName.toLowerCase().indexOf(inputVal.toLowerCase()) !== -1) {
+        //                 // options += '<li onclick=select_value_to_input("' + legalStatusName + '")>' + legalStatusName + '</li>';
+        //                 options += '<li onclick="leadduration_select(\'' + legalStatusName + '\')">' + legalStatusName + '</li>';
+        //                 console.log(legalStatusName);
+        //             }
+        //         }
+                
+        //         $('#leadduration-options').html(options);
+        //     }
+        // });
+//     });
+// });
+// function leadduration_select(data){
+//   $('#leadduration').val(data);
+//   $('#leadduration-options').html('');
+ 
+// }
+</script>
+<!-- <script>
+  // leadworktype
+$(document).ready(function() {
+    $('#leadworktype').on('keyup', function() {
+        var inputVal = $(this).val();
+        if (inputVal==''){
+          $('#leadworktype-options').html('');
+ 
+        }
+        else{
+        
+          $.ajax({
+              type: 'GET',
+              url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=job',
+              dataType: 'json',
+              success: function(response) {
+                  var options = '';
+                  var legalStatusData = response.data;
+                  
+                  for (var i = 0; i < legalStatusData.length; i++) {
+                      var legalStatusName = legalStatusData[i].name;
+                      
+                      if (legalStatusName.toLowerCase().indexOf(inputVal.toLowerCase()) !== -1) {
+                          // options += '<li onclick=select_value_to_input("' + legalStatusName + '")>' + legalStatusName + '</li>';
+                          options += '<li onclick="leadworktype_select(\'' + legalStatusName + '\')">' + legalStatusName + '</li>';
+                          console.log(legalStatusName);
+                      }
+                  }
+                  
+                  $('#leadworktype-options').html(options);
+              }
+          });
+          }
+    });
+});
+function leadworktype_select(data){
+  $('#leadworktype').val(data);
+  $('#leadworktype-options').html('');
+ 
+}
+</script> -->
+<script>
+  // leadinterviewtype
+$(document).ready(function() {
+    $('#leadinterviewtype').on('keyup', function() {
+        var inputVal = $(this).val();
+        
+        $.ajax({
+            type: 'GET',
+            url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=interview_type',
+            dataType: 'json',
+            success: function(response) {
+                var options = '';
+                var legalStatusData = response.data;
+                
+                for (var i = 0; i < legalStatusData.length; i++) {
+                    var legalStatusName = legalStatusData[i].name;
+                    
+                    if (legalStatusName.toLowerCase().indexOf(inputVal.toLowerCase()) !== -1) {
+                        // options += '<li onclick=select_value_to_input("' + legalStatusName + '")>' + legalStatusName + '</li>';
+                        options += '<li onclick="leadinterviewtype_select(\'' + legalStatusName + '\')">' + legalStatusName + '</li>';
+                        console.log(legalStatusName);
+                    }
+                }
+                
+                $('#leadinterviewtype-options').html(options);
+            }
+        });
+    });
+});
+function leadinterviewtype_select(data){
+  $('#leadinterviewtype').val(data);
+  $('#leadinterviewtype-options').html('');
+ 
+}
+</script>
+
+<script>
+  $(document).ready(function() {
+      $('#multiSelect').select2({
+          placeholder: 'Select Total Experience',
+          ajax: {
+              url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=Remote',
+              dataType: 'json',
+              processResults: function(data) {
+                  return {
+                      results: data.data.map(item => {
+                          return { id: item.name, text: item.name };
+                      })
+                  };
+              }
+          }
+      });
+  });
+  // $(document).ready(function() {
+  //     $('#WorkplacemultiSelect').select2({
+  //         placeholder: 'Select Workplace Type',
+  //         ajax: {
+  //             url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=workplace_type',
+  //             dataType: 'json',
+  //             processResults: function(data) {
+  //                 return {
+  //                     results: data.data.map(item => {
+  //                         return { id: item.name, text: item.name };
+  //                     })
+  //                 };
+  //             }
+  //         }
+  //     });
+  // });
+
+  
+  $(document).ready(function() {
+      $('#LegalstatusmultiSelect').select2({
+          placeholder: 'Select Visa Type',
+          maximumSelectionSize: 6,
+          ajax: {
+              url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=legal_status',
+              dataType: 'json',
+              processResults: function(data) {
+                  return {
+                      results: data.data.map(item => {
+                          return { id: item.name, text: item.name };
+                      })
+                  };
+              }
+          }
+      });
+        // Update hidden input whenever an option is selected
+        // $('#LegalstatusmultiSelect').on('select2:select', function(e) {
+        //     var selectedOptions = $(this).val(); // Selected IDs
+        //     var selectedNames = e.params.data.text; // Selected names
+        //     console.log(selectedNames)
+        //     $('#leadlegalstatus').val(selectedNames); // Store names in hidden input
+        // });
+      
+    $('#LegalstatusmultiSelect').on('select2:select', function(e) {
+        var selectedOptions = $(this).val(); // Selected IDs
+        $('#leadlegalstatus').val(selectedOptions); // Store IDs in hidden input
+    });
+    
+
+  });
+  
+  // $(document).ready(function() {
+  //     $('#jobmultiSelect').select2({
+  //         placeholder: 'Select Job Type',
+  //         ajax: {
+  //             url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=job',
+  //             dataType: 'json',
+  //             processResults: function(data) {
+  //                 return {
+  //                     results: data.data.map(item => {
+  //                         return { id: item.name, text: item.name };
+  //                     })
+  //                 };
+  //             }
+  //         }
+  //     });
+  // });
+  // $(document).ready(function() {
+  //     $('#DurationmultiSelect').select2({
+  //         placeholder: 'Select Duration Type',
+  //         ajax: {
+  //             url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=duration',
+  //             dataType: 'json',
+  //             processResults: function(data) {
+  //                 return {
+  //                     results: data.data.map(item => {
+  //                         return { id: item.name, text: item.name };
+  //                     })
+  //                 };
+  //             }
+  //         }
+  //     });
+  // });
+  // $(document).ready(function() {
+  //     $('#InterviewmultiSelect').select2({
+  //         placeholder: 'Select Interview Type',
+  //         ajax: {
+  //             url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=interview_type',
+  //             dataType: 'json',
+  //             processResults: function(data) {
+  //                 return {
+  //                     results: data.data.map(item => {
+  //                         return { id: item.name, text: item.name };
+  //                     })
+  //                 };
+  //             }
+  //         }
+  //     });
+  // });
+</script>
+<!-- <script>
+  document.querySelector("button[name='chiliadstaffingapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Display success message
+      alert("Your lead has been updated to chiliadstaffing.com successfully!");
+  });
+
+  document.querySelector("button[name='careerdesssapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Display success message
+      alert("Your lead has been updated to career.desss.com successfully!");
+  });
+</script> -->
+
+<!-- <div id="success-message" style="display:none;">Your lead has been updated to chiliadstaffing.com successfully!</div>
+<div id="success-desss" style="display:none;">Your lead has been updated to career.desss.com successfully!</div> -->
+<!-- 
+<script>
+  document.querySelector("button[name='chiliadstaffingapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Show success message
+      document.getElementById("success-message").style.display = "block";
+  });
+
+  document.querySelector("button[name='careerdesssapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Show success message
+      document.getElementById("success-desss").style.display = "block";
+  });
+</script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+    $('#table').DataTable();
+     
+    $('#datasubmit').on('click', function(){
+        $masteralias = $('#masteralias').val();
+        $masteraliascolumn = $('#masteraliascolumn').val();
+        $masteraliasinput = $('#masteraliasinput').val();
+  
+        if($masteralias == "" || $masteraliascolumn == "" || $masteraliasinput == ""){
+            // alert("Please complete field");
+             // Display an error message in the "message" div
+             $('#message').text('Please complete all fields')
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "/alias/",
+                data:{
+                  masteralias: $masteralias,
+                  masteraliascolumn: $masteraliascolumn,
+                  masteraliasinput: $masteraliasinput,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    // alert('Save Data');
+                    $('#message').text('Your data has been saved succesfully')
+                    $('#masteralias').val('');
+                    $('#masteraliascolumn').val('');
+                    $('#masteraliasinput').val('');
+                    // window.location = "/";
+                }
+            });
+        }
+    });
+});
+</script>
+<script type = "text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteralias-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteralias');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch data from a URL (replace with your own API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Alias%20dropdown')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display 'name' values as options
+        const datalist = document.getElementById('masteraliascolumn-flavors');
+        const jsonData = data.data; // Use data.data to access the 'data' array
+        const existingValueField = document.getElementById('masteraliascolumn');
+        let existingValue = existingValueField.value.trim(); // Get the existing value
+
+        jsonData.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.name;
+          datalist.appendChild(option);
+           // Only append the option if it's not the same as the existing value
+          if (item.name !== existingValue) {
+            datalist.appendChild(option);
+          }
+        });
+         // Listen for input changes to update the existing value
+         existingValueField.addEventListener('input', function() {
+          existingValue = this.value.trim();
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
+</script>
+
+        </div>
+       </div>
+    </div>
+</body>
+
+</html>

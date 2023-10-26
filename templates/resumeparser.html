@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracted Resume Data</title>
+</head>
+<body>
+    <h1>Upload and Extract Resumes</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <h1>Extracted Resume Data</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Skills</th>
+                <th>Education</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ extracted_data.name }}</td>
+                <td>{{ extracted_data.contact_number }}</td>
+                <td>{{ extracted_data.email }}</td>
+                <td>
+                    {% for skill in extracted_data.skills %}
+                        {{ skill }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for education in extracted_data.education %}
+                        {{ education }}{% if not forloop.last %}<br>{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
