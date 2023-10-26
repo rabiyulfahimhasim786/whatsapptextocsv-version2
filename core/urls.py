@@ -1,0 +1,85 @@
+from django.urls import path 
+from  . import views 
+from core.views import (Product_view, SnippetList, Leads_view, Emailopp_view, Emailsamplelead_view, Emailbenchsales_view, CustomEmailleads_view, CustomBenchsales_view, CustomEmailleadsopportunities_view, whatsappcareersales_view, whatsappbenchsales_view, DuplicatedCustomEmailleadsView,Duplicatedwhatsappcareersales_view)
+
+from django.urls import re_path
+urlpatterns = [
+    path('index/',views.index, name='index'),
+    path('getDatapoint/',views.getDatapoint, name='getDatapoint'),
+    path('upload/', views.upload_txt, name='upload_txt'),
+    path('emailleadupload/', views.emaillead_upload_txt, name='emailleadupload'),
+    path('emailbenchsalesupload/', views.emailbenchsalesupload, name='emailbenchsalesupload'),
+    path('emailbenchsalesupdate/<int:id>',views.benchsalesupdate,name="emailbenchsalesupdate"),
+    path('emailbenchsalesedit/<int:id>',views.emailbenchsalesedit,name="emailbenchsalesedit"),
+    path('benchsales/', Emailbenchsales_view.as_view(), name="benchsales"),
+    #cutom email leads
+    path('customemailleadsupdate/<int:id>',views.customemailleadsupdate,name="customemailleadsupdate"),
+    path('customemailleadsview/<int:id>',views.customemailleadsedit,name="customemailleadsview"),
+    path('customemailleads/',CustomEmailleads_view.as_view(),name="customemailleads"),
+    path('customemailleadscreate/', views.Customemailleadscreate, name="customemailleadscreate"),
+    path('customemailleadsedits/<int:id>', views.customemailleadsedits, name="customemailleadsedits"),
+    path('customemailleadcontent/<int:id>', views.customemailleadcontent, name="customemailleadcontent"),
+    path('customemailleadsupdateadd/<int:id>', views.customemailleadsupdateadd, name="customemailleadsupdateadd"),
+    # custom email leads oppurtunties
+    path('customemailleadsopportunities/',CustomEmailleadsopportunities_view.as_view(),name="customemailleadsopportunities"),
+    path('customleadopportunitiesview/<int:id>', views.customleadopportunitiesview, name="customleadopportunitiesview"),
+
+    # custom email bench sales 
+    path('custombenchsalesedits/<int:id>',views.custombenchsalesedits, name="custombenchsalesedits" ),
+    path('custombenchsalesupdateadd/<int:id>', views.custombenchsalesupdateadd, name="custombenchsalesupdateadd"),
+
+    path('custombenchsalescontent/<int:id>', views.custombenchsalescontent, name="custombenchsalescontent"),
+    path('custombenchsalesupdate/<int:id>',views.custombenchsalesupdate,name="custombenchsalesupdate"),
+    path('custombenchsalesview/<int:id>',views.custombenchsalesedit,name="custombenchsalesview"),
+    path('custombenchsales/',CustomBenchsales_view.as_view(),name="custombenchsales"),
+    path('Custombenchsalescreate/', views.Custombenchsalescreate, name="Custombenchsalescreate"),
+    
+    path('custombenchsalesadd/', views.custombenchsalesadd, name="custombenchsalesadd"),
+    # path('', views.upload_txt, name='upload_txt'),
+    # path('retrieve/',views.retrieve,name="retrieve"),
+    path('edit/<int:id>',views.edit,name="edit"),
+    path('leadedit/<int:id>',views.leadedit,name="leadedit"),
+    path('emailnewleadsedit/<int:id>',views.emailsampleleadedit,name="emailnewleadsedit"),
+    # path('emailleadedit/<int:id>',views.emailleadedit,name="emailleadedit"),
+    path('emailleadoppurtunitiesedit/<int:id>',views.emailleadoppurtunitiesedit,name="emailleadoppurtunitiesedit"),
+    path('update/<int:id>',views.update,name="update"),
+    path('emailnewleadsupdate/<int:id>',views.sampleleadupdate,name="emailnewleadsupdate"),
+    # path('emailleadupdate/<int:id>',views.emailleadupdate,name="emailleadupdate"),
+    path('emailleadoppupdate/<int:id>',views.emailleadoppupdate,name="emailleadoppupdate"),
+    path('leadupdate/<int:id>',views.leadupdate,name="leadupdate"),
+    # path('leadupdate/<int:id>',views.emailleadoppupdate,name="leadupdate"),
+    path('delete/<int:id>',views.delete,name="delete"),
+    path('opportunities/',views.search, name="search"),
+    path('', Product_view.as_view(), name="home"),
+    # path('emailhome/', Emailproduct_view.as_view(), name="emailhome"),
+    path('emailleadoppurtunities/', Emailopp_view.as_view(), name="emailleadoppurtunities"),
+    path('emailnewleads/', Emailsamplelead_view.as_view(), name="emailnewleads"),
+    path('retrieve/', Product_view.as_view(), name="retrieve"),
+    path('leads/', Leads_view.as_view(), name="leads"),
+    #whatsapp career sales
+    path('whatsupcareersalesview/<int:id>',views.whatsappcareersalesview,name="whatsupcareersalesview"),
+    path('whatsupcareersales/', whatsappcareersales_view.as_view(), name="whatsupcareersales"),
+    path('whatsupcareersalesedit/<int:id>', views.whatsappcareersalesedit, name="whatsupcareersalesedit"),
+    path('whatsupcareersalescreate/', views.whatsappcareersalescreate, name="whatsupcareersalescreate"),
+    #whatsapp bench sales
+    path('whatsupbenchsalesview/<int:id>',views.whatsappbenchsalesview,name="whatsupbenchsalesview"),
+    path('whatsupbenchsales/', whatsappbenchsales_view.as_view(), name="whatsupbenchsales"),
+    path('whatsupbenchsalesedit/<int:id>', views.whatsappbenchsalesedit, name="whatsupbenchsalesedit"),
+    path('whatsupbenchsalescreate/', views.whatsappbenchsalescreate, name="whatsupbenchsalescreate"),
+    path('status/<int:id>/', views.status, name='status'),
+    re_path(r'snippets/$', SnippetList.as_view(), name='snippet-list'),
+    path('snippets/', SnippetList.as_view(), name="snippet"),
+    path('customemailleadsfile/', views.customemailleadsfile, name='customemailleadsfile'),
+    path('custombenchsalesfile/', views.custombenchsalesfile, name='custombenchsalesfile'),
+    # path('locations/', views.locations, name="locations"),
+    path('duplicatefilm/<int:id>/', views.duplicate_film, name='duplicatefilm'),
+    path('emailduplicatefilm/<int:id>/', views.emailduplicate_film, name='emailduplicatefilm'),
+    path('whatsappbenchsalescontent/<int:id>', views.whatsappbenchsalescontent, name="whatsappbenchsalescontent"),
+    path('whatappspam/<str:string_param>/', views.spamremovals_testing, name="whatappspam"),
+    path('whatappcareersales/<str:string_param>/', views.careersales_testing, name="whatappcareersales"),
+    path('whatappbenchsales/<str:string_param>/', views.benchsales_testing, name="whatappbenchsales"),
+    path('duplicated_emailleads/<int:id>/', DuplicatedCustomEmailleadsView.as_view(), name='duplicated_customemailleadsview'),
+    path('whatsupduplicated_emailleads/<int:id>/', Duplicatedwhatsappcareersales_view.as_view(), name='duplicated_whatsupleadsview'),
+    path('alias/',views.alias,name="alias"),
+        
+]
