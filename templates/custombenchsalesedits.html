@@ -66,7 +66,7 @@
 	/* margin:10px auto;
 	max-width: 400px;
 	padding: 20px 12px 10px 20px; */
-    padding: 20px 20px 20px 24px;
+    /* padding: 20px 20px 20px 24px; */
     margin: 0px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -109,10 +109,10 @@
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
 }
-.bord_box {
+/* .bord_box {
     padding: 8px;
     background: #f9fafb;
-}
+} */
 .bord_box form {
     border: 1px solid #e5e7eb;
     background: #fff;
@@ -232,7 +232,7 @@ button[name="save_convert"],
 button[name="save_continue"],
 button[name="chiliadstaffingapi"],
 button[name="careerdesssapi"]{
-  background-color: #4CAF50; /* Green */
+  background-color: #0b9b3f; /* Green */
   border: none;
   color: white;
   padding: 12px 24px;
@@ -245,13 +245,7 @@ button[name="careerdesssapi"]{
   border-radius: 5px;
 }
 
-button[name="save_home"]:hover,
-button[name="save_convert"]:hover,
-button[name="save_continue"]:hover,
-button[name="chiliadstaffingapi"]:hover,
-button[name="careerdesssapi"]:hover {
-  background-color: #3e8e41; /* Darker green on hover */
-}
+
 .delete-btn {
         padding: 4px 15px;
         background: #dc2626;
@@ -342,6 +336,8 @@ button[name="careerdesssapi"]:hover {
 }
 .upbtnandcdbtn button {
   margin: 0px 22px 22px 22px;
+  margin-top: 11px;
+  margin-left: 4px;
 }
 
 
@@ -378,12 +374,51 @@ button[name="careerdesssapi"]:hover {
     color: #fff !important;
   }
   .messages {
-    margin-top: 18px;
-    margin-left: 80px;
+    /* margin-top: 18px;
+    margin-left: 80px; */
+    margin-top: -35px;
+    margin-left: 94px;
   }
-  .greecolours{
+  /* .greecolours{
   margin-top:20px;
+} */
+.ali_as {
+    border-radius: 10px !important;
+    /* margin-top: -8px; */
+    padding: 9px 20px !important;
 }
+.containerrr {
+  width: 95%;
+  margin: auto;
+}
+.topbt  {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+}
+.aisbtn {
+  margin-top: -9px;
+}
+.leadbtn {
+  text-align: right;
+  margin-top: 15px;
+}
+.help {
+  background: #818181;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  right: 5px;
+  top: 3px;
+}
+.help:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -392,16 +427,31 @@ button[name="careerdesssapi"]:hover {
 
 <body>
 
+<div class="topbt containerrr">
+  <div>
+    <a class="back" style="margin-left: 1px;" href="{% url 'custombenchsales' %}">Back</a>
+    </div>
+    <div class="aisbtn">
+      <a class="help" href="{{ '/media/helpdocumentation/Email_Benchsales_edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
+      <button type="button" class="btn btn-primary greecolours ali_as" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+        Alias
+      </button>
+    </div>
+</div>    
 
             <div class="bord_box">
               <div class="inptbx">  
                 <div class="back_btnn1">
+                  
+                    <!-- <div>
                     <a class="back" href="{% url 'custombenchsales' %}">Back</a>
-                    <p>
-                      <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+                    </div>
+                    <div class="aisbtn">
+                      <button type="button" class="btn btn-primary greecolours ali_as" data-bs-toggle="modal" data-bs-target="#addnewmember" >
                         Alias
                       </button>
-                      </p>
+                    </div> -->
+                    
                       
                       <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -441,10 +491,15 @@ button[name="careerdesssapi"]:hover {
                                   </div>
                                
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
-                            </div>
+                            <div class="modal-footer popfot_btn" style="justify-content: space-between;">
+                              <div>
+                                  <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#apiResponseModal">API List</button>
+                                </div>
+                          <div>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                          </div>
+                          </div>
                             </form>
                           </div>
                         </div>
@@ -452,7 +507,23 @@ button[name="careerdesssapi"]:hover {
                       <!-- constant div -->
                   </div>
                   </div>
+                  </div>
                 </div>
+
+                <div class="modal fade" id="apiResponseModal" tabindex="-1" aria-labelledby="apiResponseLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="apiResponseLabel">API's for this screen</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Content for the API response modal will be added here -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 <div>
                   {% if messages %}
                       <ul class="messages">
@@ -489,8 +560,11 @@ button[name="careerdesssapi"]:hover {
                   <li> * Star fields are required</li>
                   </ul>
                 </div> -->
-            <form action="/Custombenchsalescreate/" method="POST">
+            <form action="/Custombenchsalescreate/" method="POST" class="containerrr">
                 {% csrf_token %}
+                <!-- <div>
+                  <a class="back" href="{% url 'custombenchsales' %}">Back</a>
+                  </div> -->
                 <div class="form-style-1">
                   
                   <div class="inptbx">  
@@ -520,10 +594,14 @@ button[name="careerdesssapi"]:hover {
                     <input type="text" class="field-long field-textarea" name="bench_sale_lead_id"  value="{{bench_sale_lead_id}}">
                    </div>
                    
-                  </div> 
-                  <p>Status: {{status}}</p>
-                  <p>Training Status: {{table_message}}</p>
+                  </div>
+                <div style="position: absolute;top: 19px;right: 236px;"> 
+                  <p style="margin: 0px;">Status: {{status}}</p>
+                  <p style="margin: 0px;">Training Status: {{table_message}}</p>
+                </div>
+                <div class="leadbtn">
                   <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
+                </div>  
                   <div class="inptbx">
                     <div class="feldbx">
                         <label>Benchsales First Name</label>
@@ -531,9 +609,9 @@ button[name="careerdesssapi"]:hover {
                         <input type="text" class="field-long field-textarea" name="benchsalesfirstname" value="{{first_name}}">
                     </div>
                     
-                    <div class="feldbx">
+                    <div class="feldbx" style="margin-right: 0px;">
                         <label>Benchsales Last Name</label>
-                        <input type="text" class="field-long field-textarea" name="benchsaleslastname" value="{{last_name}}">
+                        <input type="text" class="field-long field-textarea" style="width: 100%;" name="benchsaleslastname" value="{{last_name}}">
                     </div>
                   </div>  
 
@@ -547,9 +625,9 @@ button[name="careerdesssapi"]:hover {
                       <label>Recruiter / Designation</label>
                       <input type="text" class="field-long field-textarea" name="benchsalesdesignation" value="{{designation}}">
                     </div>
-                    <div class="feldbx">
+                    <div class="feldbx" style="margin-right: 0px;">
                       <label>Benchsales Email</label>
-                      <input type="text" class="field-long field-textarea" name="benchsalesemail" value="{{email_id}}">
+                      <input type="text" class="field-long field-textarea" style="width: 100%;" name="benchsalesemail" value="{{email_id}}">
                     </div>
                   </div>  
 
@@ -559,9 +637,9 @@ button[name="careerdesssapi"]:hover {
                     <input type="text" class="field-long field-textarea" name="benchsalesmobile" value="{{phone_number}}">
                   
                   </div>
-                <div class="feldbx">
+                <div class="feldbx" style="margin-right: 0px;">
                     <label>Benchsales Address </label>
-                    <input type="text" class="field-long field-textarea" name="benchsalesaddress" value="{{address}}">
+                    <input type="text" class="field-long field-textarea" style="width: 100%;" name="benchsalesaddress" value="{{address}}">
                 
                 </div>
               </div>
@@ -571,9 +649,9 @@ button[name="careerdesssapi"]:hover {
                   <input type="text" class="field-long field-textarea" name="benchsalescity" value="{{benchsalescity}}">
                 
                 </div>
-              <div class="feldbx">
+              <div class="feldbx" style="margin-right: 0px;">
                   <label>Benchsales State </label>
-                  <input type="text" class="field-long field-textarea" name="benchsalesstate" value="{{benchsalesstate}}">
+                  <input type="text" class="field-long field-textarea" style="width: 100%;" name="benchsalesstate" value="{{benchsalesstate}}">
               
               </div>
             </div>
@@ -583,9 +661,9 @@ button[name="careerdesssapi"]:hover {
                 <input type="text" class="field-long field-textarea" name="benchsaleszipcode" value="{{benchsaleszipcode}}">
               
               </div>
-            <div class="feldbx">
+            <div class="feldbx" style="margin-right: 0px;">
                 <label>Benchsales Website </label>
-                <input type="text" class="field-long field-textarea" name="benchsaleswebsite" value="{{benchsaleswebsite}}">
+                <input type="text" class="field-long field-textarea" style="width: 100%;" name="benchsaleswebsite" value="{{benchsaleswebsite}}">
             
             </div>
             <!-- <ul>
@@ -690,7 +768,7 @@ button[name="careerdesssapi"]:hover {
                   </div>
               
             </form>
-            <div class="form-style-1">
+            <div class="form-style-1 containerrr">
               <form action="{% url 'custombenchsalescontent' id=emailleadsid %}" method="POST">
                 {% csrf_token %}
               <button name="careerdesssapi" type="submit" class="btn btn-success">Save</button>
@@ -1021,5 +1099,41 @@ $(document).ready(function(){
         </div>
        </div>
     </div>
+
+    <script>
+      // Function to fetch data from the API and display it in the API Response modal
+      function displayApiResponse() {
+        // Fetch data from the API (use your API endpoint)
+        fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Email%20benchsales%20edit%20screen%20alias%20list')
+          .then(response => response.json())
+          .then(data => {
+            // Extract and display data in the API Response modal
+            const modal = document.getElementById("apiResponseModal");
+            const content = modal.querySelector(".modal-body");
+            content.innerHTML = ""; // Clear existing content
+    
+            // Create and append content from the API response as bullet points
+            const dataList = data.data;
+            const ul = document.createElement("ul");
+    
+            for (let i = 0; i < dataList.length; i++) {
+              const li = document.createElement("li");
+              li.textContent = dataList[i].name;
+              ul.appendChild(li);
+            }
+    
+            content.appendChild(ul);
+    
+            modal.style.display = "block"; // Display the API Response modal
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      }
+    
+      // Attach the displayApiResponse function to the button click event
+      const apiResponseButton = document.querySelector("[data-bs-target='#apiResponseModal']");
+      apiResponseButton.addEventListener("click", displayApiResponse);
+    </script>     
 </body>
 </html>

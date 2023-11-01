@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
 <head>
 <title>View</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
@@ -14,12 +14,7 @@
             font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
         }
 .edittt {
-    /* margin-left: 550px;
-    margin-top: 150px; */
-    /* width: 300px;
-    height: 100px;
-    padding: 15px; */
-    /* background-color: aquamarine; */
+  
     width: 80%;
     margin: auto;
     margin-top: 40px;
@@ -31,12 +26,7 @@
     border: 1px solid #e5e7eb;
     background: #fff;
 }
-/* .edittable tr td textarea{
-    width: 100%;
-    height: 40px;
-    border-radius: 8px;
-    border: 1px solid #591fc9;
-} */
+
 .subbtn {
     background: #0b9b3f;
     border: none;
@@ -46,9 +36,7 @@
     width: 99.6%;
     cursor: pointer;
 }
-/* .subbtn:hover {
-  background: #025822;
-} */
+
 .add_btn_class {
   content: "plz wait";
   background: #025822;
@@ -62,10 +50,7 @@
     width: 99.6%;
 }
 .form-style-1 {
-	/* margin:10px auto;
-	max-width: 400px;
-	padding: 20px 12px 10px 20px; */
-    /* padding: 20px 20px 20px 20px; */
+    /* padding: 20px 20px 20px 24px; */
     padding: 0px;
     margin: 0px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -96,7 +81,6 @@
 	height: 30px;
     border: 1px solid #0b9b3f;
     border-radius: 8px;
-    /* width: -webkit-fill-available; */
 }
 .form-style-1 input[type=submit], .form-style-1 input[type=button]{
 	background: #4B99AD;
@@ -110,6 +94,7 @@
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
 }
+
 
 .switch {
   position: relative;
@@ -148,10 +133,10 @@
   transition: .4s;
 }
 .back_btnn {
-  position: absolute;
-  right: 35px;
-  top: 11px;
-  display: flex;
+    position: absolute;
+    right: 35px;
+    top: 23px;
+    display: flex;
 }
 input:checked + .slider {
   background-color: #2196F3;
@@ -200,6 +185,9 @@ input:checked + .slider:before {
     /* width: 99.6%; */
     text-decoration: none;
 }
+.back:hover {
+  color: #fff;
+}
 .optio_n {
   /* background: #0b9b3f; */
   border: 1px solid #0b9b3f;
@@ -214,11 +202,11 @@ input:checked + .slider:before {
 visibility: hidden;
 }
 button[name="save_home"],
-button[name="save_convert"],
-button[name="save_continue"],
-button[name="save_category"],
-button[name="chiliadstaffingapi"],
-button[name="careerdesssapi"]{
+button[name="save_next"],
+button[name="careersales_save_next"],
+button[name="Careersales"],
+button[name="Benchsales"],
+button[name="save_continue"]{
   background-color: #0b9b3f; /* Green */
   border: none;
   color: white;
@@ -230,6 +218,10 @@ button[name="careerdesssapi"]{
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.cke {
+    border: 1px solid #0b9b3f !important;
 }
 
 .delete-btn {
@@ -282,156 +274,72 @@ button[name="careerdesssapi"]{
     cursor: pointer;
     border-radius: 5px;
 }
-#success-desss {
-    text-align: center;
-    position: relative;
-    top: -590px;
-    font-weight: bold;
+/* button[name="delete_d"] {
+  background-color: #f44336;  */
+.conform_pop {
+  background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 10px;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50% , -50%);
 }
-#success-message {
-    text-align: center;
-    position: relative;
-    top: -590px;
-    font-weight: bold;
+.conform_pop h3 {
+  padding: 0px;
+  margin: 0px;
 }
-.email_body {
-  height: 200px !important;
+.datim {
+  display: flex;
+  justify-content: space-between;
 }
-#cke_Email_Body {
-    border: 1px solid #4CAF50;
-    width: 99.2%;
-    
+.datim li {
+  width: 24.5%;
 }
-
-#textarea1 {
-  width: 99%;
-  border: 1px solid #0b9b3f;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-.shadow-sm {
-  padding: 3px 10px;
-    border-radius: 5px;
-    background: #0b9b3f;
-    border: none;
-    color: #fff;
-}
-
-  .bold-text {
-    font-weight: bold;
-  }
-
-  .italic-text {
-    font-style: italic;
-  }
-
-  .text-align-left {
-    text-align: left;
-  }
-
-  .text-align-center {
-    text-align: center;
-  }
-
-  .text-align-right {
-    text-align: right;
-  }
-
-  .uppercase-text {
-    text-transform: uppercase;
-  }
-
-  .lowercase-text {
-    text-transform: lowercase;
-  }
-
-  .capitalize-text {
-    text-transform: capitalize;
-  }
-  #cke_editor {
-    border: 1px solid #0b9b3f;
-  }
-  .top_feld {
-    display: flex;
-    justify-content: space-between;
-  }
-  .top_feld li {
-    /* width: -webkit-fill-available; */
-    width: 24.5%;
-  }
-  .sub_j {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
-  }
-  .for_m {
-    margin-right: 15px !important;
-  }
-  .cketd {
-    display: flex;
-  }
-  .cketd ul {
-    width: 100%;
-  }
-  .lefckedt {
-    padding-right: 0px;
-  }
-  #cke_1_contents {
-    height: 1285px !important;
-  }
-  /* #cke_2_contents {
-    height: 100px !important;
-  }
-  #cke_3_contents {
-    height: 100px !important;
-  }
-  #cke_4_contents {
-    height: 100px !important;
-  }
-  #cke_5_contents {
-    height: 100px !important;
-  }
-  #cke_6_contents {
-    height: 100px !important;
-  }
-  #cke_7_contents {
-    height: 100px !important;
-  } */
-  .cke {
+.optio_n {
+  width: 100%;
+} 
+.select2-container--default .select2-selection--single {
     border: 1px solid #0b9b3f !important;
-  }
-  .sav_bt {
-    margin: 0px !important;
-    margin-top: 15px !important;
-  }
-
-  /* .backbutton{
-    
-  } */
+}
+.select2-dropdown {
+  border: 1px solid #0b9b3f !important;
+}
+.second_row li {
+  width: 33% !important;
+  margin-right: 5px;
+}
+.cketd {
+  display: flex;
+}
+.cketd ul {
+  width: 100%;
+}
 /* .greecolours{
   margin-top:20px;
 } */
 .containerrr {
   width: 95%;
   margin: auto;
-}
-.back:hover {
-  color: #fff;
+  margin-top: 18px;
 }
 .ali_as {
-    border-radius: 10px;
-    /* margin-top: -8px; */
-    padding: 9px 20px;
+  border-radius: 10px;
+  margin-top: -8px;
+  padding: 7px 20px;
 }
 .help {
   background: #818181;
   border: none;
-  padding: 9px 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
-  /* position: relative;
-  right: 5px;
-  top: 3px; */
+  position: relative;
+  right: 2px;
+  top: -2px;
 }
 .help:hover {
   text-decoration: none;
@@ -441,6 +349,9 @@ button[name="careerdesssapi"]{
     justify-content: space-between;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -448,15 +359,18 @@ button[name="careerdesssapi"]{
 
             <div class="bord_box">
                 <div class="back_btnn">
-                  <a class="back" href="{% url 'duplicated_customemailleadsview' object.id %}" style="margin-right: 7px;">Duplicate</a>                   
-                  <a class="back " href="/customemailleadsedits/{{object.id}}" style="margin-right: 7px;">Edit</a>
-                  <!-- <a class="back" href="{% url 'customemailleads' %}">Back</a> -->
-                  <div style="display: flex;">
-                    <a style="margin-right: 7px;" class="help" href="{{ '/media/helpdocumentation/Email_Leads_view&edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
+                  <div>
+                  <a class="back" style="margin-right: 6px;" href="{% url 'duplicated_whatsupleadsview' object.id %}">Duplicate</a>  
+                  </div>    
+                  <div>            
+                  <a class="back" style="margin-right: 8px;" href="/whatsupcareersalesedit/{{object.id}}">Edit</a>
+                  </div>
+                  <div>
+                    <a class="help" href="{{ '/media/helpdocumentation/Whatsup_Leads_view&edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
                     <button type="button" class="btn btn-primary greecolours ali_as" data-bs-toggle="modal" data-bs-target="#addnewmember" >
                       Alias
                     </button>
-                    </div>
+                  </div>
                     
                     <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -526,53 +440,59 @@ button[name="careerdesssapi"]{
                     </div>
                   </div>
                 </div>
-            <!-- <div class="backbutton-right-alignment">
-            <a class="back" href="{% url 'customemailleads' %}">Back</a>
-            </div> -->
-            <form action="/customemailleadsupdate/{{object.id}}" method="POST" class="containerrr">
+            
+            <form action="/update/{{object.id}}" method="POST" class="containerrr">
                 {% csrf_token %}
-                <div class="backbutton" style="margin-top: 8px;">
-                <a class="back" href="{% url 'customemailleads' %}">Back</a>
-                <button type="submit" name="save_continue">Save & Reparse</button>
-                </div>
-                <!-- <button type="submit" name="save_continue">Save</button> -->
-                <ul class="form-style-1 top_feld">
-                  
-                   <!-- <li>
-                    <td style="padding:10px;text-align: center;"><a class="back " href="/customemailleadsedits/{{object.id}}">Add</a></td>
-                   </li> -->
-                   <li>
-                    <label>Date</label>
+          <div style="margin-top: -8px;">    
+            <a class="back" href="{% url 'whatsupcareersales' %}">Back</a>
+            <button type="submit" name="save_continue">Save & Reparse</button>
+            <button type="submit" name="careersales_save_next" style="margin-left: 0px;">Update & Next</button>
+          </div>
+            <ul class="form-style-1 datim">
+             
+                    <li>
+                      <label>Date</label>
+                     
+                      <input type="text" class="field-long field-textarea" name="date" value="{{object.date}}">
+                    </li>
+                    <li>
+                        <label>Time</label>
+                      
+                        <input type="text" class="field-long field-textarea" name="title" value="{{object.title}}">
+                    </li>
+                    <li>
+                        <label>Mobile Number</label>
+                     
+                        <input type="text" class="field-long field-textarea" name="year" value="{{object.year}}">
+                    </li>
+                    <li>
+                      <label></label>
+                     
+                      <label for="id_locations" style="margin: 0px;">Lead Type</label>
+                      <select style="height: 34px;" name="dropdownlist" id="dropdownlist" class="optio_n" required="" onchange="add_class_onchange()">
+                      <option  value="{{object.dropdownlist}}" selected="">{{object.dropdownlist}}</option>
+                
+                      <!-- <option value="New">New</option> -->
+                      <option value="3rd party Job posting & Recruitment">3rd party Job posting & Recruitment</option>
+                      <option value="Blog">Blog</option>
+                      <option value="Benchsales">Benchsales</option>
+                      <option value="Careersales">Careersales</option>
+                      <option value="Interview questions">Interview questions</option>
+                      <option value="Misc">Misc</option>
+                      <option value="Presentation">Presentation</option>
+                      <option value="Requirements">Requirements</option>
+                      <option value="Training">Training</option>
+                      <option value="Web content">Web content</option>
                     
-                    <input type="text" class="field-long field-textarea" name="todaysdate" value="{{object.todaysdate}}">
-                   </li>
-                    <li class="">
-                      <label>Subject</label>
+                        <button class="subbtn">Submit</button>
                     
-                      <input type="text" class="field-long field-textarea" name="Subject" value="{{object.Subject}}">
-                   </li>
-                   <li class="" >
-                    <label>From</label>
-                    
-                    <input type="text" class="field-long field-textarea" name="From" value="{{object.From}}">
+                      </select>
                   </li>
-                  <li>
-                    <label>Received Time</label>
-                   
-                    <input type="text" class="field-long field-textarea" style="width: 100% !important;" name="Received_Time" value="{{object.Received_Time}}">
-                    <!-- <label>Status</label> -->
                   
-                     <input type="hidden"  class="field-long field-textarea" name="checkstatus" value="{{object.checkstatus}}">
-                  </li>
-                 <!-- <li>
-                  <label>Status</label>
-                  
-                  <input type="text" class="field-long field-textarea" name="checkstatus" value="{{object.checkstatus}}">
-                 </li> -->
-                 </ul>
-              <ul class="form-style-1 top_feld">
+            </ul>  
+            <ul class="form-style-1 datim second_row">
               <li>
-              <div class="feldbx" style="margin-right: 2px;">
+              <div class="feldbx" style="margin-right: 7px;">
                 <label for="whatsappcompanytype">Technology Company  </label>
                 <!-- <select type="text" name="companyname" id="CompanySingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.companyname}}" ></select> -->
                 <input list="companyname-flavors" id="companyname" name="companyname" value="{{object.companyname}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
@@ -583,7 +503,7 @@ button[name="careerdesssapi"]{
              </div>
             </li>
             <li>
-              <div class="feldbx" style="margin-right: 2px;">
+              <div class="feldbx" style="margin-right: 7px;">
                 <label for="whatsappmaincategory">Main Category</label>
                 <!-- <select type="text" name="maincategory" id="MaincategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.maincategory}}" ></select> -->
                 <input list="maincategory-flavors" id="maincategory" name="maincategory" value="{{object.maincategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
@@ -593,15 +513,15 @@ button[name="careerdesssapi"]{
                 </datalist>
               </div>
             </li>
-             <li style="width: 25% !important; display: none;">
-              <!-- <li style="width: 25% !important; "> -->
-                <div class="feldbx" style="margin-right: 7px;">
-                  <label for="whatsappmaincategory">Main Category ID </label>
-                  <input  id="maincategory-data-id" name="maincategoryid"  style="width: 100%;" value="{{object.maincategoryid}}" class="field-long field-textarea select_field_class" />
-                </div>
-              </li>
+              <!-- <li style="width: 25% !important; display: none;"> -->
+                <li style="width: 25% !important; ">
+                  <div class="feldbx" style="margin-right: 7px;">
+                    <label for="whatsappmaincategory">Main Category ID </label>
+                    <input  id="maincategory-data-id" name="maincategoryid"  style="width: 100%;" value="{{object.maincategoryid}}" class="field-long field-textarea select_field_class" />
+                  </div>
+               </li>
             <li>
-              <div class="feldbx" style="margin-right: 2px;">
+              <div class="feldbx" style="margin-right: 7px;">
                 <label for="whatsappmaincategory">Sub Category / Product Line</label>
                 <!-- <label for="whatsappmaincategory">Sub Category *</label> -->
                 <!-- <select type="text" name="subcategory" id="subcategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.subcategory}}" ></select> -->
@@ -614,7 +534,7 @@ button[name="careerdesssapi"]{
               
             </li>
             <li style="margin-right: 0px !important;">
-              <div class="feldbx" >
+              <div class="feldbx">
                 <label for="whatsappRoleSingleSelect">Role</label>
               
                 <!-- <select type="text" name="roles" id="RoleSingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.roles}}" ></select> -->
@@ -626,83 +546,88 @@ button[name="careerdesssapi"]{
               </div>
               
             </li>
-            <!-- category saved <li style="margin-right: 0px !important;">
-              <button type="submit" class="sav_bt" style="width: 100%;width: 100%;margin-top: 22px;padding: 9px 0px;margin-left: 0px;border-radius: 8px;" name="save_category">Update & Category</button>
-            </li> -->
-            <li style="margin-right: 0px !important;margin-top: 18px;margin-left: 4px;">
-              <button type="submit" class="sav_bt" style="width: 100%;width: 100%;margin-top: 22px;padding: 3px 0px;margin-left: 0px;border-radius: 8px;" name="save_category">Update & Category</button>
+            </ul>
+
+        
+           
+                
+            
+        <div class="cketd"> 
+            <ul class="form-style-1" style="margin-right: 13px;">    
+                    <li>
+                        <label>Message</label>
+                        <textarea id="editor" class="field-long field-textarea chat_area" style="height: 150px;" name="filmurl">{{object.filmurl}}</textarea>
+                    </li>
+            </ul>
+            <ul class="form-style-1">
+              <li>
+                <label>Contact Details & Position Qualifications</label>
+              
+                <textarea id="contacteditor" type="text" class="field-long field-textarea email_body" name="contactdetails" >{{object.contactdetails|urlize}}</textarea>
+              </li>
+              <li>
+                <label>Short JD / Job Description</label>
+                
+                <textarea id="jobdescriptioneditor" type="text" class="field-long field-textarea email_body" name="shortjobdescription" >{{object.shortjobdescription|urlize}}</textarea>
+              </li>
+              <li>
+                <label>Responsibilities (Optional)</label>
+                
+                <textarea id="responsibilitieseditor" type="text" class="field-long field-textarea email_body" name="responsibilities" >{{object.responsibilities|urlize}}</textarea>
+              </li>
+              
+              <li>
+                <label>Qualifications (Optional)</label>
+                
+                <textarea id="qualificationseditor" type="text" class="field-long field-textarea email_body" name="qualifications" >{{object.qualifications|urlize}}</textarea>
+              </li>
+               
+              <li>
+                <label>Comments</label>
+                
+                <textarea id="commentseditor" type="text" class="field-long field-textarea email_body" name="comments" >{{object.comments|urlize}}</textarea>
+              </li>
+              <li>
+                <label>Keywords</label>
+                
+                <textarea id="keywordseditor" type="text" class="field-long field-textarea email_body" name="keywords" >{{object.keywords|urlize}}</textarea>
+              </li>
+              <!-- <button type="submit" class="sav_bt" name="save_continue">Save</button> -->
+            
+              <ul class="form-style-1" style="padding: 0px;">
+                <li class="statu_s">
+                  <label>Status</label>
+                  <!-- <textarea class="field-long field-textarea" name="checkstatus">{{object.checkstatus}}</textarea> -->
+                  <input type="text" class="field-long field-textarea" name="checkstatus" value="{{object.checkstatus}}">
+              </li>
+            
+            <li>
+              <button type="submit" name="save_continue">Save & Reparse</button>
+              
+              <!-- <button type="submit" name="save_continue">Update & Continue</button> -->
+              <!-- <button type="submit" name="save_home">Update</button>
+              <button type="submit" name="save_next">Update & Next</button>
+              <button type="submit" name="Careersales">Careersales & Update & Next</button>
+              <button type="submit" name="Benchsales">Benchsales & Update & Next</button>
+             -->
+              <!-- <form id="myForm" action="" method="post">
+
+                <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
+                <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
+              </form> -->
+           
             </li>
 
+              
+             
+                        
+                
+                
+                
             </ul>
-                 <!-- <li>
-                    <label>Email Body</label> -->
-                    <!-- <input type="text" class="field-long field-textarea email_body" name="Email_Body" value="{{object.Email_Body}}"> -->
-                    <!-- <textarea type="text" class="field-long field-textarea email_body" name="Email_Body" >{{object.Email_Body}}</textarea>
-                </li> -->
-              <div class="cketd">
-                <ul class="form-style-1 lefckedt" style="margin-right: 13px;">
-                <li>
-                    <label>Email Body</label>
-                    <!-- <input type="text" class="field-long field-textarea email_body" name="Email_Body" value="{{object.Email_Body}}"> -->
-                    <textarea id="editor" type="text" class="field-long field-textarea email_body" name="Email_Body" >{{object.Email_Body|urlize|linebreaksbr}}</textarea>
-                </li>
-                </ul>
-                <ul class="form-style-1">
-                <li>
-                  <label>Contact Details & Position Qualifications</label>
-                
-                  <textarea id="contacteditor" type="text" class="field-long field-textarea email_body" name="contactdetails" >{{object.contactdetails|urlize|linebreaksbr}}</textarea>
-                </li>
-                <li>
-                  <label>Short JD / Job Description</label>
-                  
-                  <textarea id="jobdescriptioneditor" type="text" class="field-long field-textarea email_body" name="shortjobdescription" >{{object.shortjobdescription|urlize|linebreaksbr}}</textarea>
-                </li>
-                <li>
-                  <label>Responsibilities (Optional)</label>
-                  
-                  <textarea id="responsibilitieseditor" type="text" class="field-long field-textarea email_body" name="responsibilities" >{{object.responsibilities|urlize|linebreaksbr}}</textarea>
-                </li>
-                
-                <li>
-                  <label>Qualifications (Optional)</label>
-                  
-                  <textarea id="qualificationseditor" type="text" class="field-long field-textarea email_body" name="qualifications" >{{object.qualifications|urlize|linebreaksbr}}</textarea>
-                </li>
-                 
-                <li>
-                  <label>Comments</label>
-                  
-                  <textarea id="commentseditor" type="text" class="field-long field-textarea email_body" name="comments" >{{object.comments|urlize|linebreaksbr}}</textarea>
-                </li>
-                <li>
-                  <label>Keywords</label>
-                  
-                  <textarea id="keywordseditor" type="text" class="field-long field-textarea email_body" name="keywords" >{{object.keywords|urlize|linebreaksbr}}</textarea>
-                </li>
-                <button type="submit" class="sav_bt" name="save_continue">Save & Reparse</button>
-              </div>
-                
-                <!-- <li>
-                  <button type="submit" name="save_home">Update</button>
-                  <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
-                  <button name="chiliadstaffingapi" type="submit" class="btn btn-success">Update & Chiliadstaffing Lead</button>
-
-                  <form id="myForm" action="" method="post">
-
-                    <a href="#" class="delet_e_btn" onclick="showConfirmDialog()">Delete</a>
-                    <button type="submit" name="delete_dynamic" class="del_btn" id="delete-btn" style="display:none;">Ok</button>
-                  </form>
-
-                </li> -->
-
-                  
-                 
-                            
-                    
-                    
-                    
-                </ul>
+          </ul>  
+        </div>     
+           
             </form>
             <div class="stat">
             <ul>
@@ -710,19 +635,19 @@ button[name="careerdesssapi"]{
                 <div style="display:inline-block">
                   <label>Page Status</label>
                   <div class="ontwbt">
-                  <a class="onetwobtn" href="{% url 'status' object.id %}">Status {{object.bcheckstatus}} </a></div></div>
+                  <a class="onetwobtn" href="{% url 'status' object.id %}">Status {{object.checkstatus}} </a></div></div>
               </li>
             </ul>
           </div>
 
 
-     
+   
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <script>
   // Replace the textarea with CKEditor
-let Email_Body = CKEDITOR.replace('editor', {
+let filmurl = CKEDITOR.replace('editor', {
   // Set the height of the editor as per your requirement
-  height: 400,
+  height: 1300,
   autoParagraph: false,
   // Define a callback to handle the ready event
   on: {
@@ -731,13 +656,205 @@ let Email_Body = CKEDITOR.replace('editor', {
       var rawData = evt.editor.getData();
       // Remove excessive <br> tags and keep single <br> tags for line breaks
       // var modifiedData = rawData.replace(/<[^>]*>/g, '').replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '');
       
       // Set the modified data in the editor
       evt.editor.setData(modifiedData);
     }
   }
 });
+
+</script>
+
+<script>
+
+
+  $(document).ready(function() {
+    var $select = $('#CompanySingleSelect');
+
+    $select.select2({
+        placeholder: 'Select Company Type',
+        allowClear: true,  // Allow clearing the selection
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=technology_companies',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+//role select
+
+$(document).ready(function() {
+    var $select = $('#RoleSingleSelect');
+
+    $select.select2({
+        placeholder: 'Select Role Type',
+        allowClear: true,  // Allow clearing the selection
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_job_title',
+        dataType: 'json',
+        success: function(data) {
+            $select.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $select.append(new Option(item.name, item.name));
+            });
+        }
+    });
+
+    $select.on('select2:select', function(e) {
+        var value = e.params.data.id;
+        $select.val(value).trigger('change');
+    });
+
+    $select.on('select2:unselect', function(e) {
+        $select.val(null).trigger('change');
+    });
+});
+
+</script>
+<script>
+  function showConfirmDialog() {
+    if (confirm("Are you sure you want to delete?")) {
+      document.getElementById("delete-btn").click();
+    }
+  }
+</script>
+<script>
+  // $(document).ready(function() {
+  //   $('#MaincategorySelect').select2({
+  //       placeholder: 'Select Main Category Type',
+  //       ajax: {
+  //           url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories',
+  //           dataType: 'json',
+  //           processResults: function(data) {
+  //               return {
+  //                   results: data.data.map(item => {
+  //                       return { id: item.id, text: item.name };
+  //                   })
+  //               };
+  //           }
+  //       }
+  //   });
+  $(document).ready(function() {
+    var $mainCategorySelect = $('#MaincategorySelect');
+    var $subcategorySelect = $('#subcategorySelect');
+
+    // Initialize the Main Category Select2 dropdown
+    $mainCategorySelect.select2({
+        placeholder: 'Select Main Category Type',
+        allowClear: true,  // Allow clearing the selection
+        data: [],  // Initial empty data
+
+        // Handle selection
+        templateResult: function(data) {
+            return data.text;
+        },
+        
+        // Handle deselection
+        templateSelection: function(data) {
+            return data.text;
+        }
+    });
+
+    // Initialize the Sub Category Select2 dropdown
+    $subcategorySelect.select2({
+        placeholder: 'Select Sub Category Type'
+    });
+
+    // Load main categories using AJAX
+    $.ajax({
+        url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories',
+        dataType: 'json',
+        success: function(data) {
+            $mainCategorySelect.empty();  // Clear existing options
+            data.data.forEach(function(item) {
+                $mainCategorySelect.append(new Option(item.name, item.id)); // Use item.id instead of item.name
+            });
+        }
+    });
+
+    // Set up an event listener for changes in the Main Category dropdown
+    $mainCategorySelect.on('select2:select', function(e) {
+        var mainCategoryId = e.params.data.id;
+        
+        // Update the URL of the Sub Category dropdown based on the selected Main Category
+        $subcategorySelect.select2({
+            placeholder: 'Select Sub Category Type',
+            allowClear: true,  // Allow clearing the selection
+            data: [],  // Initial empty data
+
+            // Handle selection
+            templateResult: function(data) {
+                return data.text;
+            },
+            
+            // Handle deselection
+            templateSelection: function(data) {
+                return data.text;
+            }
+        });
+
+        $.ajax({
+            url: 'https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=' + mainCategoryId,
+            dataType: 'json',
+            success: function(data) {
+                $subcategorySelect.empty();  // Clear existing options
+                data.data.forEach(function(item) {
+                    $subcategorySelect.append(new Option(item.name, item.name)); // Use item.id instead of item.name
+                });
+            }
+        });
+
+        $subcategorySelect.on('select2:select', function(e) {
+            var value = e.params.data.id;
+            $subcategorySelect.val(value).trigger('change');
+        });
+
+        $subcategorySelect.on('select2:unselect', function(e) {
+            $subcategorySelect.val(null).trigger('change');
+        });
+    });
+});
+
 
 </script>
 <script>
@@ -870,26 +987,6 @@ let keywords = CKEDITOR.replace('keywordseditor', {
 
 </script>
 <script>
-
-  function add_class_onchange(){
-        var status = this.value;
-        // alert(status);
-        if(status != "")
-        var element = document.getElementById("add_class");
-        element.classList.add("add_btn_class");
-      
-  }
-
-
-</script>
-<script>
-  function showConfirmDialog() {
-    if (confirm("Are you sure you want to delete?")) {
-      document.getElementById("delete-btn").click();
-    }
-  }
-</script>
-<script>
   //Company name 
   document.addEventListener('DOMContentLoaded', function () {
     // Fetch data from a URL (replace with your own API endpoint)
@@ -922,7 +1019,7 @@ let keywords = CKEDITOR.replace('keywordseditor', {
   });
 </script>
 
-<!-- <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const mainCategorySelect = document.getElementById('maincategory');
     const subCategorySelect = document.getElementById('subcategory');
@@ -1006,113 +1103,6 @@ let keywords = CKEDITOR.replace('keywordseditor', {
         });
     }
   });
-</script> -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mainCategorySelect = document.getElementById('maincategory');
-    const subCategorySelect = document.getElementById('subcategory');
-    const mainCategoryFlavors = document.getElementById('maincategory-flavors');
-    const subCategoryInput = document.getElementById('subcategory-flavors'); // The input for displaying subcategory data
-    const mainCategoryDataId = document.getElementById('maincategory-data-id'); // The input for displaying main category data-id
-    // Fetch main categories from a URL (replace with your API endpoint)
-    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories')
-      .then(response => response.json())
-      .then(data => {
-        const jsonData = data.data;
-        let mainCategoryexistingValue = mainCategorySelect.value.trim(); // Get the existing value
-        // let mainCategoryidexistingValue = mainCategoryidSelect.value.trim();
-        jsonData.forEach(item => {
-          const option = document.createElement('option');
-          // option.value = item.id+','+item.name;
-          // option.value = item.id+','+item.name;
-          option.value = item.name;
-          option.setAttribute('data-id', item.id); // Store the ID as a data attribute
-          mainCategoryFlavors.appendChild(option);
-          
-        });
-        
-
-        mainCategorySelect.addEventListener('input', function() {
-          const selectedOption = mainCategoryFlavors.querySelector(`option[value="${this.value}"]`);
-          if (selectedOption) {
-            const mainCategoryId = selectedOption.getAttribute('data-id');
-            // Fetch subcategories based on the selected main category ID
-            fetchSubcategories(mainCategoryId);
-            subCategoryInput.value = ''; // Clear subcategory input
-            mainCategoryDataId.value = mainCategoryId; // Update main category data-id
-          }
-        });
-      
-       
-     
-      })
-      .catch(error => {
-        console.error('Error fetching main categories:', error);
-      });
-
-
-   
-    function fetchSubcategories(mainCategoryId) {
-      $("#maincategory-data-id").val(mainCategoryId);
-
-      // Fetch subcategories using the main category ID
-      fetch(`https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=${mainCategoryId}`)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-
-          subCategoryInput.value = ''; // Clear the sub-category input
-
-          const jsonData = data.data;
-          let existingValue = subCategorySelect.value.trim(); // Get the existing value
-          subCategoryInput.innerHTML = ''; // Clear the sub-category input options
-
-          if (jsonData.length === 0) {
-            subCategoryInput.value = 'Not found';
-          } else {
-            jsonData.forEach(item => {
-              const option = document.createElement('option');
-              option.value = item.name;
-              if ( option.value === 'undefined') {
-                option.value = 'Not found';
-              } 
-              subCategoryInput.appendChild(option);
-              // console.log(option);
-              // Only append the option if it's not the same as the existing value
-              if (item.name !== existingValue) {
-                subCategoryInput.appendChild(option);
-              }
-            });
-          }
-
-
-          // Listen for input changes to update the existing value
-          subCategorySelect.addEventListener('input', function() {
-            existingValue = this.value.trim();
-          });
-        })
-        .catch(error => {
-          console.error('Error fetching subcategories:', error);
-        });
-    }
-
-
-  });
-
-
-  $('#maincategory').keyup(function(){
-   var main_id =  $("#maincategory").val();
-   if(main_id == ''){
-    $("#maincategory-data-id").val('');
-   }
-   
-    
-    
-  });
-  
-  
-
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1145,12 +1135,6 @@ let keywords = CKEDITOR.replace('keywordseditor', {
       });
   });
 </script>
-
-
-        </div>
-       </div>
-    </div>
-<!-- </body> -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -1257,7 +1241,7 @@ $(document).ready(function(){
   // Function to fetch data from the API and display it in the API Response modal
   function displayApiResponse() {
     // Fetch data from the API (use your API endpoint)
-    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Email%20leads%20view%20screen%20alias%20list')
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Whatsup%20leads%20view%20screen%20alias%20list')
       .then(response => response.json())
       .then(data => {
         // Extract and display data in the API Response modal
@@ -1288,76 +1272,9 @@ $(document).ready(function(){
   const apiResponseButton = document.querySelector("[data-bs-target='#apiResponseModal']");
   apiResponseButton.addEventListener("click", displayApiResponse);
 </script> 
-<!-- <script type = "text/javascript">
-  $(document).ready(function(){
-      $('#table').DataTable();
-       
-      $('#datasubmit').on('click', function(){
-        // alert("Please complete field");
-          $firstname = $('#aliasname').val();
-          $lastname = $('#lastname').val();
-          $address = $('#address').val();
-    
-          if($firstname == "" || $lastname == "" || $address == ""){
-              alert("Please complete field");
-               // Display an error message in the "message" div
-               $('#message').text('Please complete all fields')
-          }else{
-              $.ajax({
-                  type: "POST",
-                  url: "/alias/",
-                  data:{
-                      firstname: $firstname,
-                      lastname: $lastname,
-                      address: $address,
-                      csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-                  },
-                  success: function(){
-                      alert('Save Data');
-                      // $('#message').text('Your data has been saved succesfully')
-                      $('#aliasname').val('');
-                      $('#lastname').val('');
-                      $('#address').val('');
-                      window.location = "/";
-                  }
-              });
-          }
-      });
-  });
-  </script>
-  <script type = "text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-      // Fetch data from a URL (replace with your own API endpoint)
-      fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
-        .then(response => response.json())
-        .then(data => {
-          // Extract and display 'name' values as options
-          const datalist = document.getElementById('aliasname-flavors');
-          const jsonData = data.data; // Use data.data to access the 'data' array
-          const existingValueField = document.getElementById('aliasname');
-          let existingValue = existingValueField.value.trim(); // Get the existing value
-  
-          jsonData.forEach(item => {
-            const option = document.createElement('option');
-            option.value = item.name;
-            datalist.appendChild(option);
-             // Only append the option if it's not the same as the existing value
-            if (item.name !== existingValue) {
-              datalist.appendChild(option);
-            }
-          });
-           // Listen for input changes to update the existing value
-           existingValueField.addEventListener('input', function() {
-            existingValue = this.value.trim();
-          });
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    });
-  </script> -->
+        </div>
+       </div>
+    </div>
 </body>
-</html>
-
 
 </html>

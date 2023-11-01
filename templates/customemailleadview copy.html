@@ -593,13 +593,6 @@ button[name="careerdesssapi"]{
                 </datalist>
               </div>
             </li>
-             <li style="width: 25% !important; display: none;">
-              <!-- <li style="width: 25% !important; "> -->
-                <div class="feldbx" style="margin-right: 7px;">
-                  <label for="whatsappmaincategory">Main Category ID </label>
-                  <input  id="maincategory-data-id" name="maincategoryid"  style="width: 100%;" value="{{object.maincategoryid}}" class="field-long field-textarea select_field_class" />
-                </div>
-              </li>
             <li>
               <div class="feldbx" style="margin-right: 2px;">
                 <label for="whatsappmaincategory">Sub Category / Product Line</label>
@@ -629,9 +622,6 @@ button[name="careerdesssapi"]{
             <!-- category saved <li style="margin-right: 0px !important;">
               <button type="submit" class="sav_bt" style="width: 100%;width: 100%;margin-top: 22px;padding: 9px 0px;margin-left: 0px;border-radius: 8px;" name="save_category">Update & Category</button>
             </li> -->
-            <li style="margin-right: 0px !important;margin-top: 18px;margin-left: 4px;">
-              <button type="submit" class="sav_bt" style="width: 100%;width: 100%;margin-top: 22px;padding: 3px 0px;margin-left: 0px;border-radius: 8px;" name="save_category">Update & Category</button>
-            </li>
 
             </ul>
                  <!-- <li>
@@ -922,7 +912,7 @@ let keywords = CKEDITOR.replace('keywordseditor', {
   });
 </script>
 
-<!-- <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const mainCategorySelect = document.getElementById('maincategory');
     const subCategorySelect = document.getElementById('subcategory');
@@ -1006,113 +996,6 @@ let keywords = CKEDITOR.replace('keywordseditor', {
         });
     }
   });
-</script> -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mainCategorySelect = document.getElementById('maincategory');
-    const subCategorySelect = document.getElementById('subcategory');
-    const mainCategoryFlavors = document.getElementById('maincategory-flavors');
-    const subCategoryInput = document.getElementById('subcategory-flavors'); // The input for displaying subcategory data
-    const mainCategoryDataId = document.getElementById('maincategory-data-id'); // The input for displaying main category data-id
-    // Fetch main categories from a URL (replace with your API endpoint)
-    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories')
-      .then(response => response.json())
-      .then(data => {
-        const jsonData = data.data;
-        let mainCategoryexistingValue = mainCategorySelect.value.trim(); // Get the existing value
-        // let mainCategoryidexistingValue = mainCategoryidSelect.value.trim();
-        jsonData.forEach(item => {
-          const option = document.createElement('option');
-          // option.value = item.id+','+item.name;
-          // option.value = item.id+','+item.name;
-          option.value = item.name;
-          option.setAttribute('data-id', item.id); // Store the ID as a data attribute
-          mainCategoryFlavors.appendChild(option);
-          
-        });
-        
-
-        mainCategorySelect.addEventListener('input', function() {
-          const selectedOption = mainCategoryFlavors.querySelector(`option[value="${this.value}"]`);
-          if (selectedOption) {
-            const mainCategoryId = selectedOption.getAttribute('data-id');
-            // Fetch subcategories based on the selected main category ID
-            fetchSubcategories(mainCategoryId);
-            subCategoryInput.value = ''; // Clear subcategory input
-            mainCategoryDataId.value = mainCategoryId; // Update main category data-id
-          }
-        });
-      
-       
-     
-      })
-      .catch(error => {
-        console.error('Error fetching main categories:', error);
-      });
-
-
-   
-    function fetchSubcategories(mainCategoryId) {
-      $("#maincategory-data-id").val(mainCategoryId);
-
-      // Fetch subcategories using the main category ID
-      fetch(`https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=${mainCategoryId}`)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-
-          subCategoryInput.value = ''; // Clear the sub-category input
-
-          const jsonData = data.data;
-          let existingValue = subCategorySelect.value.trim(); // Get the existing value
-          subCategoryInput.innerHTML = ''; // Clear the sub-category input options
-
-          if (jsonData.length === 0) {
-            subCategoryInput.value = 'Not found';
-          } else {
-            jsonData.forEach(item => {
-              const option = document.createElement('option');
-              option.value = item.name;
-              if ( option.value === 'undefined') {
-                option.value = 'Not found';
-              } 
-              subCategoryInput.appendChild(option);
-              // console.log(option);
-              // Only append the option if it's not the same as the existing value
-              if (item.name !== existingValue) {
-                subCategoryInput.appendChild(option);
-              }
-            });
-          }
-
-
-          // Listen for input changes to update the existing value
-          subCategorySelect.addEventListener('input', function() {
-            existingValue = this.value.trim();
-          });
-        })
-        .catch(error => {
-          console.error('Error fetching subcategories:', error);
-        });
-    }
-
-
-  });
-
-
-  $('#maincategory').keyup(function(){
-   var main_id =  $("#maincategory").val();
-   if(main_id == ''){
-    $("#maincategory-data-id").val('');
-   }
-   
-    
-    
-  });
-  
-  
-
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {

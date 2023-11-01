@@ -66,7 +66,7 @@
 	/* margin:10px auto;
 	max-width: 400px;
 	padding: 20px 12px 10px 20px; */
-    padding: 20px 20px 20px 20px;
+    /* padding: 20px 20px 20px 20px; */
     margin: 0px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -109,15 +109,8 @@
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
 }
-.bord_box {
-    padding: 8px;
-    background: #f9fafb;
-}
-.bord_box form {
-    border: 1px solid #e5e7eb;
-    background: #fff;
-}
-/* toggle switch */
+
+
 .switch {
   position: relative;
   display: inline-block;
@@ -224,7 +217,7 @@ button[name="save_convert"],
 button[name="save_continue"],
 button[name="chiliadstaffingapi"],
 button[name="careerdesssapi"]{
-  background-color: #4CAF50; /* Green */
+  background-color: #0b9b3f; /* Green */
   border: none;
   color: white;
   padding: 12px 24px;
@@ -237,13 +230,7 @@ button[name="careerdesssapi"]{
   border-radius: 5px;
 }
 
-button[name="save_home"]:hover,
-button[name="save_convert"]:hover,
-button[name="save_continue"]:hover,
-button[name="chiliadstaffingapi"]:hover,
-button[name="careerdesssapi"]:hover {
-  background-color: #3e8e41; /* Darker green on hover */
-}
+
 .delete-btn {
         padding: 4px 15px;
         background: #dc2626;
@@ -350,14 +337,20 @@ button[name="careerdesssapi"]:hover {
 .bkbtn {
   position: absolute;
   right: 38px;
-  top: 42px;
+  top: 25px;
+}
+.back:hover {
+  color: #fff;
 }
 .stats {
-  font-size: 15px;
+  font-size: 14px;
+  width: 380px;
+  margin-top: -6px;
 }
 .messages {
   padding: 0px;
-  margin-top: 28px;
+  margin-top: 7px;
+  margin-left: 77px;
 }
 .optio_n {
   width: 100%;
@@ -436,9 +429,9 @@ button[name="careerdesssapi"]:hover {
   .cke {
     border: 1px solid #0b9b3f !important;
   }
-  .greecolours{
+  /* .greecolours{
   margin-top:20px;
-}
+} */
 .deletetest button{
   /* margin-right: 12px;
   margin-top: 7px; */
@@ -448,7 +441,38 @@ button[name="careerdesssapi"]:hover {
     margin-right: 5px;
     color: red;
 }
-
+.ali_as {
+  border-radius: 10px;
+  margin-top: -8px;
+  padding: 7px 20px;
+}
+.containerrr {
+  width: 95%;
+  margin: auto;
+}
+.aisbtn {
+  position: absolute;
+  top: 23px;
+  right: 114px;
+}
+.help {
+  background: #818181;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  right: 2px;
+  top: -1px;
+}
+.help:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.popfot_btn {
+    justify-content: space-between;
+}
 </style>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -460,11 +484,12 @@ button[name="careerdesssapi"]:hover {
 
 
             <div class="bord_box">
-              <p>
-                <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+              <div class="aisbtn">
+                <a class="help" href="{{ '/media/helpdocumentation/Email_Leads_view&edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
+                <button type="button" class="btn btn-primary greecolours ali_as" data-bs-toggle="modal" data-bs-target="#addnewmember" >
                   Alias
                 </button>
-              </p>
+              </div>
                 
                 <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -501,14 +526,33 @@ button[name="careerdesssapi"]:hover {
                             </div>
                          
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
-                      </div>
+                      <div class="modal-footer popfot_btn">
+                        <div>
+                            <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#apiResponseModal">API List</button>
+                          </div>
+                    <div>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+                    </div>
+                    </div>
                       </form>
                     </div>
                   </div>
-                </div>  
+                </div> 
+                
+                <div class="modal fade" id="apiResponseModal" tabindex="-1" aria-labelledby="apiResponseLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="apiResponseLabel">API's for this screen</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Content for the API response modal will be added here -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- <div class="back_btnn">
                     <a class="back" href="{% url 'customemailleads' %}">Back</a>
                  </div>
@@ -530,10 +574,10 @@ button[name="careerdesssapi"]:hover {
                 <!-- <div class="btn btn-success">
                   <a href="{% url 'emailduplicatefilm' emailleadsid %}" class="btn btn-primary back">Duplicate</a>
                 </div> -->
-            <form action="/customemailleadscreate/" method="POST">
+            <form action="/customemailleadscreate/" method="POST" class="containerrr">
                 {% csrf_token %}
                 <div class="form-style-1">
-                  <a class="back" href="{% url 'customemailleads' %}">Back</a>
+                  <a class="back" href="{% url 'customemailleads' %}" style="position: relative;top: 25px;">Back</a>
                   <!-- <form method="post"> -->
                     <!-- <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button> -->
                     <!-- <button name="chiliadstaffingapi" type="submit" class="btn btn-success">Update & Chiliadstaffing Lead</button> -->
@@ -672,7 +716,7 @@ button[name="careerdesssapi"]:hover {
                       <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
                       <input type="text" class="field-long field-textarea" name="leadfirstname" value="{{first_name}}">
                     </div>
-                    <div class="feldbx">
+                    <div class="feldbx" style="margin-right: 0px;">
                     <label>Last Name </label>
                     <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
                     <input type="text" class="field-long field-textarea" name="leadlastname" value="{{last_name}}" >
@@ -685,7 +729,7 @@ button[name="careerdesssapi"]:hover {
                     <input type="text" class="field-long field-textarea" name="leademail" value="{{email_id}}" >
                     </div>
                  
-                    <div class="feldbx">
+                    <div class="feldbx" style="margin-right: 0px;">
                     <label>User Name</label>
                     <input type="text" class="field-long field-textarea" name="leadusername" value="{{username}}">
                     </div>
@@ -706,7 +750,7 @@ button[name="careerdesssapi"]:hover {
                     <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
                     <input type="text" class="field-long field-textarea" name="leadcompany" value="{{company_name}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Phone Number </label>
                     <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
                     <input type="text" class="field-long field-textarea" name="leadphonenumber" value="{{phone_number}}" >
@@ -718,7 +762,7 @@ button[name="careerdesssapi"]:hover {
                     <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
                     <input type="text" class="field-long field-textarea" name="leadaddress" value="{{address}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Address 2</label>
                     <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
                     <input type="text" class="field-long field-textarea" name="leadaddress2" value="">
@@ -731,7 +775,7 @@ button[name="careerdesssapi"]:hover {
                         <input type="text" class="field-long field-textarea" name="leadcity" value="{{city}}">
                   </div>
                 
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                         <label>State</label>
                         <input type="text" class="field-long field-textarea" name="leadstate" value="{{state}}">
                   </div>
@@ -749,7 +793,7 @@ button[name="careerdesssapi"]:hover {
                     <label>Job Title / Position</label>
                     <input type="text" class="field-long field-textarea" name="leadposition" value="{{position}}">
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Recruiter / Designation</label>
                     <input type="text" class="field-long field-textarea" name="designation" value="{{designation}}">
                   </div>
@@ -762,7 +806,7 @@ button[name="careerdesssapi"]:hover {
                     <!-- <select type="text"  name="leadexperience" id="multiSelect" multiple style="width: 100%;" class="field-long field-textarea" required="" ></select> -->
                     <select type="text" name="leadexperience" id="leadexperience" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
                     </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
               <label>Rate </label>
               <input type="text" class="field-long field-textarea" name="leadrate" value="{{object.leadrate}}" >
                   </div>
@@ -828,7 +872,7 @@ button[name="careerdesssapi"]:hover {
                     <select type="text"  name="leadduration" id="DurationmultiSelect" multiple style="width: 100%;" class="field-long field-textarea" name="leadduration" required=""></select>
                     
                   </div> -->
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Duration </label>
                     <!-- <input type="text" name="leadduration" id="leadduration" class="optio_n" value="{{duration}}" placeholder="Type and select Duration" multiple="multiple">
                     
@@ -856,7 +900,7 @@ button[name="careerdesssapi"]:hover {
                     <label for="leadlegalstatus">Legalstatus *</label>
                     <select type="text" name="leadlegalstatus" id="LegalstatusmultiSelect" multiple style="width: 100%;" class="field-long field-textarea select_field_class"    multiple="multiple"></select>
                   </div>
-                    <div class="feldbx">
+                    <div class="feldbx" style="margin-right: 0px;">
                     <label>Job location </label>
                     <input type="text" class="field-long field-textarea" name="leadlocation" value="{{location}}" >
                   </div>
@@ -901,7 +945,7 @@ button[name="careerdesssapi"]:hover {
                 </ul></span>
                 
                </div> -->
-                  <div class="feldbx">            
+                  <div class="feldbx" style="margin-right: 0px;">            
                     <label for="leadinterviewtype">Interview Type </label>
                     <!-- <select type="text" name="leadinterviewtype" id="InterviewmultiSelect" multiple style="width: 100%;" class="field-long field-textarea"  multiple="multiple"></select> -->
                     <!-- <input type="text" name="leadinterviewtype" id="InterviewmultiSelect" multiple style="width: 100%;" class="field-long field-textarea"  multiple="multiple"> -->
@@ -953,7 +997,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional1" id="leadoptional1" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -971,7 +1015,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience2" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <select type="text" name="leadoptional2" id="leadoptional2" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
                   </div>
@@ -988,7 +1032,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience3" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional3" id="leadoptional3" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1006,7 +1050,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience4" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional4" id="leadoptional4" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1024,7 +1068,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience5" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional5" id="leadoptional5" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1042,7 +1086,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience6" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional6" id="leadoptional6" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1060,7 +1104,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience7" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional7" id="leadoptional7" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1078,7 +1122,7 @@ button[name="careerdesssapi"]:hover {
                   <label>Experience </label>
                   <input type="text" class="field-long field-textarea" name="leadexperience8" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional8" id="leadoptional8" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1096,7 +1140,7 @@ button[name="careerdesssapi"]:hover {
                  <label>Experience </label>
                  <input type="text" class="field-long field-textarea" name="leadexperience9" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional9" id="leadoptional9" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -1114,7 +1158,7 @@ button[name="careerdesssapi"]:hover {
                    <label>Experience </label>
                    <input type="text" class="field-long field-textarea" name="leadexperience10" value="{{object.leadrate}}" >
                   </div>
-                  <div class="feldbx">
+                  <div class="feldbx" style="margin-right: 0px;">
                     <label>Required </label>
                     <!-- <input type="text" class="field-long field-textarea" name="leadexperience1" value="{{object.leadrate}}" > -->
                     <select type="text" name="leadoptional10" id="leadoptional10" multiple style="width: 100%;" class="field-long field-textarea select_field_class"  multiple="multiple"></select>
@@ -2518,6 +2562,42 @@ $(document).ready(function(){
       });
   });
 </script>
+
+<script>
+  // Function to fetch data from the API and display it in the API Response modal
+  function displayApiResponse() {
+    // Fetch data from the API (use your API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Email%20leads%20edit%20screen%20alias%20list')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display data in the API Response modal
+        const modal = document.getElementById("apiResponseModal");
+        const content = modal.querySelector(".modal-body");
+        content.innerHTML = ""; // Clear existing content
+
+        // Create and append content from the API response as bullet points
+        const dataList = data.data;
+        const ul = document.createElement("ul");
+
+        for (let i = 0; i < dataList.length; i++) {
+          const li = document.createElement("li");
+          li.textContent = dataList[i].name;
+          ul.appendChild(li);
+        }
+
+        content.appendChild(ul);
+
+        modal.style.display = "block"; // Display the API Response modal
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+  // Attach the displayApiResponse function to the button click event
+  const apiResponseButton = document.querySelector("[data-bs-target='#apiResponseModal']");
+  apiResponseButton.addEventListener("click", displayApiResponse);
+</script> 
 
         </div>
        </div>

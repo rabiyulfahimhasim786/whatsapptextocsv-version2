@@ -271,6 +271,47 @@
 a:hover {
     color: #fff;
 }
+
+.aliasbtn {
+  padding: 4px 15px;
+  background: #0d6efd;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+.dataTable  {
+  padding: 10px 0px;
+}
+.dataTables_wrapper  {
+  width: 95%;
+  margin: auto;
+  padding-bottom: 10px;
+}
+.back:hover {
+  color: #fff !important;
+}
+.help {
+  background: #818181;
+  border: none;
+  padding: 4px 15px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  right: 0px;
+  top: 3px;
+  border-radius: 20px;
+}
+.help:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.popfot_btn {
+    justify-content: space-between;
+}
     </style>
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -304,7 +345,9 @@ a:hover {
             <a class="button upload_butons" href="{% url 'custombenchsalesfile'%}"><i class="fa fa-refresh" ar ia-hidden="true"></i> Refresh</a>
         </div>
         <div>
-            <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#addnewmember" >
+          <!-- <a class="help" href="{{ '/media/helpdocumentation/Email_Benchsales_edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a> -->
+          <a class="help" href="{{ '/media/helpdocumentation/Whatsup&email_process_flow.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
+            <button type="button" class="btn btn-primary greecolours aliasbtn" data-bs-toggle="modal" data-bs-target="#addnewmember" >
               Alias
             </button>
           </div>
@@ -346,16 +389,35 @@ a:hover {
                       </div>
                    
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
-                </div>
+                <div class="modal-footer popfot_btn">
+                  <div>
+                      <button type="button" class="btn btn-primary greecolours" data-bs-toggle="modal" data-bs-target="#apiResponseModal">API List</button>
+                    </div>
+              <div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="datasubmit">Submit</button>
+              </div>
+              </div>
                 </form>
               </div>
             </div>
           </div>  
           <!-- constant div -->
       </div>
+      </div>
+
+      <div class="modal fade" id="apiResponseModal" tabindex="-1" aria-labelledby="apiResponseLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="apiResponseLabel">API's for this screen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Content for the API response modal will be added here -->
+            </div>
+          </div>
+        </div>
       </div>
         
         <!-- <div>
@@ -837,3 +899,39 @@ $(document).ready(function(){
       });
   });
 </script>
+
+<script>
+  // Function to fetch data from the API and display it in the API Response modal
+  function displayApiResponse() {
+    // Fetch data from the API (use your API endpoint)
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Email%20benchsales%20screen%20alias%20list')
+      .then(response => response.json())
+      .then(data => {
+        // Extract and display data in the API Response modal
+        const modal = document.getElementById("apiResponseModal");
+        const content = modal.querySelector(".modal-body");
+        content.innerHTML = ""; // Clear existing content
+
+        // Create and append content from the API response as bullet points
+        const dataList = data.data;
+        const ul = document.createElement("ul");
+
+        for (let i = 0; i < dataList.length; i++) {
+          const li = document.createElement("li");
+          li.textContent = dataList[i].name;
+          ul.appendChild(li);
+        }
+
+        content.appendChild(ul);
+
+        modal.style.display = "block"; // Display the API Response modal
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+  // Attach the displayApiResponse function to the button click event
+  const apiResponseButton = document.querySelector("[data-bs-target='#apiResponseModal']");
+  apiResponseButton.addEventListener("click", displayApiResponse);
+</script> 

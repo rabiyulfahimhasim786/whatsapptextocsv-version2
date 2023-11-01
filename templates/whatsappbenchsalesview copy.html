@@ -61,11 +61,14 @@
     color: #fff;
     width: 99.6%;
 }
+.back:hover {
+  color: #fff;
+}
 .form-style-1 {
 	/* margin:10px auto;
 	max-width: 400px;
 	padding: 20px 12px 10px 20px; */
-    /* padding: 20px 20px 20px 20px; */
+    /* padding: 20px 20px 20px 24px; */
     padding: 0px;
     margin: 0px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -96,7 +99,6 @@
 	height: 30px;
     border: 1px solid #0b9b3f;
     border-radius: 8px;
-    /* width: -webkit-fill-available; */
 }
 .form-style-1 input[type=submit], .form-style-1 input[type=button]{
 	background: #4B99AD;
@@ -110,7 +112,15 @@
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
 }
-
+/* .bord_box {
+    padding: 8px;
+    background: #f9fafb;
+} */
+/* .bord_box form {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+} */
+/* toggle switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -148,10 +158,9 @@
   transition: .4s;
 }
 .back_btnn {
-  position: absolute;
-  right: 35px;
-  top: 11px;
-  display: flex;
+    position: absolute;
+    right: 38px;
+    top: 25px;
 }
 input:checked + .slider {
   background-color: #2196F3;
@@ -199,6 +208,7 @@ input:checked + .slider:before {
     color: #fff;
     /* width: 99.6%; */
     text-decoration: none;
+    font-size: 15px;
 }
 .optio_n {
   /* background: #0b9b3f; */
@@ -206,6 +216,7 @@ input:checked + .slider:before {
   height: 30px;
   border-radius: 8px;
   margin-bottom: 18px;
+  width: 100%;
 }
 .stat ul li {
   list-style-type: none;
@@ -216,7 +227,7 @@ visibility: hidden;
 button[name="save_home"],
 button[name="save_convert"],
 button[name="save_continue"],
-button[name="save_category"],
+button[name="benchsales_save_next"],
 button[name="chiliadstaffingapi"],
 button[name="careerdesssapi"]{
   background-color: #0b9b3f; /* Green */
@@ -231,7 +242,6 @@ button[name="careerdesssapi"]{
   cursor: pointer;
   border-radius: 10px;
 }
-
 .delete-btn {
         padding: 4px 15px;
         background: #dc2626;
@@ -297,12 +307,11 @@ button[name="careerdesssapi"]{
 .email_body {
   height: 200px !important;
 }
-#cke_Email_Body {
-    border: 1px solid #4CAF50;
-    width: 99.2%;
-    
+#cke_bsEmail_Body {
+  border: 1px solid #4CAF50;
+  width: 99.2%;
+  /* border-radius: 10px; */
 }
-
 #textarea1 {
   width: 99%;
   border: 1px solid #0b9b3f;
@@ -316,6 +325,7 @@ button[name="careerdesssapi"]{
     border: none;
     color: #fff;
 }
+
 
   .bold-text {
     font-weight: bold;
@@ -351,76 +361,28 @@ button[name="careerdesssapi"]{
   #cke_editor {
     border: 1px solid #0b9b3f;
   }
-  .top_feld {
-    display: flex;
-    justify-content: space-between;
-  }
-  .top_feld li {
-    /* width: -webkit-fill-available; */
-    width: 24.5%;
-  }
-  .sub_j {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
-  }
-  .for_m {
-    margin-right: 15px !important;
-  }
-  .cketd {
-    display: flex;
-  }
-  .cketd ul {
-    width: 100%;
-  }
-  .lefckedt {
-    padding-right: 0px;
-  }
-  #cke_1_contents {
-    height: 1285px !important;
-  }
-  /* #cke_2_contents {
-    height: 100px !important;
-  }
-  #cke_3_contents {
-    height: 100px !important;
-  }
-  #cke_4_contents {
-    height: 100px !important;
-  }
-  #cke_5_contents {
-    height: 100px !important;
-  }
-  #cke_6_contents {
-    height: 100px !important;
-  }
-  #cke_7_contents {
-    height: 100px !important;
-  } */
-  .cke {
-    border: 1px solid #0b9b3f !important;
-  }
-  .sav_bt {
-    margin: 0px !important;
-    margin-top: 15px !important;
-  }
-
-  /* .backbutton{
-    
-  } */
+  .statu_s {
+  display: none !important;
+}
+.datim {
+  display: flex;
+  padding: 0px;
+}
+.datim li {
+  width: 25%;
+}
 /* .greecolours{
   margin-top:20px;
 } */
+.ali_as {
+  border-radius: 10px;
+  margin-top: -12px;
+  padding: 7px 20px;
+}
 .containerrr {
   width: 95%;
   margin: auto;
-}
-.back:hover {
-  color: #fff;
-}
-.ali_as {
-    border-radius: 10px;
-    /* margin-top: -8px; */
-    padding: 9px 20px;
+  /* margin-top: 18px; */
 }
 .help {
   background: #818181;
@@ -429,9 +391,9 @@ button[name="careerdesssapi"]{
   border-radius: 10px;
   color: #fff;
   text-decoration: none;
-  /* position: relative;
-  right: 5px;
-  top: 3px; */
+  position: relative;
+  right: 3px;
+  top: -3px;
 }
 .help:hover {
   text-decoration: none;
@@ -448,11 +410,9 @@ button[name="careerdesssapi"]{
 
             <div class="bord_box">
                 <div class="back_btnn">
-                  <a class="back" href="{% url 'duplicated_customemailleadsview' object.id %}" style="margin-right: 7px;">Duplicate</a>                   
-                  <a class="back " href="/customemailleadsedits/{{object.id}}" style="margin-right: 7px;">Edit</a>
-                  <!-- <a class="back" href="{% url 'customemailleads' %}">Back</a> -->
-                  <div style="display: flex;">
-                    <a style="margin-right: 7px;" class="help" href="{{ '/media/helpdocumentation/Email_Leads_view&edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
+                  
+                  <div>
+                    <a class="help" href="{{ '/media/helpdocumentation/Whatsup_Benchsales_edit_page.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i>  Help</a>
                     <button type="button" class="btn btn-primary greecolours ali_as" data-bs-toggle="modal" data-bs-target="#addnewmember" >
                       Alias
                     </button>
@@ -511,7 +471,6 @@ button[name="careerdesssapi"]{
                     </div>  
                     <!-- constant div -->
                 </div>
-                </div>
 
                 <div class="modal fade" id="apiResponseModal" tabindex="-1" aria-labelledby="apiResponseLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -526,163 +485,136 @@ button[name="careerdesssapi"]{
                     </div>
                   </div>
                 </div>
-            <!-- <div class="backbutton-right-alignment">
-            <a class="back" href="{% url 'customemailleads' %}">Back</a>
-            </div> -->
-            <form action="/customemailleadsupdate/{{object.id}}" method="POST" class="containerrr">
+            <!-- <form action="/custombenchsalesupdate/{{object.id}}" method="POST"> -->
+              <form action="/update/{{object.id}}" method="POST" class="containerrr">
                 {% csrf_token %}
-                <div class="backbutton" style="margin-top: 8px;">
-                <a class="back" href="{% url 'customemailleads' %}">Back</a>
-                <button type="submit" name="save_continue">Save & Reparse</button>
-                </div>
-                <!-- <button type="submit" name="save_continue">Save</button> -->
-                <ul class="form-style-1 top_feld">
-                  
-                   <!-- <li>
-                    <td style="padding:10px;text-align: center;"><a class="back " href="/customemailleadsedits/{{object.id}}">Add</a></td>
-                   </li> -->
-                   <li>
-                    <label>Date</label>
-                    
-                    <input type="text" class="field-long field-textarea" name="todaysdate" value="{{object.todaysdate}}">
-                   </li>
-                    <li class="">
-                      <label>Subject</label>
-                    
-                      <input type="text" class="field-long field-textarea" name="Subject" value="{{object.Subject}}">
-                   </li>
-                   <li class="" >
-                    <label>From</label>
-                    
-                    <input type="text" class="field-long field-textarea" name="From" value="{{object.From}}">
-                  </li>
+        
+                <ul class="form-style-1">
                   <li>
-                    <label>Received Time</label>
+                    <a class="back" href="{% url 'whatsupbenchsales' %}">Back</a>
+                    <button type="submit" name="save_continue">Save</button>
+                    <button type="submit" name="benchsales_save_next" style="margin-left: 0px;">Update & Next</button>
                    
-                    <input type="text" class="field-long field-textarea" style="width: 100% !important;" name="Received_Time" value="{{object.Received_Time}}">
-                    <!-- <label>Status</label> -->
-                  
-                     <input type="hidden"  class="field-long field-textarea" name="checkstatus" value="{{object.checkstatus}}">
                   </li>
-                 <!-- <li>
+                  <ul class="datim">
+                    <li style="padding-right: 8px;">
+                      <label>Date</label>
+                      <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                      <input type="text" class="field-long field-textarea"  name="date" value="{{object.date}}">
+                   </li>
+                   <li style="padding-right: 8px;">
+                    <label>Time</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="title"  value="{{object.title}}">
+                  </li>
+                  <li style="padding-right: 8px;">
+                    <label>Mobile Number</label>
+                    <!-- <textarea class="field-long field-textarea" name='title'>{{object.title}}</textarea> -->
+                    <input type="text" class="field-long field-textarea" name="year" value="{{object.year}}">
+                 </li>
+                 <li>
+                  <label></label>
+                 
+                  <label for="id_locations" style="margin: 0px;">Lead Type</label>
+                  <select style="height: 34px;" name="dropdownlist" id="dropdownlist" class="optio_n" required="" onchange="add_class_onchange()">
+                  <option  value="{{object.dropdownlist}}" selected="">{{object.dropdownlist}}</option>
+            
+                  <!-- <option value="New">New</option> -->
+                  <option value="3rd party Job posting & Recruitment">3rd party Job posting & Recruitment</option>
+                  <option value="Blog">Blog</option>
+                  <option value="Benchsales">Benchsales</option>
+                  <option value="Careersales">Careersales</option>
+                  <option value="Interview questions">Interview questions</option>
+                  <option value="Misc">Misc</option>
+                  <option value="Presentation">Presentation</option>
+                  <option value="Requirements">Requirements</option>
+                  <option value="Training">Training</option>
+                  <option value="Web content">Web content</option>
+                
+                    <button class="subbtn">Submit</button>
+                
+                  </select>
+                </li>
+              
+                 <li class="statu_s">
                   <label>Status</label>
-                  
+                  <!-- <textarea class="field-long field-textarea" name="checkstatus">{{object.checkstatus}}</textarea> -->
                   <input type="text" class="field-long field-textarea" name="checkstatus" value="{{object.checkstatus}}">
-                 </li> -->
-                 </ul>
-              <ul class="form-style-1 top_feld">
-              <li>
-              <div class="feldbx" style="margin-right: 2px;">
-                <label for="whatsappcompanytype">Technology Company  </label>
-                <!-- <select type="text" name="companyname" id="CompanySingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.companyname}}" ></select> -->
-                <input list="companyname-flavors" id="companyname" name="companyname" value="{{object.companyname}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
-
-                <datalist id="companyname-flavors">
-                            <!-- Options will be dynamically added here -->
-                </datalist>
-             </div>
-            </li>
-            <li>
-              <div class="feldbx" style="margin-right: 2px;">
-                <label for="whatsappmaincategory">Main Category</label>
-                <!-- <select type="text" name="maincategory" id="MaincategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.maincategory}}" ></select> -->
-                <input list="maincategory-flavors" id="maincategory" name="maincategory" value="{{object.maincategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
-
-                <datalist id="maincategory-flavors">
-                           
-                </datalist>
-              </div>
-            </li>
-             <li style="width: 25% !important; display: none;">
-              <!-- <li style="width: 25% !important; "> -->
-                <div class="feldbx" style="margin-right: 7px;">
-                  <label for="whatsappmaincategory">Main Category ID </label>
-                  <input  id="maincategory-data-id" name="maincategoryid"  style="width: 100%;" value="{{object.maincategoryid}}" class="field-long field-textarea select_field_class" />
-                </div>
-              </li>
-            <li>
-              <div class="feldbx" style="margin-right: 2px;">
-                <label for="whatsappmaincategory">Sub Category / Product Line</label>
-                <!-- <label for="whatsappmaincategory">Sub Category *</label> -->
-                <!-- <select type="text" name="subcategory" id="subcategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.subcategory}}" ></select> -->
-                <input list="subcategory-flavors" id="subcategory" name="subcategory" value="{{object.subcategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
-
-                <datalist id="subcategory-flavors">
-                           
-                </datalist>
-              </div>
-              
-            </li>
-            <li style="margin-right: 0px !important;">
-              <div class="feldbx" >
-                <label for="whatsappRoleSingleSelect">Role</label>
-              
-                <!-- <select type="text" name="roles" id="RoleSingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.roles}}" ></select> -->
-                <input list="roles-flavors" id="roles" name="roles" value="{{object.roles}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
-
-                <datalist id="roles-flavors">
-                            <!-- Options will be dynamically added here -->
-                </datalist>
-              </div>
-              
-            </li>
-            <!-- category saved <li style="margin-right: 0px !important;">
-              <button type="submit" class="sav_bt" style="width: 100%;width: 100%;margin-top: 22px;padding: 9px 0px;margin-left: 0px;border-radius: 8px;" name="save_category">Update & Category</button>
-            </li> -->
-            <li style="margin-right: 0px !important;margin-top: 18px;margin-left: 4px;">
-              <button type="submit" class="sav_bt" style="width: 100%;width: 100%;margin-top: 22px;padding: 3px 0px;margin-left: 0px;border-radius: 8px;" name="save_category">Update & Category</button>
-            </li>
-
-            </ul>
+                 </li>
+                </ul>
+                 <ul class="form-style-1 datim second_row">
+                  <li style="padding-right: 3px;">
+                  <div class="feldbx" style="margin-right: 7px;">
+                    <label for="whatsappcompanytype">Technology Company  </label>
+                    <!-- <select type="text" name="companyname" id="CompanySingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.companyname}}" ></select> -->
+                    <input list="companyname-flavors" id="companyname" name="companyname" value="{{object.companyname}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+    
+                    <datalist id="companyname-flavors">
+                                <!-- Options will be dynamically added here -->
+                    </datalist>
+                 </div>
+                </li>
+                <li style="padding-right: 3px;">
+                  <div class="feldbx" style="margin-right: 7px;">
+                    <label for="whatsappmaincategory">Main Category</label>
+                    <!-- <select type="text" name="maincategory" id="MaincategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.maincategory}}" ></select> -->
+                    <input list="maincategory-flavors" id="maincategory" name="maincategory" value="{{object.maincategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+    
+                    <datalist id="maincategory-flavors">
+                               
+                    </datalist>
+                  </div>
+                </li>
+                <li style="padding-right: 3px;">
+                  <div class="feldbx" style="margin-right: 7px;">
+                    <label for="whatsappmaincategory">Sub Category / Product Line</label>
+                    <!-- <label for="whatsappmaincategory">Sub Category *</label> -->
+                    <!-- <select type="text" name="subcategory" id="subcategorySelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.subcategory}}" ></select> -->
+                    <input list="subcategory-flavors" id="subcategory" name="subcategory" value="{{object.subcategory}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+    
+                    <datalist id="subcategory-flavors">
+                               
+                    </datalist>
+                  </div>
+                  
+                </li>
+                <li style="margin-right: 0px !important;padding-right: 3px;">
+                  <div class="feldbx">
+                    <label for="whatsappRoleSingleSelect">Role</label>
+                  
+                    <!-- <select type="text" name="roles" id="RoleSingleSelect" style="width: 100%;" class="field-long field-textarea"  value="{{object.roles}}" ></select> -->
+                    <input list="roles-flavors" id="roles" name="roles" value="{{object.roles}}" style="width: 100%;" class="field-long field-textarea select_field_class" />
+    
+                    <datalist id="roles-flavors">
+                                <!-- Options will be dynamically added here -->
+                    </datalist>
+                  </div>
+                  
+                </li>
+                </ul>
                  <!-- <li>
                     <label>Email Body</label> -->
                     <!-- <input type="text" class="field-long field-textarea email_body" name="Email_Body" value="{{object.Email_Body}}"> -->
-                    <!-- <textarea type="text" class="field-long field-textarea email_body" name="Email_Body" >{{object.Email_Body}}</textarea>
+                    <!-- <textarea type="text" class="field-long field-textarea email_body" name="bsEmail_Body" >{{object.bsEmail_Body}}</textarea>
                 </li> -->
-              <div class="cketd">
-                <ul class="form-style-1 lefckedt" style="margin-right: 13px;">
-                <li>
-                    <label>Email Body</label>
+                 <!-- <li>
+                  <label>Email Body</label>
+                  <textarea type="text" class="field-long field-textarea email_body" name="bsEmail_Body">{{object.bsEmail_Body}}</textarea>
+               </li>  -->
+               <li>
+                    <label>Message</label>
                     <!-- <input type="text" class="field-long field-textarea email_body" name="Email_Body" value="{{object.Email_Body}}"> -->
-                    <textarea id="editor" type="text" class="field-long field-textarea email_body" name="Email_Body" >{{object.Email_Body|urlize|linebreaksbr}}</textarea>
-                </li>
-                </ul>
-                <ul class="form-style-1">
-                <li>
-                  <label>Contact Details & Position Qualifications</label>
+                     <textarea id="editor" type="text" class="field-long field-textarea email_body" name="filmurl" >{{object.filmurl|linebreaksbr}}</textarea>
+               </li>
                 
-                  <textarea id="contacteditor" type="text" class="field-long field-textarea email_body" name="contactdetails" >{{object.contactdetails|urlize|linebreaksbr}}</textarea>
-                </li>
+              
+               
+              
+              
                 <li>
-                  <label>Short JD / Job Description</label>
-                  
-                  <textarea id="jobdescriptioneditor" type="text" class="field-long field-textarea email_body" name="shortjobdescription" >{{object.shortjobdescription|urlize|linebreaksbr}}</textarea>
+                  <button type="submit" name="save_continue">Save</button>
+                  <button type="submit" name="benchsales_save_next">Update & Next</button>
                 </li>
-                <li>
-                  <label>Responsibilities (Optional)</label>
-                  
-                  <textarea id="responsibilitieseditor" type="text" class="field-long field-textarea email_body" name="responsibilities" >{{object.responsibilities|urlize|linebreaksbr}}</textarea>
-                </li>
-                
-                <li>
-                  <label>Qualifications (Optional)</label>
-                  
-                  <textarea id="qualificationseditor" type="text" class="field-long field-textarea email_body" name="qualifications" >{{object.qualifications|urlize|linebreaksbr}}</textarea>
-                </li>
-                 
-                <li>
-                  <label>Comments</label>
-                  
-                  <textarea id="commentseditor" type="text" class="field-long field-textarea email_body" name="comments" >{{object.comments|urlize|linebreaksbr}}</textarea>
-                </li>
-                <li>
-                  <label>Keywords</label>
-                  
-                  <textarea id="keywordseditor" type="text" class="field-long field-textarea email_body" name="keywords" >{{object.keywords|urlize|linebreaksbr}}</textarea>
-                </li>
-                <button type="submit" class="sav_bt" name="save_continue">Save & Reparse</button>
-              </div>
-                
                 <!-- <li>
                   <button type="submit" name="save_home">Update</button>
                   <button name="careerdesssapi" type="submit" class="btn btn-success">Update & Career Desss Lead</button>
@@ -699,11 +631,11 @@ button[name="careerdesssapi"]{
                   
                  
                             
-                    
+                    </li>
                     
                     
                 </ul>
-            </form>
+              </form>
             <div class="stat">
             <ul>
               <li>
@@ -716,159 +648,66 @@ button[name="careerdesssapi"]{
           </div>
 
 
-     
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <script>
   // Replace the textarea with CKEditor
-let Email_Body = CKEDITOR.replace('editor', {
+let filmurl = CKEDITOR.replace('editor', {
+  // Set the height of the editor as per your requirement
+  height: 400,
+  // Define a callback to handle the ready event
+  on: {
+    instanceReady: function (evt) {
+      // Get the text with spacing
+      var textWithSpacing = filmurl;
+
+      // Set the text with spacing in the editor
+      evt.editor.setData(textWithSpacing);
+    }
+  }
+});
+
+</script>
+<script>
+  // Replace the textarea with CKEditor
+let filmurl = CKEDITOR.replace('editor', {
   // Set the height of the editor as per your requirement
   height: 400,
   autoParagraph: false,
   // Define a callback to handle the ready event
   on: {
     instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
+      // Get the text with spacing
       var rawData = evt.editor.getData();
       // Remove excessive <br> tags and keep single <br> tags for line breaks
       // var modifiedData = rawData.replace(/<[^>]*>/g, '').replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-      
-      // Set the modified data in the editor
+      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '');
+
+      // Set the text with spacing in the editor
       evt.editor.setData(modifiedData);
     }
   }
 });
 
 </script>
-<script>
-  // Replace the textarea with CKEditor
-let contactdetails = CKEDITOR.replace('contacteditor', {
-  // Set the height of the editor as per your requirement
-  height: 80,
-  autoParagraph: false,
-  // Define a callback to handle the ready event
-  on: {
-    instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
-      var rawData = evt.editor.getData();
-      // Remove excessive <br> tags and keep single <br> tags for line breaks
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-          
-      // Set the modified data in the editor
-      evt.editor.setData(modifiedData);
-    }
-  }
-});
+<!-- <script>
+  $(document).ready(function() {
+      CKEDITOR.replace('bsEmail_Body');
+  });
+</script> -->
+<!-- <script>
+  $(document).ready(function() {
+      // Get the HTML data from your source (e.g., API response, database, etc.)
+      var htmlData = "{{object.bsEmail_Body}}";
 
-</script>
+      // Replace the textarea with CKEditor
+      CKEDITOR.replace('bsEmail_Body');
+
+      // Set the HTML data in CKEditor
+      CKEDITOR.instances.bsEmail_Body.setData(htmlData);
+  });
+</script> -->
 
 
-<script>
-  // Replace the textarea with CKEditor
-let shortjobdescription = CKEDITOR.replace('jobdescriptioneditor', {
-  // Set the height of the editor as per your requirement
-  height: 80,
-  autoParagraph: false,
-  // Define a callback to handle the ready event
-  on: {
-    instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
-      var rawData = evt.editor.getData();
-      // Remove excessive <br> tags and keep single <br> tags for line breaks
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-          
-      // Set the modified data in the editor
-      evt.editor.setData(modifiedData);
-    }
-  }
-});
-
-</script>
-
-<script>
-  // Replace the textarea with CKEditor
-let responsibilities = CKEDITOR.replace('responsibilitieseditor', {
-  // Set the height of the editor as per your requirement
-  height: 80,
-  autoParagraph: false,
-  // Define a callback to handle the ready event
-  on: {
-    instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
-      var rawData = evt.editor.getData();
-      // Remove excessive <br> tags and keep single <br> tags for line breaks
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-          
-      // Set the modified data in the editor
-      evt.editor.setData(modifiedData);
-    }
-  }
-});
-
-</script>
-<script>
-  // Replace the textarea with CKEditor
-let qualifications = CKEDITOR.replace('qualificationseditor', {
-  // Set the height of the editor as per your requirement
-  height: 80,
-  autoParagraph: false,
-  // Define a callback to handle the ready event
-  on: {
-    instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
-      var rawData = evt.editor.getData();
-      // Remove excessive <br> tags and keep single <br> tags for line breaks
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-          
-      // Set the modified data in the editor
-      evt.editor.setData(modifiedData);
-    }
-  }
-});
-
-</script>
-<script>
-  // Replace the textarea with CKEditor
-let comments = CKEDITOR.replace('commentseditor', {
-  // Set the height of the editor as per your requirement
-  height: 80,
-  autoParagraph: false,
-  // Define a callback to handle the ready event
-  on: {
-    instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
-      var rawData = evt.editor.getData();
-      // Remove excessive <br> tags and keep single <br> tags for line breaks
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-          
-      // Set the modified data in the editor
-      evt.editor.setData(modifiedData);
-    }
-  }
-});
-
-</script>
-<script>
-  // Replace the textarea with CKEditor
-let keywords = CKEDITOR.replace('keywordseditor', {
-  // Set the height of the editor as per your requirement
-  height: 80,
-  autoParagraph: false,
-  // Define a callback to handle the ready event
-  on: {
-    instanceReady: function (evt) {
-      // Get the editor's raw data (HTML with <br> tags)
-      var rawData = evt.editor.getData();
-      // Remove excessive <br> tags and keep single <br> tags for line breaks
-      var modifiedData = rawData.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-          
-      // Set the modified data in the editor
-      evt.editor.setData(modifiedData);
-    }
-  }
-});
-
-</script>
 <script>
 
   function add_class_onchange(){
@@ -881,6 +720,17 @@ let keywords = CKEDITOR.replace('keywordseditor', {
   }
 
 
+// $(function(){
+
+// $("#status").change(function(){
+//     var status = this.value;
+//     alert(status);
+//     if(status != "")
+//     var element = document.getElementById("add_class");
+//         element.classList.add("Your class name");
+//     });
+
+// });
 </script>
 <script>
   function showConfirmDialog() {
@@ -889,6 +739,23 @@ let keywords = CKEDITOR.replace('keywordseditor', {
     }
   }
 </script>
+
+
+<!-- <script>
+  document.querySelector("button[name='chiliadstaffingapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Show success message
+      document.getElementById("success-message").style.display = "block";
+  });
+
+  document.querySelector("button[name='careerdesssapi']").addEventListener("click", function() {
+      // Your code to perform the button click action goes here
+
+      // Show success message
+      document.getElementById("success-desss").style.display = "block";
+  });
+</script> -->
 <script>
   //Company name 
   document.addEventListener('DOMContentLoaded', function () {
@@ -922,7 +789,7 @@ let keywords = CKEDITOR.replace('keywordseditor', {
   });
 </script>
 
-<!-- <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const mainCategorySelect = document.getElementById('maincategory');
     const subCategorySelect = document.getElementById('subcategory');
@@ -1006,113 +873,6 @@ let keywords = CKEDITOR.replace('keywordseditor', {
         });
     }
   });
-</script> -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mainCategorySelect = document.getElementById('maincategory');
-    const subCategorySelect = document.getElementById('subcategory');
-    const mainCategoryFlavors = document.getElementById('maincategory-flavors');
-    const subCategoryInput = document.getElementById('subcategory-flavors'); // The input for displaying subcategory data
-    const mainCategoryDataId = document.getElementById('maincategory-data-id'); // The input for displaying main category data-id
-    // Fetch main categories from a URL (replace with your API endpoint)
-    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=main_categories')
-      .then(response => response.json())
-      .then(data => {
-        const jsonData = data.data;
-        let mainCategoryexistingValue = mainCategorySelect.value.trim(); // Get the existing value
-        // let mainCategoryidexistingValue = mainCategoryidSelect.value.trim();
-        jsonData.forEach(item => {
-          const option = document.createElement('option');
-          // option.value = item.id+','+item.name;
-          // option.value = item.id+','+item.name;
-          option.value = item.name;
-          option.setAttribute('data-id', item.id); // Store the ID as a data attribute
-          mainCategoryFlavors.appendChild(option);
-          
-        });
-        
-
-        mainCategorySelect.addEventListener('input', function() {
-          const selectedOption = mainCategoryFlavors.querySelector(`option[value="${this.value}"]`);
-          if (selectedOption) {
-            const mainCategoryId = selectedOption.getAttribute('data-id');
-            // Fetch subcategories based on the selected main category ID
-            fetchSubcategories(mainCategoryId);
-            subCategoryInput.value = ''; // Clear subcategory input
-            mainCategoryDataId.value = mainCategoryId; // Update main category data-id
-          }
-        });
-      
-       
-     
-      })
-      .catch(error => {
-        console.error('Error fetching main categories:', error);
-      });
-
-
-   
-    function fetchSubcategories(mainCategoryId) {
-      $("#maincategory-data-id").val(mainCategoryId);
-
-      // Fetch subcategories using the main category ID
-      fetch(`https://career.desss.com/dynamic/careerdesssapi.php?action=sub_categories&main_category_id=${mainCategoryId}`)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-
-          subCategoryInput.value = ''; // Clear the sub-category input
-
-          const jsonData = data.data;
-          let existingValue = subCategorySelect.value.trim(); // Get the existing value
-          subCategoryInput.innerHTML = ''; // Clear the sub-category input options
-
-          if (jsonData.length === 0) {
-            subCategoryInput.value = 'Not found';
-          } else {
-            jsonData.forEach(item => {
-              const option = document.createElement('option');
-              option.value = item.name;
-              if ( option.value === 'undefined') {
-                option.value = 'Not found';
-              } 
-              subCategoryInput.appendChild(option);
-              // console.log(option);
-              // Only append the option if it's not the same as the existing value
-              if (item.name !== existingValue) {
-                subCategoryInput.appendChild(option);
-              }
-            });
-          }
-
-
-          // Listen for input changes to update the existing value
-          subCategorySelect.addEventListener('input', function() {
-            existingValue = this.value.trim();
-          });
-        })
-        .catch(error => {
-          console.error('Error fetching subcategories:', error);
-        });
-    }
-
-
-  });
-
-
-  $('#maincategory').keyup(function(){
-   var main_id =  $("#maincategory").val();
-   if(main_id == ''){
-    $("#maincategory-data-id").val('');
-   }
-   
-    
-    
-  });
-  
-  
-
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1145,12 +905,7 @@ let keywords = CKEDITOR.replace('keywordseditor', {
       });
   });
 </script>
-
-
-        </div>
-       </div>
-    </div>
-<!-- </body> -->
+<!-- Dropdown scripts -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -1252,12 +1007,11 @@ $(document).ready(function(){
       });
   });
 </script>
-
 <script>
   // Function to fetch data from the API and display it in the API Response modal
   function displayApiResponse() {
     // Fetch data from the API (use your API endpoint)
-    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Email%20leads%20view%20screen%20alias%20list')
+    fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Whatsup%20benchsales%20view%20screen%20alias%20list')
       .then(response => response.json())
       .then(data => {
         // Extract and display data in the API Response modal
@@ -1288,76 +1042,9 @@ $(document).ready(function(){
   const apiResponseButton = document.querySelector("[data-bs-target='#apiResponseModal']");
   apiResponseButton.addEventListener("click", displayApiResponse);
 </script> 
-<!-- <script type = "text/javascript">
-  $(document).ready(function(){
-      $('#table').DataTable();
-       
-      $('#datasubmit').on('click', function(){
-        // alert("Please complete field");
-          $firstname = $('#aliasname').val();
-          $lastname = $('#lastname').val();
-          $address = $('#address').val();
-    
-          if($firstname == "" || $lastname == "" || $address == ""){
-              alert("Please complete field");
-               // Display an error message in the "message" div
-               $('#message').text('Please complete all fields')
-          }else{
-              $.ajax({
-                  type: "POST",
-                  url: "/alias/",
-                  data:{
-                      firstname: $firstname,
-                      lastname: $lastname,
-                      address: $address,
-                      csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-                  },
-                  success: function(){
-                      alert('Save Data');
-                      // $('#message').text('Your data has been saved succesfully')
-                      $('#aliasname').val('');
-                      $('#lastname').val('');
-                      $('#address').val('');
-                      window.location = "/";
-                  }
-              });
-          }
-      });
-  });
-  </script>
-  <script type = "text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-      // Fetch data from a URL (replace with your own API endpoint)
-      fetch('https://career.desss.com/dynamic/careerdesssapi.php?action=get_master_aliase_names')
-        .then(response => response.json())
-        .then(data => {
-          // Extract and display 'name' values as options
-          const datalist = document.getElementById('aliasname-flavors');
-          const jsonData = data.data; // Use data.data to access the 'data' array
-          const existingValueField = document.getElementById('aliasname');
-          let existingValue = existingValueField.value.trim(); // Get the existing value
-  
-          jsonData.forEach(item => {
-            const option = document.createElement('option');
-            option.value = item.name;
-            datalist.appendChild(option);
-             // Only append the option if it's not the same as the existing value
-            if (item.name !== existingValue) {
-              datalist.appendChild(option);
-            }
-          });
-           // Listen for input changes to update the existing value
-           existingValueField.addEventListener('input', function() {
-            existingValue = this.value.trim();
-          });
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    });
-  </script> -->
+        </div>
+       </div>
+    </div>
 </body>
-</html>
-
 
 </html>

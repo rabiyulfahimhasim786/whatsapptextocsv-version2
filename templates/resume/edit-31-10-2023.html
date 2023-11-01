@@ -726,7 +726,7 @@
     scrollbar-width: thin;
     border-radius: 10px;
 }
-.lefform {
+.lefform:hover {
     overflow-y: scroll;
 }
 .lefform::-webkit-scrollbar {
@@ -758,7 +758,7 @@
     scrollbar-width: thin;
     border-radius: 10px;
 }
-.rit {
+.rit:hover {
     overflow-y: scroll;
 }
 .rit::-webkit-scrollbar {
@@ -780,21 +780,6 @@
   .cke_chrome {
     border: 1px solid #0b9b3f !important;
   }
-  .help1 {
-        padding: 10px 20px;
-        background: #818181;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 20px;
-        font-size: 15px;
-        z-index: 999;
-        cursor: pointer;
-        margin-left: 10px;
-      }
-  .help1:hover {
-        color: #fff;
-        text-decoration: none;
-      }
   </style>
 <head>
     <title>Edit Extracted Resume</title>
@@ -813,9 +798,7 @@
   <div class="bck-btn">
     
     <a class="back" href="{% url 'extracted_resumes'%}">Resume List</a>
-    <a class="back1"  target="_blank" href="/media/{{resumefile.file.name}}">resume</a>
-    <a style="margin-right: 7px;" class="help1" href="{{ '/media/helpdocumentation/Resumepattern&help.pdf' }}" target="_blank"><i class="fa fa-question" aria-hidden="true"></i> Help</a>
-    <a style="margin-right: 7px;" class="back1" href="{{ '/media/helpdocumentation/Resumedocumentations.pdf' }}" target="_blank"><i class="fa fa-file" aria-hidden="true"></i></a>
+    <a class="back1" href="/media/{{resumefile.file.name}}">resume</a>
   </div>
   
 <div class="container"> 
@@ -843,7 +826,7 @@
           <label for="certificate_data">Certificate</label>
           <textarea name="certificate_data" cols="40" rows="10" value="{{reparser_professional.CertificateParser}}" id="id_certificate_data">{{reparser_professional.CertificateParser}}</textarea>
         </div>
-        <button class="updatebtn upbt1" type="submit" style="margin-top: 20px;">Save & Reparse</button>
+        <button class="updatebtn upbt1" type="submit" style="margin-top: 20px;">Update</button>
       </form>
       
       <form action="/resume/extracted_resumes/profile/{{extracted_profile.id}}" method="POST">
