@@ -4,8 +4,8 @@ import re
 from pdfminer.high_level import extract_text
 import spacy
 from spacy.matcher import Matcher
-from .models import Resume, candidateprofile, candidateobjective, candidateprofessional, candidateeducation, candidateskill, candidateexperience, candidatereference, candidatecertificate, candidatereparser, candidateaward, candidatehobbies
-from .forms import ResumeUploadForm, candidateprofileForm, candidateobjectiveForm, candidateprofessionalForm, candidateeducationForm, candidateskillForm, candidateexperienceForm, candidatereferenceForm, candidatecertificateForm, candidateawardForm, candidatehobbiesForm
+from .models import Resume, candidateprofile, candidateobjective, candidateprofessional, candidateeducation, candidateskill, candidateexperience, candidatereference, candidatecertificate
+from .forms import ResumeUploadForm, candidateprofileForm, candidateobjectiveForm, candidateprofessionalForm, candidateeducationForm, candidateskillForm, candidateexperienceForm, candidatereferenceForm, candidatecertificateForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.shortcuts import render, redirect
 import os 
@@ -15,11 +15,10 @@ from pdfminer.high_level import extract_text
 from django.db.models import Count
 import spacy
 from spacy.matcher import Matcher
-from itertools import zip_longest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-dot = './media/'
-# dot = '/var/www/subdomain/whatsappdata/analysis/media/'
+# dot = './media/'
+dot = '/var/www/subdomain/whatsappdata/analysis/media/'
 # Helper function to extract text from a PDF file
 def extract_text_from_pdf(pdf_path):
     return extract_text(pdf_path)
@@ -273,7 +272,6 @@ def extract_specialization(resume_text, specialization_names):
             if match:
                 # Capture the text following the degree name
                 captured_text = line[match.end():].strip()
-                captured_text = re.sub(r'<[^>]+>', '', captured_text)
                 matching_values.append(captured_text)
                 break  # Break out of the inner loop once a match is found
 
@@ -299,219 +297,8 @@ def specialization_split(document):
         return ''
 
 
-def company_info():
-    companyurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=benchsales%20recruiter%20company'
-    company_dataset = requests.get(companyurl)
-    dataset = company_dataset.json()
-    company_list = [item['name'] for item in dataset['data']]
-    return company_list
-
-def job_info():
-    joburl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_name_based_names&master_name=job%20title'
-    job_dataset = requests.get(joburl)
-    dataset = job_dataset.json()
-    job_list = [item['name'] for item in dataset['data']]
-    return job_list
-    
-
-def joblocation_info():
-    joblocationurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_name_based_names&master_name=Job%20Location'
-    joblocation_dataset = requests.get(joblocationurl)
-    dataset = joblocation_dataset.json()
-    joblocation_list = [item['name'] for item in dataset['data']]
-    return joblocation_list
-
-def jobdescription_info():
-    jobdescriptionurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20description'
-    jobdescription_dataset = requests.get(jobdescriptionurl)
-    dataset = jobdescription_dataset.json()
-    jobdescription_list = [item['name'] for item in dataset['data']]
-    return jobdescription_list
-
-def jobresponsibilities_info():
-    jobresponsibilitiesurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Responsibilities'
-    jobresponsibilities_dataset = requests.get(jobresponsibilitiesurl)
-    dataset = jobresponsibilities_dataset.json()
-    jobresponsibilities_list = [item['name'] for item in dataset['data']]
-    return jobresponsibilities_list
-
-def jobaccomplishments_info():
-    jobaccomplishmentsurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Accomplishments'
-    jobaccomplishments_dataset = requests.get(jobaccomplishmentsurl)
-    dataset = jobaccomplishments_dataset.json()
-    jobaccomplishments_list = [item['name'] for item in dataset['data']]
-    return jobaccomplishments_list
-
-def degree_info():
-    degreeurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Degree'
-    degree_dataset = requests.get(degreeurl)
-    dataset = degree_dataset.json()
-    degree_list = [item['name'] for item in dataset['data']]
-    return degree_list
-
-def university_info():
-    universityurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20University'
-    university_dataset = requests.get(universityurl)
-    dataset = university_dataset.json()
-    university_list = [item['name'] for item in dataset['data']]
-    return university_list
-
-def time_info():
-    timeurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Timeperiod'
-    time_dataset = requests.get(timeurl)
-    dataset = time_dataset.json()
-    time_list = [item['name'] for item in dataset['data']]
-    return time_list
-
-def save_company_info(experience_data):
-
-    company_list = company_info()
-    company_matches = ''
-    company_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(company) for company in company_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    company_matches = company_pattern.findall(experience_data)
-    # company_match = ','.join(company_match)
-    
-
-
-    print(company_matches)
-    return company_matches
-
-def save_job_info(experience_data):
-    job_list = job_info()
-    job_matches = ''
-    job_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(job) for job in job_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    job_matches = job_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return job_matches
-
-def save_joblocation_info(experience_data):
-    joblocation_list = joblocation_info()
-    joblocation_matches = ''
-    joblocation_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(joblocation) for joblocation in joblocation_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    joblocation_matches = joblocation_pattern.findall(experience_data)
-    # joblocation_matches = ','.join(joblocation_matches)
-
-    return joblocation_matches
-
-def save_jobdescription_info(experience_data):
-    jobdescription_list = jobdescription_info()
-    jobdescription_matches = ''
-    jobdescription_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(jobdescription) for jobdescription in jobdescription_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    jobdescription_matches = jobdescription_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return jobdescription_matches
-
-def save_jobresponsibilities_info(experience_data):
-    jobresponsibilities_list = jobresponsibilities_info()
-    jobresponsibilities_matches = ''
-    jobresponsibilities_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(jobresponsibilities) for jobresponsibilities in jobresponsibilities_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    jobresponsibilities_matches = jobresponsibilities_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return jobresponsibilities_matches
-
-def save_jobaccomplishments_info(experience_data):
-    jobaccomplishments_list = jobaccomplishments_info()
-    jobaccomplishments_matches = ''
-    jobaccomplishments_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(jobaccomplishments) for jobaccomplishments in jobaccomplishments_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    jobaccomplishments_matches = jobaccomplishments_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return jobaccomplishments_matches
-
-def save_degree_info(education_data):
-
-    degree_list = degree_info()
-    degree_matches = ''
-    degree_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(degreedata) for degreedata in degree_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    degree_matches = degree_pattern.findall(education_data)
-    degree_matches = [match.replace("&amp;", "&") for match in degree_matches]
-    # company_match = ','.join(company_match)
-
-    print(degree_matches)
-    return degree_matches
-
-def save_university_info(education_data):
-    university_list = university_info()
-    university_matches = ''
-    university_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(institutedata) for institutedata in university_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    university_matches = university_pattern.findall(education_data)
-  
-    print(university_matches)
-    return university_matches
-
-def save_time_info(education_data):
-    time_list = time_info()
-    time_matches = ''
-    time_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(time) for time in time_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    time_matches = time_pattern.findall(education_data)
-    time_matches = [match.replace("&ndash;", "-") for match in time_matches]
-  
-    print(time_matches)
-
-    start_years = []
-    end_years = []
-
-    pattern = r"(\d{4}\s*(?:to|–)\s*\d{4}|\d{4}\s*-\s*\d{4}|\d{4})"
-    for line in time_matches:
-        years_matches = re.findall(pattern, line)
-        for year_range in years_matches:
-            years = re.split(r'\s*(?:to|–|-\s*)\s*', year_range)
-            if len(years) == 1:
-                # Treat it as a single year with no end year
-                start_years.append("")
-                end_years.append(years[0])
-            else:
-                start_years.append(years[0])
-                end_years.append(years[1])
-
-    print("Start Years:", start_years)
-    print("End Years:", end_years)
-    return start_years, end_years
-
-def save_experiencetime_info(education_data):
-    time_list = time_info()
-    experiencetime_matches = ''
-    time_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(time) for time in time_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    experiencetime_matches = time_pattern.findall(education_data)
-    experiencetime_matches = [match.replace("&ndash;", "-") for match in experiencetime_matches]
-  
-    print(experiencetime_matches)
-
-    experiencestart_years = []
-    experiencestart_months = []
-    experienceend_years = []
-    experienceend_months = []
-
-    for experiencetime_match in experiencetime_matches:
-        # Check if the time_match contains a hyphen (range format)
-        if '-' in experiencetime_match:
-            start_month, end_month = re.findall(r'(\w+)\s*(\d{4})', experiencetime_match)
-            experiencestart_years.append(int(start_month[1]))
-            experiencestart_months.append(start_month[0])
-            experienceend_years.append(int(end_month[1]))
-            experienceend_months.append(end_month[0])
-        else:
-            # Handle the format "December 1997 to June 1996"
-            parts = re.findall(r'(\w+)\s*(\d{4})', experiencetime_match)
-            if len(parts) == 2:
-                experiencestart_years.append(int(parts[0][1]))
-                experiencestart_months.append(parts[0][0])
-                experienceend_years.append(int(parts[1][1]))
-                experienceend_months.append(parts[1][0])
-
-    print("Start Years:", experiencestart_years)
-    print("Start Months:", experiencestart_months)
-    print("End Years:", experienceend_years)
-    print("End Months:", experienceend_months)
-    return experiencestart_years, experiencestart_months, experienceend_years, experienceend_months
-
 # Function to extract information from a resume
 def extract_resume(resume_path):
-    # object_lead=candidatereparser.objects.get(id=id)
-    # email_content = object_lead.ExperienceParser
     text = extract_text_from_pdf(resume_path)
     name = extract_name(text)
     contact_number = extract_contact_number_from_resume(text)
@@ -519,16 +306,11 @@ def extract_resume(resume_path):
     
     #education  text extractions
     educationtext = education_extraction(text)
-
-    
     universities = university_data(educationtext)
     degree_data = degree_split(educationtext)
     specialization_data = specialization_split(text)
     start_year = extract_years_from_text(educationtext)
     end_year = extract_endyears_from_text(educationtext)
-    # company_info_result = save_company_info(email_content)
-    # print(company_info_result)  
-    
     # Fetch skills from an external API or database
     skills_dataset = requests.get('https://career.desss.com/dynamic/careerdesssapi.php?action=skills')
     dataset = skills_dataset.json()
@@ -550,7 +332,7 @@ def upload_and_extract_resume(request):
             
             text, name, contact_number, email, degree_data, specialization_data, universities, start_year, end_year, skills = extract_resume(resumesample)
 
-            # company_matches = save_company_info(email_content)
+
             # Create a candidate profile associated with the uploaded resume
             candidate_profile = candidateprofile.objects.create(
                 resume=resume,
@@ -584,17 +366,6 @@ def upload_and_extract_resume(request):
                 date_of_certification='',
             )
 
-            candidate_award = candidateaward.objects.create(
-                resume=resume,
-                award='',
-            )
-
-            candidate_hobbies = candidatehobbies.objects.create(
-                resume=resume,
-                hobbies='',
-
-            )
-
             candidate_experience = candidateexperience.objects.create(
                 resume=resume,
                 companyname='',
@@ -613,18 +384,7 @@ def upload_and_extract_resume(request):
                 # skillused=", ".join(skills),
 
             )
-            
 
-            
-
-            # candidatereparser
-            candidate_candidatereparser = candidatereparser.objects.create(
-                resume=resume,
-                ResumeParser= text,
-                ExperienceParser='',
-                EducationParser='',
-                CertificateParser='',
-            )
 
             for j in range(len(skills)):
                 candidate_skill = candidateskill(
@@ -639,7 +399,15 @@ def upload_and_extract_resume(request):
                 skills='',
                 experience='',
                 )
- 
+            # Create candidate education
+            # candidate_education = candidateeducation.objects.create(
+            #     resume=resume,
+            #     degree=degree_data,
+            #     specializationdegree=specialization_data,
+            #     institute=universities,
+            #     start_year=start_year,
+            #     end_year=end_year,
+            # )
             start_years_str = ", ".join(start_year)
             end_years_str = ", ".join(end_year)
             # Create a candidateeducation instance for each education record
@@ -676,11 +444,11 @@ def upload_and_extract_resume(request):
 
             # Remove the uploaded file
             if os.path.exists(resumesample):
-                # os.remove(resumesample)
+                os.remove(resumesample)
                 print('Removed')
                 candidates = candidateprofile.objects.all()
                 return redirect('extracted_resumes')
-            return render(request, 'extracted_resume_list.html', {'form': form, 'candidate_skill': candidate_skill, 'extracted_data': candidate_profile, 'candidate_experience': candidate_experience, 'candidate_certificate': candidate_certificate, 'candidate_objective': candidate_objective, 'candidate_professional':candidate_professional, 'candidate_reference':candidate_reference,  'candidate_education': education_record, 'resume_text': text,'extracted_resumes': candidates, 'candidate_candidatereparser': candidate_candidatereparser, 'candidate_award': candidate_award, 'candidate_hobbies': candidate_hobbies})
+            return render(request, 'extracted_resume_list.html', {'form': form, 'candidate_skill': candidate_skill, 'extracted_data': candidate_profile, 'candidate_experience': candidate_experience, 'candidate_certificate': candidate_certificate, 'candidate_objective': candidate_objective, 'candidate_professional':candidate_professional, 'candidate_reference':candidate_reference,  'candidate_education': education_record, 'resume_text': text,'extracted_resumes': candidates})
 
     else:
         form = ResumeUploadForm()
@@ -988,50 +756,6 @@ def update_certificate(request, pk):
 
     return redirect('extracted_resumes')  # Redirect to a success page after update
 
-def update_award(request, pk):
-    extracted_resume = get_object_or_404(Resume, id=pk)  # Assuming Resume is the related model
-    award_instances = candidateaward.objects.filter(resume=extracted_resume).order_by('id')
-
-    if request.method == 'POST':
-        num_award = candidateaward.objects.filter(resume=extracted_resume).count()
-
-        # Update skills and experience based on the number provided
-        for q in range(1, num_award + 1):
-            award_name = f'leadaward{q}'
-            
-            award = request.POST.get(award_name, '')
-            
-            # Get the specific skill instance to update
-            award_instance = award_instances[q - 1]
-            award_instance.award = award
-            award_instance.save()
-
-        return redirect('edit_extracted_resume', pk=pk) 
-
-    return redirect('extracted_resumes') 
-
-def update_hobbies(request, pk):
-    extracted_resume = get_object_or_404(Resume, id=pk)  # Assuming Resume is the related model
-    hobbies_instances = candidatehobbies.objects.filter(resume=extracted_resume).order_by('id')
-
-    if request.method == 'POST':
-        num_hobbies = candidatehobbies.objects.filter(resume=extracted_resume).count()
-
-        # Update skills and experience based on the number provided
-        for v in range(1, num_hobbies + 1):
-            hobbies_name = f'leadhobbies{v}'
-            
-            hobbies = request.POST.get(hobbies_name, '')
-            
-            # Get the specific skill instance to update
-            hobbies_instance = hobbies_instances[v - 1]
-            hobbies_instance.hobbies = hobbies
-            hobbies_instance.save()
-
-        return redirect('edit_extracted_resume', pk=pk) 
-
-    return redirect('extracted_resumes') 
-
 def edit_optimization(pk):
     try:
         extracted_resume = candidateprofile.objects.get(id=pk)
@@ -1072,21 +796,11 @@ def edit_optimization(pk):
         extracted_certificate = candidatecertificate.objects.get(id=pk)
     except candidatecertificate.DoesNotExist:
         extracted_certificate = None  # Initialize with None if not found
-
-    try:
-        extracted_award = candidateaward.objects.get(id=pk)
-    except candidateaward.DoesNotExist:
-        extracted_award = None  # Initialize with None if not found
-
-    try:
-        extracted_hobbies = candidatehobbies.objects.get(id=pk)
-    except candidatehobbies.DoesNotExist:
-        extracted_hobbies = None  # Initialize with None if not found
     
 
     return (
         extracted_resume, extracted_education, extracted_skill, extracted_experience,
-        extracted_professional, extracted_objective, extracted_reference, extracted_certificate, extracted_award, extracted_hobbies
+        extracted_professional, extracted_objective, extracted_reference, extracted_certificate
     )
 
 
@@ -1103,33 +817,40 @@ def edit_extracted_resume(request, pk):
     education = candidateeducation.objects.filter(resume=resume).first()
     skill = candidateskill.objects.filter(resume=resume).first()
     if resume == None:
+        # skills = candidateskill.objects.filter(resume__id=pk)
+        # profiles = candidateprofile.objects.filter(resume__id=pk)
+        # # extracted_resume =candidate.objects.get(id=pk) 
+        # objectives = candidateobjective.objects.filter(resume__id=pk)
+        # professionals = candidateprofessional.objects.filter(resume__id=pk)
+        # educations = candidateeducation.objects.filter(resume__id=pk)
+        # experiences = candidateexperience.objects.filter(resume__id=pk)
         extracted_profile =candidateprofile.objects.get(id=pk)
         extracted_objective =candidateobjective.objects.get(id=pk)
         extracted_professional =candidateprofessional.objects.get(id=pk)
-        reparser_professional =candidatereparser.objects.get(id=pk)
-        resumefile =Resume.objects.get(id=pk)
         
     else:
+        # skills = candidateskill.objects.filter(resume__id=pk, resume__file=resume)
+        # profiles = candidateprofile.objects.filter(resume__id=pk, resume__file=resume)
+        # objectives = candidateobjective.objects.filter(resume__id=pk, resume__file=resume)
+        # professionals = candidateprofessional.objects.filter(resume__id=pk, resume__file=resume)
+        # educations = candidateeducation.objects.filter(resume__id=pk, resume__file=resume)
+        # experiences = candidateexperience.objects.filter(resume__id=pk, resume__file=resume)
         extracted_profile =candidateprofile.objects.get(id=pk) 
         extracted_objective =candidateobjective.objects.get(id=pk)
         extracted_professional =candidateprofessional.objects.get(id=pk)
-        reparser_professional =candidatereparser.objects.get(id=pk)
-        resumefile =Resume.objects.get(id=pk)
 
-
+  
+        # Extract the skill names and skill experiences from the queryset
+    # skill_data = skills.values('skills', 'experience')
     skill_data = candidateskill.objects.filter(resume=resume).values('id', 'skills', 'experience')
     education_data = candidateeducation.objects.filter(resume=resume).values('id', 'degree', 'majordegree', 'specializationdegree', 'institute', 'start_year', 'end_year', 'institutelocation', 'others', 'if_others')
     work_data = candidateexperience.objects.filter(resume=resume).values('id', 'companyname', 'job_title', 'skillused', 'joblocation', 'job_start_year', 'job_end_year', 'present', 'Description', 'Responsibilites', 'Accomplishments')
     reference_data = candidatereference.objects.filter(resume=resume).values('id', 'referred_by', 'referrer_email')
     certificate_data = candidatecertificate.objects.filter(resume=resume).values('id', 'Certification_code', 'certification_name', 'date_of_certification')
-    award_data = candidateaward.objects.filter(resume=resume).values('id', 'award')
-    hobbies_data = candidatehobbies.objects.filter(resume=resume).values('id', 'hobbies')
     # print(skill_data)
     experience = candidateexperience.objects.filter(resume=resume).first()
     reference = candidatereference.objects.filter(resume=resume).first()
     certificate = candidatecertificate.objects.filter(resume=resume).first()
-    award = candidateaward.objects.filter(resume=resume).first()
-    hobbies = candidatehobbies.objects.filter(resume=resume).first()
     #print(skill)
     overall_resumetext = profile.resumetext if profile else ""
 
@@ -1145,21 +866,20 @@ def edit_extracted_resume(request, pk):
         'experience_form': candidateexperienceForm(instance=experience),
         'reference_form': candidatereferenceForm(instance=reference),
         'certificate_form': candidatecertificateForm(instance=certificate),
-        'award_form': candidateawardForm(instance=award),
-        'hobbies_form': candidatehobbiesForm(instance=hobbies),
         'overall_resumetext': overall_resumetext,
         'skill_data':skill_data,
         'work_data':work_data,
         'reference_data':reference_data,
         'certificate_data':certificate_data,
-        'award_data':award_data,
-        'hobbies_data':hobbies_data,
+        # 'profiles':profiles,
+        # 'objectives':objectives,
         'education_data':education_data,
+        # 'professionals':professionals,
+        # 'educations':educations,
+        # 'experiences':experiences,
         'extracted_profile': extracted_profile,
         'extracted_objective':extracted_objective,
         'extracted_professional':extracted_professional,
-        'reparser_professional':reparser_professional,
-        'resumefile':resumefile,
     }
 
     if request.method == 'POST':
@@ -1172,8 +892,6 @@ def edit_extracted_resume(request, pk):
         experience_form = candidateexperienceForm(request.POST, instance=experience)
         reference_form = candidatereferenceForm(request.POST, instance=reference)
         certificate_form = candidatecertificateForm(request.POST, instance=certificate)
-        award_form = candidateawardForm(request.POST, instance=award)
-        hobbies_form = candidatehobbiesForm(request.POST, instance=hobbies)
 
         # Check if all forms are valid
         if (
@@ -1184,8 +902,6 @@ def edit_extracted_resume(request, pk):
             skill_form.is_valid() and
             reference_form.is_valid() and
             certificate_form.is_valid() and
-            award_form.is_valid() and
-            hobbies_form.is_valid() and
             experience_form.is_valid()
         ):
             # Save each form individually
@@ -1205,10 +921,6 @@ def edit_extracted_resume(request, pk):
                 reference_form.save()
             if certificate:
                 certificate_form.save()
-            if award:
-                award_form.save()
-            if hobbies:
-                hobbies_form.save()
 
             # Redirect to a success page or return a success response
             return redirect('extracted_resumes')  # You can replace 'success_page' with the appropriate URL or view name.
@@ -1225,6 +937,14 @@ def delete_extracted_resume(request, pk):
     # Assuming you have ForeignKey relationships between Resume and child models, 
     # you can delete related records through the Resume instance.
     if request.method == 'POST':
+        # Delete related child records
+        # resume.candidateprofile_set.all().delete()
+        # resume.candidateobjective_set.all().delete()
+        # resume.candidateprofessional_set.all().delete()
+        # resume.candidateeducation_set.all().delete()
+        # resume.candidateskill_set.all().delete()
+        # resume.candidateexperience_set.all().delete()
+        # candidateskill.objects.filter(resume=resume).delete()
         candidateprofile.objects.filter(resume=resume).delete()
         candidateobjective.objects.filter(resume=resume).delete()
         candidateprofessional.objects.filter(resume=resume).delete()
@@ -1233,8 +953,7 @@ def delete_extracted_resume(request, pk):
         candidateskill.objects.filter(resume=resume).delete()
         candidatereference.objects.filter(resume=resume).delete()
         candidatecertificate.objects.filter(resume=resume).delete()
-        candidateaward.objects.filter(resume=resume).delete()
-        candidatehobbies.objects.filter(resume=resume).delete()
+        # candidateskill.objects.filter(resume=resume).delete()
         
         # Now, delete the Resume instance
         resume.delete()
@@ -1399,46 +1118,6 @@ def add_certificate(request, pk):
 
     return render(request, 'resume/edit.html', {'candidateform': candidateform})
 
-def add_award(request, pk):
-    if request.method =='POST':
-        resume_id = request.POST.get('resume') or ''
-        award = request.POST.get('award') or ''
-        resume = Resume.objects.get(id=resume_id)
-        # create and save candidate skill instance 
-        candidateaward.objects.create(
-            resume = resume,
-            award = award,
-        )
-        
-        return redirect('edit_extracted_resume', pk=pk)
-    elif request.method =='GET':
-        candidateawarddata = candidateaward.objects.get(id=pk)
-        return render(request, 'resume/edit.html', {'candidateaward': candidateawarddata})
-    else:
-            candidateform = candidateawardForm()
-
-    return render(request, 'resume/edit.html', {'candidateform': candidateform})
-
-def add_hobbies(request, pk):
-    if request.method =='POST':
-        resume_id = request.POST.get('resume') or ''
-        hobbies = request.POST.get('hobbies') or ''
-        resume = Resume.objects.get(id=resume_id)
-        # create and save candidate skill instance 
-        candidatehobbies.objects.create(
-            resume = resume,
-            hobbies = hobbies,
-        )
-        
-        return redirect('edit_extracted_resume', pk=pk)
-    elif request.method =='GET':
-        candidatehobbiesdata = candidatehobbies.objects.get(id=pk)
-        return render(request, 'resume/edit.html', {'candidatehobbies': candidatehobbiesdata})
-    else:
-            candidateform = candidatehobbiesForm()
-
-    return render(request, 'resume/edit.html', {'candidateform': candidateform})
-
 
 def delete_skills_resume(request, pk):
     resume = get_object_or_404(Resume, id=pk)
@@ -1528,41 +1207,6 @@ def delete_certificate_resume(request, pk):
 
     return redirect('extracted_resumes')
 
-def delete_award_resume(request, pk):
-    resume = get_object_or_404(Resume, id=pk)
-
-    if request.method == 'POST':
-        delete_idd = request.POST.get('id')
-
-        # Check if 'id' is provided and a valid integer
-        if delete_idd:
-            try:
-                id = int(delete_idd)
-                candidate_profile = candidateaward.objects.filter(id=id,resume_id=resume)
-                candidate_profile.delete()
-                return redirect('edit_extracted_resume', pk=pk)
-            except (ValueError, candidateaward.DoesNotExist):
-                return redirect('edit_extracted_resume', pk=pk)
-
-    return redirect('extracted_resumes')
-
-def delete_hobbies_resume(request, pk):
-    resume = get_object_or_404(Resume, id=pk)
-
-    if request.method == 'POST':
-        delete_idd = request.POST.get('id')
-
-        # Check if 'id' is provided and a valid integer
-        if delete_idd:
-            try:
-                id = int(delete_idd)
-                candidate_profile = candidatehobbies.objects.filter(id=id,resume_id=resume)
-                candidate_profile.delete()
-                return redirect('edit_extracted_resume', pk=pk)
-            except (ValueError, candidatehobbies.DoesNotExist):
-                return redirect('edit_extracted_resume', pk=pk)
-
-    return redirect('extracted_resumes')
 
 def edit_candidateskill(request, pk):
     candidateskill_instance = get_object_or_404(candidateskill, pk=pk,)
@@ -1623,61 +1267,6 @@ def edit_certificate_code(request, pk):
 
     return redirect('edit_extracted_resume', pk=pk)
 
-def get_edit_screen_award(request):
-    
-    if request.method == 'GET':
-        master_id = request.GET.get('master_id')
-        award_id = request.GET.get('award_id')
-        candidate_profile = candidateaward.objects.get(id=award_id)
-        award = candidate_profile.award
-        
-        return JsonResponse({"award":award})
-
-
-
-def edit_award(request, pk):
-    if request.method == 'POST':
-        master_id = request.POST.get('master_id')
-        award_id = request.POST.get('award_name_id')
-        award = request.POST.get('award')
-
-        print(master_id) 
-        print(award_id)
-        print(award)
-
-        candidate_award, created = candidateaward.objects.get_or_create(id=award_id, resume_id=master_id)
-        candidate_award.award = award
-        candidate_award.save()
-        
-    return redirect('edit_extracted_resume', pk=pk)
-
-def get_edit_screen_hobbies(request):
-    
-    if request.method == 'GET':
-        master_id = request.GET.get('master_id')
-        hobbies_id = request.GET.get('hobbies_id')
-        candidate_profile = candidatehobbies.objects.get(id=hobbies_id)
-        hobbies = candidate_profile.hobbies
-        
-        return JsonResponse({"hobbies":hobbies})
-
-
-
-def edit_hobbies(request, pk):
-    if request.method == 'POST':
-        master_id = request.POST.get('master_id')
-        hobbies_id = request.POST.get('hobbies_name_id')
-        hobbies = request.POST.get('hobbies')
-
-        print(master_id) 
-        print(hobbies_id)
-        print(hobbies)
-
-        candidate_hobbies, created = candidatehobbies.objects.get_or_create(id=hobbies_id, resume_id=master_id)
-        candidate_hobbies.hobbies = hobbies
-        candidate_hobbies.save()
-        
-    return redirect('edit_extracted_resume', pk=pk)
 
 def get_edit_screen_skills_experience(request):
     
@@ -1855,7 +1444,20 @@ def edit_experience(request, pk):
         Accomplishments = request.POST.get('Accomplishments')
         skillused = request.POST.get('skillused')
 
-
+        # print(master_id) 
+        # print(experience_id)
+        # print(companyname)
+        # print(job_title)
+        # print(joblocation)
+        # print(job_start_year)
+        # print(job_end_year)
+        # print(job_start_month)
+        # print(job_end_month)
+        # print(present)
+        # print(Description)
+        # print(Responsibilites)
+        # print(Accomplishments)
+        # print(skillused)
 
 
         # Get the candidateskill instance or create a new one
@@ -1939,116 +1541,5 @@ def edit_skills_used(request, pk):
         candidate_skill.skillused = skillsdatas
         candidate_skill.save()
         
-
-    return redirect('edit_extracted_resume', pk=pk)
-
-
-def edit_by_candidatereparser(request, pk):
-    if request.method == 'POST':
-        resume = request.POST.get('resume')
-        resume_data = request.POST.get('resume_data')
-        experience_data = request.POST.get('experience_data')
-        education_data = request.POST.get('education_data')
-        certificate_data = request.POST.get('certificate_data')
-        # print(experience_data)
-        company_matches = save_company_info(experience_data)
-        job_matches = save_job_info(experience_data)
-        joblocation_matches = save_joblocation_info(experience_data)
-        jobdescription_matches = save_jobdescription_info(experience_data)
-        jobresponsibilities_matches = save_jobresponsibilities_info(experience_data)
-        jobaccomplishments_matches = save_jobaccomplishments_info(experience_data)
-        experiencestart_years, experiencestart_months, experienceend_years, experienceend_months = save_experiencetime_info(experience_data)
-        degree_matches = save_degree_info(education_data)
-        university_matches = save_university_info(education_data)
-        specialization_data = specialization_split(education_data)
-        start_years, end_years = save_time_info(education_data)
-        candidate_reference, created = candidatereparser.objects.get_or_create(id=pk, resume_id=resume)
-        candidate_reference.ResumeParser = resume_data
-        candidate_reference.ExperienceParser = experience_data
-        candidate_reference.EducationParser = education_data
-        candidate_reference.CertificateParser = certificate_data
-        candidate_reference.save()   
-
-
-        # Iterate through the lists and create or update objects for each set of data
-        # for company, job, location in zip(company_matches, job_matches, joblocation_matches):
-        #     print(company, job, location)
-        #     candidate_experience, created = candidateexperience.objects.get_or_create(
-        #         resume_id=resume,
-        #         companyname=company,
-        #         job_title=job,
-        #         joblocation=location
-        #     )
-
-        #     if not created:
-        #         # If the object was created, update its fields
-        #         candidate_experience.resume_id = resume
-        #         candidate_experience.save()
-        #         # print('Updated')
-        #     else:
-        #         ''
-
-        # Determine the longest list among the three
-        max_length = max(len(company_matches), len(job_matches), len(joblocation_matches), len(jobdescription_matches), len(jobresponsibilities_matches), len(jobaccomplishments_matches), len(experiencestart_years), len(experiencestart_months), len(experienceend_years), len(experienceend_months))
-
-        for i in range(max_length):
-            company = company_matches[i] if i < len(company_matches) else None
-            job = job_matches[i] if i < len(job_matches) else ''
-            location = joblocation_matches[i] if i < len(joblocation_matches) else ''
-            desc = jobdescription_matches[i] if i < len(jobdescription_matches) else ''
-            res = jobresponsibilities_matches[i] if i < len(jobresponsibilities_matches) else ''
-            acc = jobaccomplishments_matches[i] if i < len(jobaccomplishments_matches) else ''
-            expstart_year = experiencestart_years[i] if i < len(experiencestart_years) else ''
-            expstart_month = experiencestart_months[i] if i < len(experiencestart_months) else ''
-            expend_year = experienceend_years[i] if i < len(experienceend_years) else ''
-            expend_month = experienceend_months[i] if i < len(experienceend_months) else ''
-
-            candidate_experience, created = candidateexperience.objects.get_or_create(
-                resume_id=resume,
-                companyname=company,
-                job_title=job,
-                joblocation=location,
-                Description=desc,
-                Responsibilites=res,
-                Accomplishments=acc,
-                job_start_year=expstart_year,
-                job_end_year=expend_year,
-                job_start_month=expstart_month,
-                job_end_month=expend_month
-            )
-            if not created:
-                # If the object was created, update its fields
-                candidate_experience.resume_id = resume
-                candidate_experience.save()
-                # print('Updated')
-            else:
-                ''
-        #below code for education 
-        max_length_education = max(len(degree_matches), len(university_matches), len(specialization_data), len(start_years), len(end_years))
-
-        for j in range(max_length_education):
-            degreedata = degree_matches[j] if j < len(degree_matches) else None
-            institutedata = university_matches[j] if j < len(university_matches) else ''
-            specialization_matches = specialization_data[j] if j < len(specialization_data) else ''
-            restart_years = start_years[j] if j < len(start_years) else ''
-            reend_years = end_years[j] if j < len(end_years) else ''
-
-            # print(f"Degree: {degreedata}, Institute: {institutedata}, Specialization: {specialization_matches}")
-
-            candidate_education, created = candidateeducation.objects.get_or_create(
-                resume_id=resume,
-                degree=degreedata,
-                institute=institutedata,
-                majordegree=specialization_matches,
-                start_year=restart_years,
-                end_year=reend_years
-            )
-            if not created:
-                # If the object was created, update its fields
-                candidate_education.resume_id = resume
-                candidate_education.save()
-                # print('Updated')
-            else:
-                print('Not created')
 
     return redirect('edit_extracted_resume', pk=pk)

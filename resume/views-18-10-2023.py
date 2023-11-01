@@ -15,11 +15,10 @@ from pdfminer.high_level import extract_text
 from django.db.models import Count
 import spacy
 from spacy.matcher import Matcher
-from itertools import zip_longest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-dot = './media/'
-# dot = '/var/www/subdomain/whatsappdata/analysis/media/'
+# dot = './media/'
+dot = '/var/www/subdomain/whatsappdata/analysis/media/'
 # Helper function to extract text from a PDF file
 def extract_text_from_pdf(pdf_path):
     return extract_text(pdf_path)
@@ -273,7 +272,6 @@ def extract_specialization(resume_text, specialization_names):
             if match:
                 # Capture the text following the degree name
                 captured_text = line[match.end():].strip()
-                captured_text = re.sub(r'<[^>]+>', '', captured_text)
                 matching_values.append(captured_text)
                 break  # Break out of the inner loop once a match is found
 
@@ -321,47 +319,6 @@ def joblocation_info():
     joblocation_list = [item['name'] for item in dataset['data']]
     return joblocation_list
 
-def jobdescription_info():
-    jobdescriptionurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20description'
-    jobdescription_dataset = requests.get(jobdescriptionurl)
-    dataset = jobdescription_dataset.json()
-    jobdescription_list = [item['name'] for item in dataset['data']]
-    return jobdescription_list
-
-def jobresponsibilities_info():
-    jobresponsibilitiesurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Responsibilities'
-    jobresponsibilities_dataset = requests.get(jobresponsibilitiesurl)
-    dataset = jobresponsibilities_dataset.json()
-    jobresponsibilities_list = [item['name'] for item in dataset['data']]
-    return jobresponsibilities_list
-
-def jobaccomplishments_info():
-    jobaccomplishmentsurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Accomplishments'
-    jobaccomplishments_dataset = requests.get(jobaccomplishmentsurl)
-    dataset = jobaccomplishments_dataset.json()
-    jobaccomplishments_list = [item['name'] for item in dataset['data']]
-    return jobaccomplishments_list
-
-def degree_info():
-    degreeurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Degree'
-    degree_dataset = requests.get(degreeurl)
-    dataset = degree_dataset.json()
-    degree_list = [item['name'] for item in dataset['data']]
-    return degree_list
-
-def university_info():
-    universityurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20University'
-    university_dataset = requests.get(universityurl)
-    dataset = university_dataset.json()
-    university_list = [item['name'] for item in dataset['data']]
-    return university_list
-
-def time_info():
-    timeurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=Resume%20Timeperiod'
-    time_dataset = requests.get(timeurl)
-    dataset = time_dataset.json()
-    time_list = [item['name'] for item in dataset['data']]
-    return time_list
 
 def save_company_info(experience_data):
 
@@ -393,120 +350,6 @@ def save_joblocation_info(experience_data):
     # joblocation_matches = ','.join(joblocation_matches)
 
     return joblocation_matches
-
-def save_jobdescription_info(experience_data):
-    jobdescription_list = jobdescription_info()
-    jobdescription_matches = ''
-    jobdescription_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(jobdescription) for jobdescription in jobdescription_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    jobdescription_matches = jobdescription_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return jobdescription_matches
-
-def save_jobresponsibilities_info(experience_data):
-    jobresponsibilities_list = jobresponsibilities_info()
-    jobresponsibilities_matches = ''
-    jobresponsibilities_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(jobresponsibilities) for jobresponsibilities in jobresponsibilities_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    jobresponsibilities_matches = jobresponsibilities_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return jobresponsibilities_matches
-
-def save_jobaccomplishments_info(experience_data):
-    jobaccomplishments_list = jobaccomplishments_info()
-    jobaccomplishments_matches = ''
-    jobaccomplishments_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(jobaccomplishments) for jobaccomplishments in jobaccomplishments_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    jobaccomplishments_matches = jobaccomplishments_pattern.findall(experience_data)
-    # job_matches = ','.join(job_matches)
-
-    return jobaccomplishments_matches
-
-def save_degree_info(education_data):
-
-    degree_list = degree_info()
-    degree_matches = ''
-    degree_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(degreedata) for degreedata in degree_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    degree_matches = degree_pattern.findall(education_data)
-    degree_matches = [match.replace("&amp;", "&") for match in degree_matches]
-    # company_match = ','.join(company_match)
-
-    print(degree_matches)
-    return degree_matches
-
-def save_university_info(education_data):
-    university_list = university_info()
-    university_matches = ''
-    university_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(institutedata) for institutedata in university_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    university_matches = university_pattern.findall(education_data)
-  
-    print(university_matches)
-    return university_matches
-
-def save_time_info(education_data):
-    time_list = time_info()
-    time_matches = ''
-    time_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(time) for time in time_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    time_matches = time_pattern.findall(education_data)
-    time_matches = [match.replace("&ndash;", "-") for match in time_matches]
-  
-    print(time_matches)
-
-    start_years = []
-    end_years = []
-
-    pattern = r"(\d{4}\s*(?:to|–)\s*\d{4}|\d{4}\s*-\s*\d{4}|\d{4})"
-    for line in time_matches:
-        years_matches = re.findall(pattern, line)
-        for year_range in years_matches:
-            years = re.split(r'\s*(?:to|–|-\s*)\s*', year_range)
-            if len(years) == 1:
-                # Treat it as a single year with no end year
-                start_years.append("")
-                end_years.append(years[0])
-            else:
-                start_years.append(years[0])
-                end_years.append(years[1])
-
-    print("Start Years:", start_years)
-    print("End Years:", end_years)
-    return start_years, end_years
-
-def save_experiencetime_info(education_data):
-    time_list = time_info()
-    experiencetime_matches = ''
-    time_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(time) for time in time_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    experiencetime_matches = time_pattern.findall(education_data)
-    experiencetime_matches = [match.replace("&ndash;", "-") for match in experiencetime_matches]
-  
-    print(experiencetime_matches)
-
-    experiencestart_years = []
-    experiencestart_months = []
-    experienceend_years = []
-    experienceend_months = []
-
-    for experiencetime_match in experiencetime_matches:
-        # Check if the time_match contains a hyphen (range format)
-        if '-' in experiencetime_match:
-            start_month, end_month = re.findall(r'(\w+)\s*(\d{4})', experiencetime_match)
-            experiencestart_years.append(int(start_month[1]))
-            experiencestart_months.append(start_month[0])
-            experienceend_years.append(int(end_month[1]))
-            experienceend_months.append(end_month[0])
-        else:
-            # Handle the format "December 1997 to June 1996"
-            parts = re.findall(r'(\w+)\s*(\d{4})', experiencetime_match)
-            if len(parts) == 2:
-                experiencestart_years.append(int(parts[0][1]))
-                experiencestart_months.append(parts[0][0])
-                experienceend_years.append(int(parts[1][1]))
-                experienceend_months.append(parts[1][0])
-
-    print("Start Years:", experiencestart_years)
-    print("Start Months:", experiencestart_months)
-    print("End Years:", experienceend_years)
-    print("End Months:", experienceend_months)
-    return experiencestart_years, experiencestart_months, experienceend_years, experienceend_months
 
 # Function to extract information from a resume
 def extract_resume(resume_path):
@@ -1954,14 +1797,6 @@ def edit_by_candidatereparser(request, pk):
         company_matches = save_company_info(experience_data)
         job_matches = save_job_info(experience_data)
         joblocation_matches = save_joblocation_info(experience_data)
-        jobdescription_matches = save_jobdescription_info(experience_data)
-        jobresponsibilities_matches = save_jobresponsibilities_info(experience_data)
-        jobaccomplishments_matches = save_jobaccomplishments_info(experience_data)
-        experiencestart_years, experiencestart_months, experienceend_years, experienceend_months = save_experiencetime_info(experience_data)
-        degree_matches = save_degree_info(education_data)
-        university_matches = save_university_info(education_data)
-        specialization_data = specialization_split(education_data)
-        start_years, end_years = save_time_info(education_data)
         candidate_reference, created = candidatereparser.objects.get_or_create(id=pk, resume_id=resume)
         candidate_reference.ResumeParser = resume_data
         candidate_reference.ExperienceParser = experience_data
@@ -1971,51 +1806,14 @@ def edit_by_candidatereparser(request, pk):
 
 
         # Iterate through the lists and create or update objects for each set of data
-        # for company, job, location in zip(company_matches, job_matches, joblocation_matches):
-        #     print(company, job, location)
-        #     candidate_experience, created = candidateexperience.objects.get_or_create(
-        #         resume_id=resume,
-        #         companyname=company,
-        #         job_title=job,
-        #         joblocation=location
-        #     )
-
-        #     if not created:
-        #         # If the object was created, update its fields
-        #         candidate_experience.resume_id = resume
-        #         candidate_experience.save()
-        #         # print('Updated')
-        #     else:
-        #         ''
-
-        # Determine the longest list among the three
-        max_length = max(len(company_matches), len(job_matches), len(joblocation_matches), len(jobdescription_matches), len(jobresponsibilities_matches), len(jobaccomplishments_matches), len(experiencestart_years), len(experiencestart_months), len(experienceend_years), len(experienceend_months))
-
-        for i in range(max_length):
-            company = company_matches[i] if i < len(company_matches) else None
-            job = job_matches[i] if i < len(job_matches) else ''
-            location = joblocation_matches[i] if i < len(joblocation_matches) else ''
-            desc = jobdescription_matches[i] if i < len(jobdescription_matches) else ''
-            res = jobresponsibilities_matches[i] if i < len(jobresponsibilities_matches) else ''
-            acc = jobaccomplishments_matches[i] if i < len(jobaccomplishments_matches) else ''
-            expstart_year = experiencestart_years[i] if i < len(experiencestart_years) else ''
-            expstart_month = experiencestart_months[i] if i < len(experiencestart_months) else ''
-            expend_year = experienceend_years[i] if i < len(experienceend_years) else ''
-            expend_month = experienceend_months[i] if i < len(experienceend_months) else ''
-
+        for company, job, location in zip(company_matches, job_matches, joblocation_matches):
             candidate_experience, created = candidateexperience.objects.get_or_create(
                 resume_id=resume,
                 companyname=company,
                 job_title=job,
-                joblocation=location,
-                Description=desc,
-                Responsibilites=res,
-                Accomplishments=acc,
-                job_start_year=expstart_year,
-                job_end_year=expend_year,
-                job_start_month=expstart_month,
-                job_end_month=expend_month
+                joblocation=location
             )
+
             if not created:
                 # If the object was created, update its fields
                 candidate_experience.resume_id = resume
@@ -2023,32 +1821,9 @@ def edit_by_candidatereparser(request, pk):
                 # print('Updated')
             else:
                 ''
-        #below code for education 
-        max_length_education = max(len(degree_matches), len(university_matches), len(specialization_data), len(start_years), len(end_years))
 
-        for j in range(max_length_education):
-            degreedata = degree_matches[j] if j < len(degree_matches) else None
-            institutedata = university_matches[j] if j < len(university_matches) else ''
-            specialization_matches = specialization_data[j] if j < len(specialization_data) else ''
-            restart_years = start_years[j] if j < len(start_years) else ''
-            reend_years = end_years[j] if j < len(end_years) else ''
-
-            # print(f"Degree: {degreedata}, Institute: {institutedata}, Specialization: {specialization_matches}")
-
-            candidate_education, created = candidateeducation.objects.get_or_create(
-                resume_id=resume,
-                degree=degreedata,
-                institute=institutedata,
-                majordegree=specialization_matches,
-                start_year=restart_years,
-                end_year=reend_years
-            )
-            if not created:
-                # If the object was created, update its fields
-                candidate_education.resume_id = resume
-                candidate_education.save()
-                # print('Updated')
-            else:
-                print('Not created')
-
+            # print(company)
+            # print(job)
+            # print(location)
+ 
     return redirect('edit_extracted_resume', pk=pk)

@@ -18,8 +18,8 @@ from spacy.matcher import Matcher
 from itertools import zip_longest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-dot = './media/'
-# dot = '/var/www/subdomain/whatsappdata/analysis/media/'
+# dot = './media/'
+dot = '/var/www/subdomain/whatsappdata/analysis/media/'
 # Helper function to extract text from a PDF file
 def extract_text_from_pdf(pdf_path):
     return extract_text(pdf_path)
@@ -470,43 +470,6 @@ def save_time_info(education_data):
     print("Start Years:", start_years)
     print("End Years:", end_years)
     return start_years, end_years
-
-def save_experiencetime_info(education_data):
-    time_list = time_info()
-    experiencetime_matches = ''
-    time_pattern = re.compile(r'(?i)(?:' + '|'.join(re.escape(time) for time in time_list) + r')\s*:\s*(.+?)(?=\s*(?:<|$))', re.IGNORECASE)
-    experiencetime_matches = time_pattern.findall(education_data)
-    experiencetime_matches = [match.replace("&ndash;", "-") for match in experiencetime_matches]
-  
-    print(experiencetime_matches)
-
-    experiencestart_years = []
-    experiencestart_months = []
-    experienceend_years = []
-    experienceend_months = []
-
-    for experiencetime_match in experiencetime_matches:
-        # Check if the time_match contains a hyphen (range format)
-        if '-' in experiencetime_match:
-            start_month, end_month = re.findall(r'(\w+)\s*(\d{4})', experiencetime_match)
-            experiencestart_years.append(int(start_month[1]))
-            experiencestart_months.append(start_month[0])
-            experienceend_years.append(int(end_month[1]))
-            experienceend_months.append(end_month[0])
-        else:
-            # Handle the format "December 1997 to June 1996"
-            parts = re.findall(r'(\w+)\s*(\d{4})', experiencetime_match)
-            if len(parts) == 2:
-                experiencestart_years.append(int(parts[0][1]))
-                experiencestart_months.append(parts[0][0])
-                experienceend_years.append(int(parts[1][1]))
-                experienceend_months.append(parts[1][0])
-
-    print("Start Years:", experiencestart_years)
-    print("Start Months:", experiencestart_months)
-    print("End Years:", experienceend_years)
-    print("End Months:", experienceend_months)
-    return experiencestart_years, experiencestart_months, experienceend_years, experienceend_months
 
 # Function to extract information from a resume
 def extract_resume(resume_path):
@@ -1957,7 +1920,6 @@ def edit_by_candidatereparser(request, pk):
         jobdescription_matches = save_jobdescription_info(experience_data)
         jobresponsibilities_matches = save_jobresponsibilities_info(experience_data)
         jobaccomplishments_matches = save_jobaccomplishments_info(experience_data)
-        experiencestart_years, experiencestart_months, experienceend_years, experienceend_months = save_experiencetime_info(experience_data)
         degree_matches = save_degree_info(education_data)
         university_matches = save_university_info(education_data)
         specialization_data = specialization_split(education_data)
@@ -1989,7 +1951,7 @@ def edit_by_candidatereparser(request, pk):
         #         ''
 
         # Determine the longest list among the three
-        max_length = max(len(company_matches), len(job_matches), len(joblocation_matches), len(jobdescription_matches), len(jobresponsibilities_matches), len(jobaccomplishments_matches), len(experiencestart_years), len(experiencestart_months), len(experienceend_years), len(experienceend_months))
+        max_length = max(len(company_matches), len(job_matches), len(joblocation_matches), len(jobdescription_matches), len(jobresponsibilities_matches), len(jobaccomplishments_matches))
 
         for i in range(max_length):
             company = company_matches[i] if i < len(company_matches) else None
@@ -1998,10 +1960,6 @@ def edit_by_candidatereparser(request, pk):
             desc = jobdescription_matches[i] if i < len(jobdescription_matches) else ''
             res = jobresponsibilities_matches[i] if i < len(jobresponsibilities_matches) else ''
             acc = jobaccomplishments_matches[i] if i < len(jobaccomplishments_matches) else ''
-            expstart_year = experiencestart_years[i] if i < len(experiencestart_years) else ''
-            expstart_month = experiencestart_months[i] if i < len(experiencestart_months) else ''
-            expend_year = experienceend_years[i] if i < len(experienceend_years) else ''
-            expend_month = experienceend_months[i] if i < len(experienceend_months) else ''
 
             candidate_experience, created = candidateexperience.objects.get_or_create(
                 resume_id=resume,
@@ -2010,11 +1968,7 @@ def edit_by_candidatereparser(request, pk):
                 joblocation=location,
                 Description=desc,
                 Responsibilites=res,
-                Accomplishments=acc,
-                job_start_year=expstart_year,
-                job_end_year=expend_year,
-                job_start_month=expstart_month,
-                job_end_month=expend_month
+                Accomplishments=acc
             )
             if not created:
                 # If the object was created, update its fields
