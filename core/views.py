@@ -1731,33 +1731,38 @@ def update(request,id):
                  companyname = request.POST.get('companyname', '')
                  # print(companyname)
                  maincategory = request.POST.get('maincategory', 'None')
+                 maincategoryids = request.POST.get('maincategoryid', '')
                  subcategory = request.POST.get('subcategory', '')
                  # print(subcategory)
                  roles = request.POST.get('roles', '')
-                 split_value = split_comma_based_value(maincategory)
+                #  split_value = split_comma_based_value(maincategory)
                 
-                 if split_value:
-                    if len(split_value) == 2:
-                        maincategory_id, maincategory_value = split_value
-                    else:
-                        maincategory_value = split_value[0]
-                        maincategory_id = ''
-                 else:
-                    maincategory_value = 'None'
-                    maincategory_id = ''
-                 print(maincategory_value)
+                #  if split_value:
+                #     if len(split_value) == 2:
+                #         maincategory_id, maincategory_value = split_value
+                #     else:
+                #         maincategory_value = split_value[0]
+                #         maincategory_id = ''
+                #  else:
+                #     maincategory_value = 'None'
+                #     maincategory_id = ''
+                #  print(maincategory_value)
+
                     # url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
                     # response = requests.get(url_with_params)
                     # print(response.text)
                     # Check if maincategory_value is defined before using it
-                 if maincategory_value is not None:
-                    url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
+                 if maincategory is not None:
+                    url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory}&main_category_id={maincategoryids}&sub_category={subcategory}&job_title={roles}"
+                 #if maincategory_value is not None:
+                    # url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
                     response = requests.get(url_with_params)
                     print(response.text)
                     print(response)
-                    print(maincategory_value)
+                    # print(maincategory)
                  else:
-                    print("maincategory_value is not defined, cannot make the request.")
+                     messages = 'maincategory_value is not defined, cannot make the request.'
+                    # print("maincategory_value is not defined, cannot make the request.")
 
                  #https://career.desss.com/dynamic/careerdesssapi.php?action=insert_master_alias_name_based_name_values&master_alias={masteralias}&master_alias_column={masteraliascolumn}&master_alias_input={masteraliasinput}
                  return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -2440,38 +2445,61 @@ def customemailleadsupdate(request,id):
             elif 'save_category' in request.POST:
                  companyname = request.POST.get('companyname', '')
                  # print(companyname)
+                 #  maincategory = request.POST.get('maincategory', 'None')
                  maincategory = request.POST.get('maincategory', 'None')
+                 maincategoryids = request.POST.get('maincategoryid', '')
                  subcategory = request.POST.get('subcategory', '')
                  # print(subcategory)
                  roles = request.POST.get('roles', '')
-                 split_value = split_comma_based_value(maincategory)
                 
-                 if split_value:
-                    if len(split_value) == 2:
-                        maincategory_id, maincategory_value = split_value
-                    else:
-                        maincategory_value = split_value[0]
-                        maincategory_id = ''
-                 else:
-                    maincategory_value = 'None'
-                    maincategory_id = ''
-                 print(maincategory_value)
-                    # url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
-                    # response = requests.get(url_with_params)
-                    # print(response.text)
-                    # Check if maincategory_value is defined before using it
-                 if maincategory_value is not None:
-                    url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
+                 if maincategory is not None:
+                    url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory}&main_category_id={maincategoryids}&sub_category={subcategory}&job_title={roles}"
                     response = requests.get(url_with_params)
                     print(response.text)
                     print(response)
-                    print(maincategory_value)
+                     
                  else:
-                    print("maincategory_value is not defined, cannot make the request.")
+                    # print("maincategory_value is not defined, cannot make the request.")
+                    message = 'maincategory_value is not defined, cannot make the request.'
 
                  #https://career.desss.com/dynamic/careerdesssapi.php?action=insert_master_alias_name_based_name_values&master_alias={masteralias}&master_alias_column={masteraliascolumn}&master_alias_input={masteraliasinput}
                 #  return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
                  return redirect('customemailleadsedits',id=id)
+            # elif 'save_category' in request.POST:
+            #      companyname = request.POST.get('companyname', '')
+            #      # print(companyname)
+            #      maincategory = request.POST.get('maincategory', 'None')
+            #      subcategory = request.POST.get('subcategory', '')
+            #      # print(subcategory)
+            #      roles = request.POST.get('roles', '')
+            #      split_value = split_comma_based_value(maincategory)
+                
+            #      if split_value:
+            #         if len(split_value) == 2:
+            #             maincategory_id, maincategory_value = split_value
+            #         else:
+            #             maincategory_value = split_value[0]
+            #             maincategory_id = ''
+            #      else:
+            #         maincategory_value = 'None'
+            #         maincategory_id = ''
+            #      print(maincategory_value)
+            #         # url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
+            #         # response = requests.get(url_with_params)
+            #         # print(response.text)
+            #         # Check if maincategory_value is defined before using it
+            #      if maincategory_value is not None:
+            #         url_with_params = f"https://career.desss.com/dynamic/careerdesssapi.php?action=insert_whatsapp_lead_datas&technology_company={companyname}&main_category={maincategory_value}&main_category_id={maincategory_id}&sub_category={subcategory}&job_title={roles}"
+            #         response = requests.get(url_with_params)
+            #         print(response.text)
+            #         print(response)
+            #         print(maincategory_value)
+            #      else:
+            #         print("maincategory_value is not defined, cannot make the request.")
+
+            #      #https://career.desss.com/dynamic/careerdesssapi.php?action=insert_master_alias_name_based_name_values&master_alias={masteralias}&master_alias_column={masteraliascolumn}&master_alias_input={masteraliasinput}
+            #     #  return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            #      return redirect('customemailleadsedits',id=id)
             elif 'save_convert' in request.POST:
                 status = Customemailleads.objects.get(id=id)
                 print(status)
@@ -5890,7 +5918,7 @@ def job_info():
     return job_list
 
 def location_info():
-    locationurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=benchsales candidate location'
+    locationurl = 'https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_value_based_values&master_name=benchsales%20candidate%20location'
     location_dataset = requests.get(locationurl)
     dataset = location_dataset.json()
     location_list = [item['name'] for item in dataset['data']]
@@ -8327,19 +8355,32 @@ def extract_information(content, id):
     mobile_match = mobile_pattern.search(content)
     mobile_number = mobile_match.group(1) if mobile_match else ''
 
-   
-    # Location extraction
-    # location_pattern = re.compile(r'Location\s*:\s*(.*?)\s*Preferred\s*location', re.IGNORECASE)
+    # location_pattern = re.compile(r'Location\s*:\s*(.*?)(?:\s*Preferred\s*location: (.*?))?</p>', re.IGNORECASE)
+    # location = ""
     # location_match = location_pattern.search(content)
-    # location = location_match.group(1).strip() if location_match else ''
-    location_pattern = re.compile(r'Location\s*:\s*(.*?)(?:\s*Preferred\s*location: (.*?))?</p>', re.IGNORECASE)
+    # if location_match:
+    #     location = location_match.group(1).strip()
+    #     # print("Location:", location)
+    # else:
+    #     location = ""
+
+    job_list = job_info()
+    position_pattern = re.compile(r'(' + '|'.join(re.escape(title) for title in job_list) + r'):\s*([^<]+)', re.IGNORECASE)
+    positions = ""
+    position_matches = position_pattern.findall(content)
+    position = [match[1] for match in position_matches]
+    positions = " ".join(position)
+    print(positions)
+
+   
+    location_list = location_info()
+    location_pattern = re.compile(r'(' + '|'.join(re.escape(currentlocation) for currentlocation in location_list) + r'):\s*([^<]+)', re.IGNORECASE)
     location = ""
-    location_match = location_pattern.search(content)
-    if location_match:
-        location = location_match.group(1).strip()
-        # print("Location:", location)
-    else:
-        location = ""
+    location_matches = location_pattern.findall(content)
+    locations = [match[1] for match in location_matches]
+    location = " ".join(locations)
+    print(location)
+
     #company name
     company_match = re.search(r'@([\w.-]+)', content)
     company_name = ''
@@ -8543,14 +8584,14 @@ def extract_information(content, id):
         "first_name": first_name,
         "email_id": email_id,
         "phone_number": phone_number,
-        "location:": location,
+        "location": location,
         "street": street,
         "city": city,
         "state": state,
         "zip_code": zip_code,
         "legal_status": legal_status,
         "mobile_number": mobile_number,
-        "role_details": role_details,
+        "role_details": positions,
         "direct_number": direct_number,
         # "object_lead":object_lead,
         # "work_type_options": work_type_options,
@@ -8577,13 +8618,7 @@ def whatsappcareersalesedit(request, id):
     object_lead = Film.objects.get(id=id)
     content = object_lead.filmurl
     phone_no = object_lead.year
-    
-    # Read skills from CSV
-    # skills_to_extract = []
-    # with open(dot+'skills.csv', 'r') as csv_file:
-    #     csv_reader = csv.DictReader(csv_file)
-    #     for row in csv_reader:
-    #         skills_to_extract.append(row['skill'])
+
     skills_dataset = requests.get('https://career.desss.com/dynamic/careerdesssapi.php?action=skills')
     dataset = skills_dataset.json()
     skills_to_extract = [item['skill_name'] for item in dataset['data']]
@@ -8609,71 +8644,7 @@ def whatsappcareersalesedit(request, id):
       
 
     eskill = tuple(a)
-    # print(eskill)
-    # print(eskill[0])
-    #Whatsapp api dropdowns
-    # job_type = "https://career.desss.com/dynamic/careerdesssapi.php?action=job"
-    # response = requests.get(job_type)
-    # job_data = response.json()
-    # try:
-    #     # Extract "name" values from the API response
-    #     work_type_options = [item["name"] for item in job_data["data"]]
-    # except:
-    #     work_type_options = ''
-    
-    # workplace = "https://career.desss.com/dynamic/careerdesssapi.php?action=workplace_type"
-    # response = requests.get(workplace)
-    # job_data = response.json()
-    # try:
-    #    # Extract "name" values from the API response
-    #    workplace_options = [item["name"] for item in job_data["data"]]
-    # except:
-    #     workplace_options = ''
-    # #duration
-    # duration = "https://career.desss.com/dynamic/careerdesssapi.php?action=duration"
-    # durationresponse = requests.get(duration)
-    # durationjob_data = durationresponse.json()
-    # try:
-    #    # Extract "name" values from the API response
-    #    duration_options = [item["name"] for item in durationjob_data["data"]]
-    # except:
-    #     duration_options = ''
-    # #duration
-    # legal_statusurl = "https://career.desss.com/dynamic/careerdesssapi.php?action=legal_status"
-    # legal_statusresponse = requests.get(legal_statusurl)
-    # legal_statusjob_data = legal_statusresponse.json()
-    # try:
-    #    # Extract "name" values from the API response
-    #    legal_status_options = [item["name"] for item in legal_statusjob_data["data"]]
-    # except:
-    #     legal_status_options = ''
-    # #duration
-    # remote = "https://career.desss.com/dynamic/careerdesssapi.php?action=remote"
-    # remoteresponse = requests.get(remote)
-    # remotejob_data = remoteresponse.json()
-    # try:
-    #    # Extract "name" values from the API response
-    #    remote_options = [item["name"] for item in remotejob_data["data"]]
-    # except:
-    #     remote_options = ''
-    # #duration
-    # interview_type = "https://career.desss.com/dynamic/careerdesssapi.php?action=interview_type"
-    # interview_typeresponse = requests.get(interview_type)
-    # interview_typejob_data = interview_typeresponse.json()
-    # try:
-    #    # Extract "name" values from the API response
-    #    interview_type_options = [item["name"] for item in interview_typejob_data["data"]]
-    # except:
-    #     interview_type_options = ''
-    # workplace_value =''
-    # job_type_value =''
-    # workplace_pattern = re.compile(r'(On-site|Hybrid|Remote)', re.IGNORECASE)
-    # workplace_match = workplace_pattern.search(content)
-
-    # if workplace_match:
-    #     workplace_value = workplace_match.group(0).strip()
-    # else:
-    #     workplace_value =''
+   
     workplace_value=""
     work_url = "https://career.desss.com/dynamic/careerdesssapi.php?action=get_table_values_based_namevalues&table=aliase_name_based_names&master_name=Workplace%20Type"
 
@@ -8777,6 +8748,15 @@ def whatsappcareersalesedit(request, id):
     legalstatus_match = legalstatus_pattern.search(content)
     legal_status = legalstatus_match.group(1) if legalstatus_match else ''
 
+    job_list = job_info()
+    position_pattern = re.compile(r'(' + '|'.join(re.escape(title) for title in job_list) + r'):\s*([^<]+)', re.IGNORECASE)
+    positions = ""
+    position_matches = position_pattern.findall(content)
+    position = [match[1] for match in position_matches]
+    positions = " ".join(position)
+    # print(positions)
+
+
     company_match = re.search(r'@([\w.-]+)', content)
     company_name = ''
 
@@ -8808,7 +8788,6 @@ def whatsappcareersalesedit(request, id):
     php_code = phpdata.status_code
     # print(php_data)
     # print(php_code)
-    location = ''
     company_name = company_name
     lead_id = ''
     if int(php_code)==200:
@@ -8901,7 +8880,8 @@ def whatsappcareersalesedit(request, id):
         "legal_status": legal_status,
         # "mobile_number": mobile_number,
         "object_lead":object_lead,
-        "role_details":role_details,
+        # "role_details":role_details,
+        "role_details":positions,
         # "work_type_options": work_type_options,
         # "workplace_options": workplace_options,
         # "duration_options": duration_options,
@@ -8939,14 +8919,8 @@ def whatsappcareersalesedit(request, id):
         "legal_status": legal_status,
         # "mobile_number": mobile_number,
         "object_lead":object_lead,
-        "role_details":role_details,
+        "role_details":positions,
         "direct_number": direct_number,
-        # "work_type_options": work_type_options,
-        # "workplace_options": workplace_options,
-        # "duration_options": duration_options,
-        # "legal_status_options": legal_status_options,
-        # "remote_options": remote_options,
-        # "interview_type_options": interview_type_options,
         'skill1': eskill[0],
         'skill2': eskill[1],
         'skill3': eskill[2],
@@ -8980,7 +8954,7 @@ def whatsappcareersalesedit(request, id):
             "legal_status": legal_status,
             # "mobile_number": mobile_number,
             "object_lead":object_lead,
-            "role_details": role_details,
+            "role_details": positions,
             "direct_number":direct_number,
             # "work_type_options": work_type_options,
             # "workplace_options": workplace_options,

@@ -1,6 +1,6 @@
 from django import forms
 
-from . models import whatsapp,Film, Emailbenchsales, Emailleadoppurtunities, Emailsample, Customleads, Custombench, CustomizeEmailLeads, CustomizeBenchsalesLeads, Customemailleads, Custombenchsales, DuplicatedFilm, DuplicatedCustomemailleads, Aliasdata 
+from . models import whatsapp,Film, Emailbenchsales, Emailleadoppurtunities, Emailsample, Customleads, Custombench, CustomizeEmailLeads, CustomizeBenchsalesLeads, Customemailleads, Custombenchsales, DuplicatedFilm, DuplicatedCustomemailleads 
 # import django_filters
 
 class WhatsappForm(forms.ModelForm):
@@ -120,10 +120,4 @@ class DuplicatedFilmForm(forms.ModelForm):
 class DuplicatedCustomemailleadsForm(forms.ModelForm):
     class Meta:
         model=DuplicatedCustomemailleads
-        fields="__all__"
-
-
-class Aliasdataform(forms.ModelForm):
-    class Meta:
-        model=Aliasdata
         fields="__all__"
