@@ -58,8 +58,8 @@ def clear_models_cache():
     return 'ok'
 
 # Web content 
-# filedot='./media/'
-filedot='/var/www/subdomain/whatsappdata/analysis/media/'
+filedot='./media/'
+# filedot='/var/www/subdomain/whatsappdata/analysis/media/'
 # dot='./media/contents/'
 dot = '/var/www/subdomain/whatsappdata/analysis/media/contents/'
 from dateutil import parser

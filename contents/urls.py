@@ -12,4 +12,5 @@ urlpatterns = [
     path('blogfile/', views.blogfile, name='blogfile'),
     path('blog/',Customblog_view.as_view(),name="blog"),
     path('blogview/<int:id>',views.blogview,name="blogview"),
+    path('documentationuploads/', views.documentationuploads, name="documentationuploads"),
 ]
